@@ -1,0 +1,201 @@
+.login{
+    min-height: 100vh !important;
+}
+.login-left-container{
+    width: 700px;
+    padding: 2rem 11rem;
+}
+.login-wrapper{
+    
+}
+.apssdc-logo{
+    height: 100px;
+    width: 90px;
+}
+.login-logo{
+    text-align: center;
+    margin: 0 auto 4rem auto;
+}
+a:not([href]):not([tabindex]) {
+    color: inherit;
+    text-decoration: none;
+}
+.login-container{
+    
+}
+.form__help{
+    font-weight: 300;
+    font-size: 0.85rem;
+    padding-top: 7px;
+}
+
+.username-input{
+    border: none !important;
+    background-color: white;
+    border-bottom: 1px solid #ded4da !important;
+    padding-left: 0 !important;
+}
+.password-input{
+    margin-top:5px;
+    border: none !important;
+    background-color: white;
+    padding-left: 0 !important;
+}
+.login-form{
+   /*  padding-bottom:3.3rem !important; */
+}
+.form-control{
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+  
+}
+.user-group{
+    border:none !important;
+    border-bottom: 1px solid #ded4da !important;
+    padding-left:0 !important;
+}
+.showPassword {
+    position: relative;
+   bottom:30px;
+   float:right;
+    color: #2980b9!important;
+    cursor: pointer;
+}
+.a{
+    background-color: transparent;
+}
+.disclaimer {
+    font-style: italic;
+    color: #36a3f7!important;
+    font-size: 14px;
+    margin-left: 2px;
+}
+.forgotPassword{
+    margin-top: 2rem;
+    padding-left: 240px !important;
+    text-align: right;
+
+}
+.link-info{
+    font-size: 1rem;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    color: #36a3f7 !important;
+
+}
+.link-info:after {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    top: 1rem;
+    left: 0;
+    width: 0%;
+    -webkit-transition: width 0.3s ease;
+    -moz-transition: width 0.3s ease;
+    -ms-transition: width 0.3s ease;
+    -o-transition: width 0.3s ease;
+    transition: width 0.3s ease;
+}
+.login-button{
+    border-radius: 16.25rem;
+    background-color: #2980b9;
+    font-size: 16px;
+
+    padding:0.5rem 2.0rem !important ;
+}
+.login__form-action{
+    text-align:center;
+    padding-top:20px;
+}
+.register_account{
+    display: table-row;
+    vertical-align: top;
+    height: 1px;
+    text-align:center;
+}
+.register__account-msg{
+   
+    font-weight: 400;
+    color: #898b96;
+    text-align:center;
+}
+.register__account-link{
+  
+    font-weight: 400;
+    color: #2980b9;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+}
+.login-right-container{
+    padding: 3rem 4rem 6rem 7rem;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    background-image: url(https://skillindia.nsdcindia.org/assets/images/login-right.png);
+}
+.sdms-text{
+    color: #fff;
+    font-weight: 500;
+    font-style: italic;
+    padding-bottom: 43px;
+    font-size: 22px;
+}
+.login__welcome{
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+.login__msg{
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 200;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+.login-right{
+    color: #fff;
+    padding-top: 20px;
+}
+.help-text{
+    color: #fff;
+}
+.text-center{
+    text-align: center !important;
+}
+.help-text td{
+    color: #fff;
+}
+.hyperlink{
+    text-decoration: underline;
+    color: #fff !important;
+}
+.button-homepage{
+    border-radius:40px;
+}
+
+.font-weight-400{
+    font-weight:400rem !important;
+}
+
+.form-terms{
+    margin-top:2rem;
+    padding: 0;
+    position: relative;
+}
+.align-left{
+    text-align: left;
+}
+.checkbox{
+    display: inline-block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size:1rem;
+}

@@ -1,0 +1,188 @@
+<div class="search-apply">
+    <div class="row">
+        <div class="col-lg-12 search-header"  style="z-index:100">
+
+            <header class="fixed-header">
+
+
+                <div class="header-padding">
+                    <div class="row header-fixed">
+                        <div class="col-lg-1 padding-top-15">
+                            <a class="logo-wrapper">
+                                <img alt="" src="./assets/images/apssdc.png" class="apssdc-logo">
+                            </a>
+                        </div>
+                        <div class="col-lg-9  padding-top-50">
+                            <span class="header-text">
+                                Andhra Pradesh State Skill Development Corporation
+                            </span>
+                        </div>
+                        <div class="col-lg-2 padding-right-50" onclick = "toggleDisplay()">
+                            
+                            <a class="user-pic">
+                                <img alt="" class="image-user" src="./assets/images/Dummy_Image_Man.jpg">
+
+                            </a>
+                            <div class="user-id">AR19975</div>
+                        </div>
+                     <!--    <div *ngIf = "!isShow">This is a div which toggles.</div> -->
+                        <div class="row sticky-header">
+                            <div class="col-lg-12">
+                                <div class="assess-list">
+                                    <ul class="list-ul">
+                                        <li class="list-li"> <a href="/assessment" 
+                                            class="">Applicant Dashboard</a></li>
+                                    <li class="list-li"><a href="/assessor" 
+                                            class="">Assessor</a></li>
+                                    <li class="list-li"><a href="/my-profile"
+                                            class="">My Profile</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+            </header>
+        </div>
+
+    </div>
+    <div class="col">
+        <section>
+            <div class="row">
+                <div class="col-lg-12 padding-top-180">
+                    <div class="search-body">
+                        <div class="dashboard-header">
+                            <div class="row padding-bottom-25">
+
+                                <div class="dashboard-subheader">
+                                    <div class="dashboard-content">
+                                        Applicant Dashboard
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="dashboard-body">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <div class="request-header" style = "font-size: large;">
+                                            Certification
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        &nbsp;
+                                    </div>
+                                    <div class="col-lg-5 request-button">
+                                        <span style="float: right;">
+                                            <button type="button" class="btn  btn-primary">
+                                                Add Certification
+                                            </button>
+                                        </span>
+
+                                    </div>
+                                </div>
+                                <hr>
+                            
+
+
+
+                            <div class="col-lg-12">
+                                <div class="row ">
+                                    <a href="/view-certificates" class="btn btn-link  active" role="button"
+                                        aria-pressed="true">Pending Certificate Requests</a>
+                                    <a href="/view-certificates" class="btn btn-link  margin-left-15 active" role="tab"
+                                        aria-pressed="true">Approved Certificate Requests</a>
+                                    <a href="/view-certificates" class="btn btn-link  margin-left-15 active" role="tab"
+                                        aria-pressed="true">Rejected Certificate Requests</a>
+
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+                            <div class="col-lg-12 form-padding">
+                                <form>
+                                    <div class="row ">
+                                        <div class="col-lg-3">
+
+                                            <div class="form-group">
+                                                <label for="exampleFormControlInput1">Sector</label>
+                                                <select class="form-control ">
+                                                    <option>Select Sector</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlInput1"> User Type</label>
+                                                <select class="form-control ">
+                                                    <option>Select User Type</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlInput1">Job Role</label>
+                                                <select class="form-control ">
+                                                    <option>Select Job Role</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlInput1">State </label>
+                                                <select class="form-control ">
+                                                    <option>Select State</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="dashboard-content">
+                                <div class="col-lg-12">
+                                    <div class="row ">
+                                        <a href="#" class="btn btn-primary  active" role="button"
+                                            aria-pressed="true">Apply</a>
+                                        <a href="#" class="btn btn-light  margin-left-15 active" role="button"
+                                            aria-pressed="true">Reset</a>
+                                            
+
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-12">
+                                &nbsp;
+                            &nbsp;
+                            &nbsp;
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+
+                                            <td>Batch ID</td>
+                                            <td>Batch Type</td>
+                                            <td>Location</td>
+                                            <td>Job Role Name(QP Code)</td>
+                                            <td>Current Status</td>
+                                            <td>Status Action Date</td>
+                                            <td>Action</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="padding-bottom-60">
+                                    No Data Found
+                                </div>
+                            </div>
+                        </div>
+                     </div> 
+                </div> 
+            </div> 

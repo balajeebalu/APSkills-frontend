@@ -1,0 +1,198 @@
+<div class="search-apply">
+    <div class="row">
+        <div class="col-lg-12 search-header " style="z-index:100">
+
+            <header class="fixed-header">
+
+
+                <div class="header-padding">
+                    <div class="row header-fixed">
+                        <div class="col-lg-1 padding-top-15">
+                            <a class="logo-wrapper">
+                                <img alt="" src="./assets/images/apssdc.png" class="apssdc-logo">
+                            </a>
+                        </div>
+                        <div class="col-lg-9  padding-top-80">
+                            <span class="header-text">
+                                Andhra Pradesh State Skill Development Corporation
+                            </span>
+                        </div>
+                        <div class="col-lg-2 padding-right-50" onclick="toggleDisplay()">
+
+                            <a class="user-pic">
+                                <img alt="" class="image-user" src="./assets/images/Dummy_Image_Man.jpg">
+
+                            </a>
+                            <div class="user-id">CAN19975</div>
+                        </div>
+                        <!--      <div *ngIf="!isShow">This is a div which toggles.</div> -->
+                        <div class="row sticky-header">
+                            <div class="col-lg-12">
+                                <div class="assess-list">
+                                    <ul class="list-ul">
+                                        <li class="list-li"> <a href="/candidate" 
+                                            class="link-style">Dashboard</a></li>
+                                 
+                                    <li class="list-li"><a href="/candidate-myprofile"
+                                            class="link-style">My Profile</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+            </header>
+        </div>
+
+    </div>
+    <div class="col">
+
+
+        <div class="row">
+            <div class="col-lg-12 padding-top-180">
+                <div class="search-body">
+                    <div class="dashboard-header">
+                        <div class="row padding-bottom-25">
+
+                            <div class="dashboard-subheader">
+                                <div class="dashboard-content">
+                                    My Dashboard
+                                </div>
+                                <ul class="dashboard-ul">
+                                    <li class="dashboard-li text">
+                                   -
+                                    </li>
+                                    <li class="dashboard-li text">
+                                        View Batches
+                                    </li>
+                                  
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="dashboard-body">
+                            <div class="row ">
+                                <div class="col-lg-3">
+                                    <div class="request-header">
+                                        My Batches
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    &nbsp;
+                                </div>
+
+
+                                <div>
+                                    &nbsp;
+                                </div>
+
+                                <hr>
+                            </div>
+
+
+
+                            <div class="col-lg-12 form-padding">
+                                <form [formGroup]="viewBatchesForm" (ngSubmit)="onSubmit(viewBatchesForm.value)">
+                                    <div class="row ">
+                                       
+                                        <div class="col-lg-2">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlInput1"> District</label>
+                                                <select class="form-control " formControlName="districtName" id="district"  >
+                                                    <option value=" " disabled >Select District</option>
+                                                    <option  *ngFor="let district of districts; let i = index" [value]="districts[i].districtId">
+                                                        {{districts[i].districtName}}
+                                                    </option>
+                                              </select>
+                                               
+                                            </div>
+
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlInput1"> Sector</label>
+                                                <select class="form-control" formControlName="sectors" (change) = "getSubsectorsForSector($event)" id="sector">
+                                                    <option value=" " disabled >Select Sector</option>
+                                                    <option *ngFor = "let sector of sectors; let i=index" [value]="sectors[i].sectorId">
+                                                        {{sectors[i].sectorName}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlInput1">SubSector</label>
+                                              
+                                                <select class="form-control" formControlName="subSectors" (change) = "getJobrolesForSubsector($event)" id="subsector">
+                                                    <option value="" disabled >Select Subsector</option>
+                                                    <option *ngFor = "let subsector of subSectors; let sectorID=index" [value]="subSectors[sectorID].subSectorId">
+                                                        {{subSectors[sectorID].subSectorName}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlInput1"> JobRole</label>
+                                                <select class="form-control" formControlName="jobRoles" id="jobrole">
+                                                    <option value="" disabled >Select Jobrole</option>
+                                                    <option *ngFor = "let jobrole of jobRoles; let jobId=index" [value]="jobRoles[jobId].jobId">
+                                                        {{jobRoles[jobId].jobName}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="col-lg-2">
+                                            <div class="row padding-top-30">
+
+                                                <span style="float:right">
+                                                    <button type="submit" class="btn btn-primary  ">Apply Filter</button>
+                                                </span>
+
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row"></th>
+                                            <td>S.No</td>
+                                            <td>Batch ID</td>
+                                            <td>Training Centre Name</td>
+                                            <td>Job Role Name</td>
+                                          
+                                            <td>District</td>
+                                            <td>Start Date-End Date</td>
+                                            <td>Actions</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"></th>
+                                            <td>S.No</td>
+                                            <td>Batch ID</td>
+                                            <td>Training Centre Name</td>
+                                            <td >{{this.selectedJobRole}}</td>
+                                          
+                                            <td >{{this.selectedDistrict}}</td>
+                                            <td>Start Date-End Date</td>
+                                            <td>Actions</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>

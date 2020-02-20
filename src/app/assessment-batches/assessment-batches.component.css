@@ -1,0 +1,172 @@
+.search-header{
+    position:fixed;
+    padding-right: 0!important;
+    box-shadow: -4px 4px 3px grey;
+}
+.header-padding{
+    padding-left:20px;
+  
+}
+.apssdc-logo{
+    height: 100px;
+    width: 90px;
+}
+.logo-wrapper{
+    display: inline-block;
+    color: inherit;
+    text-decoration: none;
+    border-right: 1px solid #ddd;
+    background-color: transparent;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 20px;
+}
+.padding-right-10{
+    padding-right:10px;
+}
+.padding-top-15{
+    padding-top:15px;
+}
+.header-border{
+    border-right: 1px solid #e2e5ec;
+}
+.header-text{
+  
+    font-style: italic;
+    color: #0975b9;
+    font-weight: 600;
+    padding-left:35px;
+}
+.padding-top-50{
+padding-top:50px;
+}
+.image-user{
+    max-width: 41px !important;
+    display: inline;
+    padding-top: 10px;
+    border-radius: 50%;
+    float:right;
+    padding-bottom:10px;
+}
+.user-id{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #2980b9!important;
+    padding-left:110px;
+}
+.header-fixed{
+    position: relative;
+    background-color: #ffffff;
+    overflow: hidden;
+    z-index: 2;
+}
+.sticky-header{
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+.padding-right-50{
+    padding-right:50px;
+}
+.list-ul{
+    padding:15px;
+}
+.list-li{
+    display:inline;
+  padding-left:20px;
+  padding-right:20px;
+border-right:1px solid #adb5bd;
+    list-style-type: none;
+}
+.search-body{
+padding:20px;
+}
+.padding-top-180{
+    padding-top:180px;
+}
+.dashboard-header{
+    
+  
+}
+.dashboard-subheader{
+ 
+
+}
+.dashboard-content{
+    display: inline-block;
+    padding: 3px 25px 7px 20px;
+  
+    font-weight: 300;
+    font-size: 1.55rem;
+    font-weight: 500;
+    vertical-align: middle;
+    margin: 0 15px 0 0;
+    color: #3f4047;
+}
+.dashboard-ul{
+    display: inline-block;
+}
+.dashboard-li{
+    display: inline-block;
+    list-style-type: none;
+}
+.dashboard-body{
+    padding-left:15px;
+    padding-right:10px;
+    border-bottom: 1px solid #ebedf2;
+    box-shadow: 0px 0px 4px 0px grey
+}
+.dashboard-content{
+    padding-left:15px;
+    padding-right:10px;
+   
+    
+}
+.request-header{
+    padding-top:20px;
+    padding-left:10px;
+    padding-bottom:25px;
+  
+}
+.width-100{
+    width:100%;
+}
+.request-button{
+    padding-top:30px;
+    padding-left:40px;
+}
+.margin-left-15{
+margin-left:15px;
+}
+.padding-top-30 {
+    padding-top:30px;
+}
+.padding-top-20 {
+    padding-top:20px;
+}
+.padding-bottom-30 {
+    padding-bottom:30px;
+}
+.padding-left-40{
+    padding-left:40px;
+}
+.margin-right-15{
+    margin-right:15px;
+    }
+.margin-left-5{
+    margin-left:5px;
+    }
+.padding-bottom-25{
+padding-bottom:25px;
+}
+.training-content{
+    padding-top:20px;
+    padding-left:10px;
+}
+.form-padding{
+padding-top:30px;
+padding-left:30px;
+}
+

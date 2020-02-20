@@ -1,0 +1,185 @@
+<div class="search-apply">
+    <div class="row">
+        <div class="col-lg-12 search-header " style="z-index:100">
+
+            <header class="fixed-header">
+
+
+                <div class="header-padding">
+                    <div class="row header-fixed">
+                        <div class="col-lg-1 padding-top-15">
+                            <a class="logo-wrapper">
+                                <img alt="" src="./assets/images/apssdc.png" class="apssdc-logo">
+                            </a>
+                        </div>
+                        <div class="col-lg-9  padding-top-80">
+                            <span class="header-text">
+                                Andhra Pradesh State Skill Development Corporation
+                            </span>
+                        </div>
+                        <div class="col-lg-2 padding-right-50" onclick="toggleDisplay()">
+
+                            <a class="user-pic">
+                                <img alt="" class="image-user" src="./assets/images/Dummy_Image_Man.jpg">
+
+                            </a>
+                            <div class="user-id">CAN19975</div>
+                        </div>
+                        <!--      <div *ngIf="!isShow">This is a div which toggles.</div> -->
+                        <div class="row sticky-header">
+                            <div class="col-lg-12">
+                                <div class="assess-list">
+                                    <ul class="list-ul">
+                                        <li class="list-li"> <a href="/candidate" 
+                                            class="link-style">Dashboard</a></li>
+                                 
+                                    <li class="list-li"><a href="/candidate-myprofile"
+                                            class="link-style">My Profile</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+            </header>
+        </div>
+
+    </div>
+    <div class="col">
+
+
+        <div class="row">
+            <div class="col-lg-12 padding-top-180">
+                <div class="search-body">
+                    <div class="dashboard-header">
+                        <div class="row padding-bottom-25">
+
+                            <div class="dashboard-subheader">
+                                <div class="dashboard-content">
+                                    My Dashboard
+                                </div>
+                                <ul class="dashboard-ul">
+                                  
+                                    <li class="dashboard-li ">
+                                        -
+                                    </li>
+                                    <li class="dashboard-li text">
+
+                                        View All Training Centre
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="dashboard-body">
+                            <div class="row ">
+                                <div class="col-lg-3">
+                                    <div class="request-header">
+                                        View All Training Centres
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    &nbsp;
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 form-padding">
+                            <form [formGroup]="viewTrainingCentresForm" (ngSubmit)="onSubmit(viewTrainingCentresForm.value)">
+                                <div class="row ">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">District</label>
+                                            <select class="form-control " formControlName="districtName" id="district" (change) = "getSectorsForDistrict($event)" >
+                                                <option value=" " disabled >Select District</option>
+                                                <option  *ngFor="let district of districts; let i = index" [value]="districts[i].districtId">
+                                                    {{districts[i].districtName}}
+                                                </option>
+                                          </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1"> Sector</label>
+                                            <select class="form-control" formControlName="sectors" (change) = "getJobrolesForSector($event)" id="sector">
+                                                <option value=" " disabled >Select Sector</option>
+                                                <option *ngFor = "let sector of sectors; let districtId=index" [value]="sectors[districtId].sectorId">
+                                                    {{sectors[districtId].sectorName}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Job Role</label>
+                                            <select class="form-control" formControlName="jobRoles" id="jobrole">
+                                                <option value="" disabled >Select Jobrole</option>
+                                                <option *ngFor = "let jobrole of jobRoles; let jobId=index" [value]="jobRoles[jobId].jobId">
+                                                    {{jobRoles[jobId].jobName}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                               <!--  <div class="row ">
+                                  
+                                  
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Keyword Search:</label>
+                                            <form class="form-inline my-2 my-lg-0">
+                                                <input class="form-control mr-sm-2" type="search"
+                                                    placeholder="Search by Keyword" aria-label="Search">
+
+                                            </form>
+
+                                        </div>
+                                    </div>
+
+                                </div> -->
+                            </form>
+                        </div>
+                        
+                            <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary  ">Apply Filter</button>
+
+                                        <input class="btn btn-primary  margin-left-15 active" type="reset"
+                                            value="Reset" role="button" aria-pressed="false">
+
+                                    </div>
+                            </div>
+                       
+                        <div class="col-lg-12">
+                            <table class="table table-striped hover" datatable [dtOptions]="dtOptions">
+                                <thead>
+                                  <tr>
+                                    <th>S.NO</th>
+                                    <th>TC ID</th>
+                                    <th>Training Centre Name</th>
+                                    <th>Job Role Name	</th>
+                                   
+                                    <th>District</th>
+                                    <th>Action</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                 <tr *ngFor="let group of data">
+                                       <td>{{group.S_No}}</td>
+                                       <td>{{group.TC_ID}}</td>
+                                       <td>{{group.Training_Centre_Name}}</td>
+                                       <td>{{group.Job_Role_Name}}</td>
+                                      
+                                       <td>{{group.District}}</td>
+                                       <td>{{group.Action}}</td>
+                                   </tr>
+                                </tbody>
+                              </table>
+                            
+                      
