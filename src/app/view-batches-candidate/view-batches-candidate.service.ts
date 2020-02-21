@@ -5,10 +5,12 @@ import { Observable } from 'rxjs';
 @Injectable({providedIn: 'root'})
 export class ViewbatchService {
   getSectorsForDistrict: any;
+  getFormData: any;
 
   constructor(private http: HttpClient) {
   }
 
+  //integration with BE  
   getAllDistricts(): Observable<any> {
    return this.http.get('//localhost:8080/districts');
    }
@@ -25,6 +27,9 @@ export class ViewbatchService {
 
   getJobrolesForSubsector(subSectorId: any): Observable<any> {
     return this.http.get('//localhost:8080/subsector/'+subSectorId+'/jobroles');
+  }
+  onSubmit(districtId:any,sectorId: any,subSectorId: any,jobId:any): Observable<any>  {
+   return this.http.get('//localhost:8080/batches?districtId='+districtId+'&sectorId='+sectorId+'&subSectorId='+subSectorId+'&jobId='+jobId);
   }
 
 }

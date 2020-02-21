@@ -17,7 +17,7 @@
                                 Andhra Pradesh State Skill Development Corporation
                             </span>
                         </div>
-                        <div class="col-lg-2 padding-right-50" onclick="toggleDisplay()">
+                        <div class="col-lg-2 padding-right-50" >
 
                             <a class="user-pic">
                                 <img alt="" class="image-user" src="./assets/images/Dummy_Image_Man.jpg">
@@ -25,16 +25,15 @@
                             </a>
                             <div class="user-id">CAN19975</div>
                         </div>
-                        <!--      <div *ngIf="!isShow">This is a div which toggles.</div> -->
+                      
                         <div class="row sticky-header">
                             <div class="col-lg-12">
                                 <div class="assess-list">
                                     <ul class="list-ul">
-                                        <li class="list-li"> <a href="/candidate" 
-                                            class="link-style">Dashboard</a></li>
-                                 
-                                    <li class="list-li"><a href="/candidate-myprofile"
-                                            class="link-style">My Profile</a></li>
+                                        <li class="list-li"> <a href="/candidate" class="link-style">Dashboard</a></li>
+
+                                        <li class="list-li"><a href="/candidate-myprofile" class="link-style">My
+                                                Profile</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -64,12 +63,12 @@
                                 </div>
                                 <ul class="dashboard-ul">
                                     <li class="dashboard-li text">
-                                   -
+                                        -
                                     </li>
                                     <li class="dashboard-li text">
                                         View Batches
                                     </li>
-                                  
+
                                 </ul>
                             </div>
 
@@ -98,26 +97,30 @@
                             <div class="col-lg-12 form-padding">
                                 <form [formGroup]="viewBatchesForm" (ngSubmit)="onSubmit(viewBatchesForm.value)">
                                     <div class="row ">
-                                       
+
                                         <div class="col-lg-2">
                                             <div class="form-group">
                                                 <label for="exampleFormControlInput1"> District</label>
-                                                <select class="form-control " formControlName="districtName" id="district"  >
-                                                    <option value=" " disabled >Select District</option>
-                                                    <option  *ngFor="let district of districts; let i = index" [value]="districts[i].districtId">
+                                                <select class="form-control " formControlName="districtId"
+                                                    id="district">
+                                                    <option value=" " disabled>Select District</option>
+                                                    <option *ngFor="let district of districts; let i = index"
+                                                        [value]="districts[i].districtId">
                                                         {{districts[i].districtName}}
                                                     </option>
-                                              </select>
-                                               
+                                                </select>
+
                                             </div>
 
                                         </div>
                                         <div class="col-lg-2">
                                             <div class="form-group">
                                                 <label for="exampleFormControlInput1"> Sector</label>
-                                                <select class="form-control" formControlName="sectors" (change) = "getSubsectorsForSector($event)" id="sector">
-                                                    <option value=" " disabled >Select Sector</option>
-                                                    <option *ngFor = "let sector of sectors; let i=index" [value]="sectors[i].sectorId">
+                                                <select class="form-control" formControlName="sectorId"
+                                                    (change)="getSubsectorsForSector($event.target.value)" id="sector">
+                                                    <option value=" " disabled>Select Sector</option>
+                                                    <option *ngFor="let sector of sectors; let i=index"
+                                                        [value]="sectors[i].sectorId">
                                                         {{sectors[i].sectorName}}
                                                     </option>
                                                 </select>
@@ -126,10 +129,12 @@
                                         <div class="col-lg-2">
                                             <div class="form-group">
                                                 <label for="exampleFormControlInput1">SubSector</label>
-                                              
-                                                <select class="form-control" formControlName="subSectors" (change) = "getJobrolesForSubsector($event)" id="subsector">
-                                                    <option value="" disabled >Select Subsector</option>
-                                                    <option *ngFor = "let subsector of subSectors; let sectorID=index" [value]="subSectors[sectorID].subSectorId">
+
+                                                <select class="form-control" formControlName="subSectorId"
+                                                    (change)="getJobrolesForSubsector($event.target.value)" id="subsector">
+                                                    <option value=" " disabled>Select Subsector</option>
+                                                    <option *ngFor="let subsector of subSectors; let sectorID=index"
+                                                        [value]="subSectors[sectorID].subSectorId">
                                                         {{subSectors[sectorID].subSectorName}}
                                                     </option>
                                                 </select>
@@ -138,9 +143,10 @@
                                         <div class="col-lg-2">
                                             <div class="form-group">
                                                 <label for="exampleFormControlInput1"> JobRole</label>
-                                                <select class="form-control" formControlName="jobRoles" id="jobrole">
-                                                    <option value="" disabled >Select Jobrole</option>
-                                                    <option *ngFor = "let jobrole of jobRoles; let jobId=index" [value]="jobRoles[jobId].jobId">
+                                                <select class="form-control" formControlName="jobRoleId" id="jobrole">
+                                                    <option value=" " disabled>Select Jobrole</option>
+                                                    <option *ngFor="let jobrole of jobRoles; let jobId=index"
+                                                        [value]="jobRoles[jobId].jobId">
                                                         {{jobRoles[jobId].jobName}}
                                                     </option>
                                                 </select>
@@ -153,7 +159,8 @@
                                             <div class="row padding-top-30">
 
                                                 <span style="float:right">
-                                                    <button type="submit" class="btn btn-primary  ">Apply Filter</button>
+                                                    <button type="submit" class="btn btn-primary  ">Apply
+                                                        Filter</button>
                                                 </span>
 
                                             </div>
@@ -165,29 +172,27 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <table class="table table-striped">
-                                    <tbody>
+                                <table class="table table-striped hover" datatable="ng"  [dtOptions]="dtOptions" id="viewBatchesTable">
+                                    <thead>
                                         <tr>
-                                            <th scope="row"></th>
-                                            <td>S.No</td>
-                                            <td>Batch ID</td>
-                                            <td>Training Centre Name</td>
-                                            <td>Job Role Name</td>
-                                          
-                                            <td>District</td>
-                                            <td>Start Date-End Date</td>
-                                            <td>Actions</td>
+                                            <th>S.No</th>
+                                            <th>Batch ID</th>
+                                            <th>Training Centre Name</th>
+                                            <th>Job Role Name</th>
+                                            <th>District</th>
+                                            <th>Start Date-End Date</th>
+                                            <th>Actions</th>
                                         </tr>
-                                        <tr>
-                                            <th scope="row"></th>
-                                            <td>S.No</td>
-                                            <td>Batch ID</td>
-                                            <td>Training Centre Name</td>
-                                            <td >{{this.selectedJobRole}}</td>
-                                          
-                                            <td >{{this.selectedDistrict}}</td>
-                                            <td>Start Date-End Date</td>
-                                            <td>Actions</td>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let group of batchData">
+                                            <td></td>
+                                            <td>{{group.batchId}}</td>
+                                            <td>{{group.trainingCentre.trainingCentreName}}</td>
+                                            <td>{{group.jobRole.jobName}}</td>
+                                            <td>{{group.district.districtName}}</td>
+                                            <td>{{group.startDate | date : "dd/MM/yyyy"}}-{{group.endDate | date : "dd/MM/yyyy"}}</td>
+                                            <td><a href="/candidate-viewbatches">View Details</a></td>
                                         </tr>
                                     </tbody>
                                 </table>

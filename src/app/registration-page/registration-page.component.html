@@ -11,9 +11,10 @@
                             </a>
                         </div>
                         <div class="login-container">
-                            <form class="login-form">
-                                <select class="form-control user-group">
-                                    <option>choose your user group</option>
+                            <form [formGroup]="registrationForm" (ngSubmit)="onSubmit(registrationForm.value)">
+                                <select class="form-control user-group" formControlName="userGroup">
+                                    <option value=" " disabled>choose your user group</option>
+                                   
                                     <option>Training Provider</option>
                                     <option>Trainer</option>
                                     <option>Assessor</option>
@@ -23,23 +24,23 @@
                                     
                                   </select>
                                   <input type="text"
-                                  class="form-control  ng-pristine ng invalid ng-touched username-input"
-                                  placeholder="Name of SPOC">
+                                  class="form-control  ng-pristine ng invalid ng-touched username-input" 
+                                  placeholder="Name of SPOC" >
                                   <span  class="form__help">
                                     Name should be as per your Aadhaar
                                   </span>
                                 <input type="text"
-                                    class="form-control  ng-pristine ng invalid ng-touched username-input"
-                                    placeholder="Email Address">
+                                    class="form-control  ng-pristine ng invalid ng-touched username-input" 
+                                    placeholder="Email Address" formControlName="email">
                                 <input type="text"
-                                    class="form-control  ng-pristine ng invalid ng-touched username-input"
-                                    placeholder="Mobile Number">
+                                    class="form-control  ng-pristine ng invalid ng-touched username-input" 
+                                    placeholder="Mobile Number" formControlName="mobile">
 
                                     <div  class="form-terms">
                                         <div  class="align-left">
                                             <div class="form-group">
                                                 <div class="form-check">
-                                                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                                                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" formControlName="agree" required>
                                                   <label class="form-check-label" for="invalidCheck2">
                                                     I Agree the
                                                     <a  class="link--focus"  data-toggle="modal" href="javascript:;">Terms and Conditions</a>.
@@ -55,16 +56,17 @@
                                     (scriptError)="onScriptError()"
                                   ></recaptcha>
                                 <div class="login__form-action">
-                                    <a type="button" class=" btn  btn-primary login-button" href="/candidate-registration-form" >
+                                   <!--  <a type="button" class=" btn  btn-primary login-button" href="/candidate-registration-form" >
                                         Register
-                                    </a>
+                                    </a> -->
+                                    <button type="submit" class="btn  btn-primary login-button  "> Register</button>
                                 </div>
                             </form>
                             <div class="register_account">
                                 <span class="register__account-msg">
                                    Already have an account?
                                 </span>
-                                <a class="register__account-link" href="/login" id="ignup"
+                                <a class="register__account-link" href="/login" id="signup"
                                     routerlink="/login">
                                    Login Now
                                 </a>

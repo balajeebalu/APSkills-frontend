@@ -11,16 +11,26 @@ export class ViewTrainingCentresService {
   }
 
   getAllDistricts(): Observable<any> {
-   return this.http.get('//localhost:8080/districts');
+    return this.http.get('//localhost:8080/districts');
+    }
+ 
+    getAllSectors(): Observable<any> {
+      return this.http.get('//localhost:8080/sectors');
+    }
+ 
+ 
+   getSubsectorsForSector(sectorId: any): Observable<any> {
+ 
+     return this.http.get('//localhost:8080/sectors/'+sectorId+'/subsectors');
    }
-
-   getAllSectors(districtId:any): Observable<any> {
-     return this.http.get('//localhost:8080/districts/' + districtId + '/sectors');
+ 
+   getJobrolesForSubsector(subSectorId: any): Observable<any> {
+     return this.http.get('//localhost:8080/subsector/'+subSectorId+'/jobroles');
    }
-
-   getJobrolesForSector(sectorId: any): Observable<any> {
-    return this.http.get('//localhost:8080/sectors/'+sectorId+'/jobroles');
-  }
+   onSubmit(districtId:any,sectorId: any,subSectorId: any,jobId:any): Observable<any>  {
+    return this.http.get('//localhost:8080/batches?districtId='+districtId+'&sectorId='+sectorId+'&subSectorId='+subSectorId+'&jobId='+jobId);
+    
+      }
 
 }
 

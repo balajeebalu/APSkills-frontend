@@ -30,11 +30,10 @@
                             <div class="col-lg-12">
                                 <div class="assess-list">
                                     <ul class="list-ul">
-                                        <li class="list-li"> <a href="/candidate" 
-                                            class="link-style">Dashboard</a></li>
-                                 
-                                    <li class="list-li"><a href="/candidate-myprofile"
-                                            class="link-style">My Profile</a></li>
+                                        <li class="list-li"> <a href="/candidate" class="link-style">Dashboard</a></li>
+
+                                        <li class="list-li"><a href="/candidate-myprofile" class="link-style">My
+                                                Profile</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -63,7 +62,7 @@
                                     My Dashboard
                                 </div>
                                 <ul class="dashboard-ul">
-                                  
+
                                     <li class="dashboard-li ">
                                         -
                                     </li>
@@ -91,95 +90,95 @@
                         </div>
 
                         <div class="col-lg-12 form-padding">
-                            <form [formGroup]="viewTrainingCentresForm" (ngSubmit)="onSubmit(viewTrainingCentresForm.value)">
+                            <form [formGroup]="viewTrainingCentresForm"
+                                (ngSubmit)="onSubmit(viewTrainingCentresForm.value)">
                                 <div class="row ">
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label for="exampleFormControlInput1">District</label>
-                                            <select class="form-control " formControlName="districtName" id="district" (change) = "getSectorsForDistrict($event)" >
-                                                <option value=" " disabled >Select District</option>
-                                                <option  *ngFor="let district of districts; let i = index" [value]="districts[i].districtId">
+                                            <select class="form-control " formControlName="districtId" id="district">
+                                                <option value=" " disabled>Select District</option>
+                                                <option *ngFor="let district of districts; let i = index"
+                                                    [value]="districts[i].districtId">
                                                     {{districts[i].districtName}}
-                                                </option>
-                                          </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label for="exampleFormControlInput1"> Sector</label>
-                                            <select class="form-control" formControlName="sectors" (change) = "getJobrolesForSector($event)" id="sector">
-                                                <option value=" " disabled >Select Sector</option>
-                                                <option *ngFor = "let sector of sectors; let districtId=index" [value]="sectors[districtId].sectorId">
-                                                    {{sectors[districtId].sectorName}}
                                                 </option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1"> Sector</label>
+                                            <select class="form-control" formControlName="sectorId"
+                                                (change)="getSubsectorsForSector($event.target.value)" id="sector">
+                                                <option value=" " disabled>Select Sector</option>
+                                                <option *ngFor="let sector of sectors; let i=index"
+                                                    [value]="sectors[i].sectorId">
+                                                    {{sectors[i].sectorName}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">SubSector</label>
+
+                                            <select class="form-control" formControlName="subSectorId"
+                                                (change)="getJobrolesForSubsector($event.target.value)" id="subsector">
+                                                <option value=" " disabled>Select Subsector</option>
+                                                <option *ngFor="let subsector of subSectors; let sectorID=index"
+                                                    [value]="subSectors[sectorID].subSectorId">
+                                                    {{subSectors[sectorID].subSectorName}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label for="exampleFormControlInput1">Job Role</label>
-                                            <select class="form-control" formControlName="jobRoles" id="jobrole">
-                                                <option value="" disabled >Select Jobrole</option>
-                                                <option *ngFor = "let jobrole of jobRoles; let jobId=index" [value]="jobRoles[jobId].jobId">
+                                            <select class="form-control" formControlName="jobRoleId" id="jobrole">
+                                                <option value=" " disabled>Select Jobrole</option>
+                                                <option *ngFor="let jobrole of jobRoles; let jobId=index"
+                                                    [value]="jobRoles[jobId].jobId">
                                                     {{jobRoles[jobId].jobName}}
                                                 </option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
-                               <!--  <div class="row ">
-                                  
-                                  
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label for="exampleFormControlInput1">Keyword Search:</label>
-                                            <form class="form-inline my-2 my-lg-0">
-                                                <input class="form-control mr-sm-2" type="search"
-                                                    placeholder="Search by Keyword" aria-label="Search">
 
-                                            </form>
-
-                                        </div>
-                                    </div>
-
-                                </div> -->
-                            </form>
-                        </div>
-                        
-                            <div class="col-lg-12">
+                                <div class="col-lg-12">
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary  ">Apply Filter</button>
 
-                                        <input class="btn btn-primary  margin-left-15 active" type="reset"
-                                            value="Reset" role="button" aria-pressed="false">
+
 
                                     </div>
-                            </div>
-                       
+                                </div>
+                            </form>
+                        </div>
+
+
+
                         <div class="col-lg-12">
                             <table class="table table-striped hover" datatable [dtOptions]="dtOptions">
                                 <thead>
-                                  <tr>
-                                    <th>S.NO</th>
-                                    <th>TC ID</th>
-                                    <th>Training Centre Name</th>
-                                    <th>Job Role Name	</th>
-                                   
-                                    <th>District</th>
-                                    <th>Action</th>
-                                  </tr>
+                                    <tr>
+                                        <th>S.NO</th>
+                                        <th>TC ID</th>
+                                        <th>Training Centre Name</th>
+                                        <th>Job Role Name </th>
+                                        <th>District</th>
+                                        <th>Action</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                 <tr *ngFor="let group of data">
-                                       <td>{{group.S_No}}</td>
-                                       <td>{{group.TC_ID}}</td>
-                                       <td>{{group.Training_Centre_Name}}</td>
-                                       <td>{{group.Job_Role_Name}}</td>
-                                      
-                                       <td>{{group.District}}</td>
-                                       <td>{{group.Action}}</td>
-                                   </tr>
+                                    <tr *ngFor="let group of batchData">
+                                        <td></td>
+                                        <td>{{group.trainingCentre.trainingCentreId}}</td>
+                                        <td>{{group.trainingCentre.trainingCentreName}}</td>
+                                        <td>{{group.jobRole.jobName}}</td>
+                                        <td>{{group.district.districtName}}</td>
+                                        <td><a href="/candidate-viewbatches">View Details</a></td>
+                                    </tr>
                                 </tbody>
-                              </table>
-                            
-                      
+                            </table>

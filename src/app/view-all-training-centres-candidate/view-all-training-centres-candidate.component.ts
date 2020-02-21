@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from "@angular/forms";
-import { HttpClient } from '@angular/common/http';
 import { ViewTrainingCentresService } from './view-all-training-centres-candidate.service';
 
 
@@ -10,18 +9,27 @@ import { ViewTrainingCentresService } from './view-all-training-centres-candidat
   styleUrls: ['./view-all-training-centres-candidate.component.css']
 })
 export class ViewAllTrainingCentresCandidateComponent implements OnInit {
-  isSubmitted = false;
   selectedDistrict: string = '';
-  selectedJobRole:string='';
-  districts: Array <any>;
-  jobRoles: Array <any>;
-  sectors: Array <any>;
-  sectorId: any;
-  districtId: any;
+  selectedJobRole: string = '';
+  districts: Array<any>;
+  jobRoles: Array<any>;
+  sectors: Array<any>;
+  subSectors: Array<any>;
   
+  //used in onsubmit method when apply filter is pressed
+  sectorId: string;
+  subsectorId: string;
+  districtId: string;
+  jobId: string;
+
+  viewTrainingCentres: any;
+  batchData: Array<any>;
+
+  //used in data table
+  dtOptions: DataTables.Settings = {};
   
 
-  constructor(public fb: FormBuilder,http: HttpClient,private viewtrainingcentresService: ViewTrainingCentresService) { }
+  constructor(public fb: FormBuilder,private viewtrainingcentresService: ViewTrainingCentresService) { }
 
  /*  public data = [
     {S_No:'1', TC_ID:'TC123684', Training_Centre_Name:'Rigpa Edusolutions_Bagber Panchayat,Sepahijala', Job_Role_Name:'', District:'Sepahijala', Action:'...'},
@@ -37,8 +45,7 @@ export class ViewAllTrainingCentresCandidateComponent implements OnInit {
   ];
  */
 
-  title = 'angulardatatables';
-  dtOptions: DataTables.Settings = {};
+
   ngOnInit() {
     this.dtOptions = {
       pagingType: 'full_numbers',
@@ -51,68 +58,56 @@ export class ViewAllTrainingCentresCandidateComponent implements OnInit {
       this.districts = data;
       
     });
-    this.viewtrainingcentresService.getAllSectors(this.districtId).subscribe(data=>{
+    this.viewtrainingcentresService.getAllSectors().subscribe(data=>{
       this.sectors = data;
       });
 
-      this.viewtrainingcentresService.getJobrolesForSector(this.sectorId).subscribe(data => {
-        this.jobRoles = data;
-      });   
-
 };
-getSectorsForDistrict(e,districtId: string){
-  this.viewtrainingcentresService.getSectorsForDistrict(e.target.value).subscribe(data => {
-    this.districtId=e.target.value;
+getSectorsForDistrict(districtID: string){
+  this.viewtrainingcentresService.getSectorsForDistrict(districtID).subscribe(data => {
   this.sectors = data;
+
   });
 }
 
+getSubsectorsForSector(sectorId:string){
+  this.viewtrainingcentresService.getSubsectorsForSector(sectorId).subscribe(data => {
+  this.subSectors = data;
+  });
+}
 
-
-getJobrolesForSector(e,sectorId: string){
-this.viewtrainingcentresService.getJobrolesForSector(e.target.value).subscribe(data => {
- this.sectorId=e.target.value;
- this.jobRoles = data;
+getJobrolesForSubsector(subsectorId: string){
+this.viewtrainingcentresService.getJobrolesForSubsector(subsectorId).subscribe(data => {
+this.jobRoles = data;
 });
-
 }
 
 viewTrainingCentresForm = this.fb.group({
-  districtName: [' ', [Validators.required]],
-  jobRoles:['', [Validators.required]],
-  sectors:['', [Validators.required]],
+  districtId: [' ', [Validators.required]],
+  jobRoleId:[' ', [Validators.required]],
+  sectorId:[' ', [Validators.required]],
+  subSectorId:[' ', [Validators.required]]
 
 })
 
-changeDistrict(e) {
-  console.log(e.value);
-  this.districtName.setValue(e.target.value, {onlySelf: true});
-}
-changeJobRole(e) {
-  console.log(e.value);
-  
-  this.jobRole.setValue(e.target.value, {onlySelf: true});
-}
-changeSector(e) {
-  console.log(e.value);
-  this.sector.setValue(e.target.value, {onlySelf: true});
-
-}
-
-get districtName() { return this.viewTrainingCentresForm.get("districtName"); }
-get jobRole(){return this.viewTrainingCentresForm.get('jobRole')};
-get sector(){return this.viewTrainingCentresForm.get('sector')};
-
 onSubmit(viewTrainingCentres) {
-  this.isSubmitted = true;
-  console.log(viewTrainingCentres);
+  this.districtId = viewTrainingCentres.districtId;
+  this.sectorId = viewTrainingCentres.sectorId;
+  this.subsectorId = viewTrainingCentres.subSectorId;
+  this.jobId = viewTrainingCentres.jobRoleId;
 
-  if (!this.viewTrainingCentresForm.valid) {
-    return false;
+  if (this.districtId != null && this.districtId.length > 0 &&
+    this.sectorId != null && this.sectorId.length > 0 &&
+    this.subsectorId != null && this.subsectorId.length > 0 &&
+    this.jobId != null && this.jobId.length > 0  ) {
+
+    this.viewtrainingcentresService.onSubmit(this.districtId, this.sectorId, this.subsectorId, this.jobId).subscribe(data => {
+    // call other function which help in populating your data fetched from BE to table
+      this.batchData = data;
+      console.log(this.batchData);
+    });
   } else {
-
-    this.selectedDistrict=this.viewTrainingCentresForm.value.districtName;
-    this.selectedJobRole=this.viewTrainingCentresForm.value.jobRole;
+    alert('Fill all mandatory fields');
   }
 
 }

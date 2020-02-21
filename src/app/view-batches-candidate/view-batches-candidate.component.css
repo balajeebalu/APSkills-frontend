@@ -477,14 +477,7 @@ padding:20px;
 .padding-top-180{
     padding-top:180px;
 }
-.dashboard-header{
-    
-  
-}
-.dashboard-subheader{
- 
 
-}
 .dashboard-content{
     display: inline-block;
     padding: 3px 25px 7px 20px;
@@ -548,7 +541,15 @@ padding-left:30px;
 .card:hover{
     background-color:#0975b9 ;
 }
-
+table
+{
+    border-collapse: separate;
+}
+tr td:first-child:before
+{
+  counter-increment: Count-Value;   
+  content: "" counter(Count-Value);
+}
 
 
 

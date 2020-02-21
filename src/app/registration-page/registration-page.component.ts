@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registration-page',
@@ -15,8 +16,15 @@ export class RegistrationPageComponent implements OnInit {
   onScriptError() {
       console.log('Something went long when loading the Google reCAPTCHA')
   }
-  constructor() { }
+  constructor(public fb: FormBuilder) { }
 
+  registrationForm=this.fb.group({
+    userGroup: [' ', [Validators.required]],
+    name: [' ', [Validators.required]],
+    email: [' ', [Validators.required]],
+    mobile: [' ', [Validators.required]],
+    agree: [' ', [Validators.required]],
+  })
   ngOnInit() {
     
   }

@@ -15,8 +15,9 @@
 <script>
 $(document).ready(function(){
   $(".owl-carousel").owlCarousel();
-});
-$('#exampleModal').on('show.bs.modal', function (event) {
+});-->
+<script>
+$('#viewBatchesTable').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) // Button that triggered the modal
   var recipient = button.data('whatever') // Extract info from data-* attributes
   // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
@@ -25,7 +26,14 @@ $('#exampleModal').on('show.bs.modal', function (event) {
   modal.find('.modal-title').text('New message to ' + recipient)
   modal.find('.modal-body input').val(recipient)
 })
-</script> -->
+$(function () {
+            $('table tbody tr').each(function (idx) {
+               $(this).children("td:eq(0)").html(idx + 1);
+           });
+            $('#viewBatchesTable').DataTable({
+            });
+        });
+</script> 
   </app-root>
 </body>
 </html>
