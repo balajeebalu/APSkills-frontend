@@ -593,5 +593,57 @@ padding-top:30px;
     padding-top: 15px;
     padding-bottom: 15px;
 }
+.heading{
+    font-size:18px;
+}
+.text{
+    font-size:14px;
+}
+.centered-content {
+    margin: auto;
+    text-align: center;
+  }
+.aw-wizard.horizontal {
+    flex-direction: column;
+}
+.aw-wizard {
+    display: flex;
+    justify-content: flex-start;
+}
+.aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator {
+    padding: 60px 0 10px;
+}
+.aw-wizard-navigation-bar.horizontal ul.steps-indicator {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0;
+    width: 100%;
+    list-style: none;
+}
+.aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-3 li {
+    width: 33.33333333%;
+}
+.aw-wizard-navigation-bar.horizontal ul.steps-indicator li {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.aw-wizard-navigation-bar ul.steps-indicator li {
+    position: relative;
+    pointer-events: none;
+}
+.aw-wizard-navigation-bar ul.steps-indicator * {
+    box-sizing: border-box;
+}
+.aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li:not(:last-child):before {
+    background-color: #e6e6e6;
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: calc(100% - 50px);
+    top: -25px;
+    left: calc(50% + 25px);
+}
 
 

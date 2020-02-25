@@ -117,7 +117,7 @@
 
 
                         <div class="col-lg-12 form-padding">
-                            <form>
+                             <form [formGroup]="viewMelasForm" (ngSubmit)="onSubmit(viewMelasForm.value)">
                                 <div class="row ">
                                     <div class="col-lg-4">
 
@@ -127,11 +127,14 @@
                                                 Date:</label>
                                         </div>
                                         <div class="form-group">
-                                                
-                                            <input class="form-control" placeholder="mela start date"
-                                            name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
-                                                  
-<!-- <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker> -->
+                                           
+    
+                                            <input type="text"
+                                            formControlName="startDate"
+                                            placeholder="Mela Start Date"
+                                            class="form-control"
+                                            bsDatepicker>
+
 
                                               </div>
 
@@ -143,8 +146,11 @@
 
                                         
                                             <div class="form-group">
-                                                
-                                      <input type="text" class="form-control" id="abc" placeholder="Mela End Date">
+                                                <input type="text"
+                                                formControlName="endDate"
+                                            placeholder="Mela End Date"
+                                            class="form-control"
+                                            bsDatepicker>
                                          
                                             
                                             
@@ -156,16 +162,12 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlInput1">District:</label>
                                         <div class="padding-top-15">
-                                        <select class="form-control  ">
-                                            <option>Select District</option>
-                                            <option>Select District</option>
-                                            <option>Srikakulam</option>
-                                            <option>Vijayanagaram</option>
-                                            <option>Visakhapatnam</option>
-                                            <option>East Godavari</option>
-                                            <option>West Godavari</option>
-                                            <option>Krishna</option>
-                                            <option>Guntur</option>
+                                        <select class="form-control " formControlName="districtId">
+                                            <option value=" " disabled>Select District</option>
+                                            <option *ngFor="let district of districts; let i = index"
+                                                [value]="districts[i].districtId">
+                                                {{districts[i].districtName}}
+                                            </option>
                                         </select>
                                     </div>
                                     </div>
@@ -192,30 +194,18 @@
                                     </div>
                                    
                                 </div>
-                                <div class="col-lg-4">
-                                    <div class="row ">
-                                        <div class="form-group">
-
-                                            <input class="form-control mr-sm-2" type="search"
-                                                placeholder="Search" aria-label="Search">
-
-
-
-
-
-                                        </div>
-                                    </div>
-                                </div>
+                               
                             </form>
                         </div>
 
 
                         <div class="col-lg-12">
-                            <table class="table table-striped">
-                                <tbody>
-                                    <tr>
-                                        <th scope="row"> SL.NO</th>
+                            <table class="table table-striped" datatable [dtOptions]="dtOptions">
 
+
+                                <thead>
+                                    <tr>
+                                        <td>S.NO</td>
                                         <td>Rozgar Mela Name</td>
                                         <td>Type Of Mela</td>
                                       
@@ -224,57 +214,19 @@
                                         <td>Status</td>
                                         <td>Actions</td>
                                     </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>EG ROJGAR MELA</td>
-                                        <td>Traning Partner</td>
-                                        
-                                        <td>East Godavari</td>
-                                        <td>26-2-2020 to 26-2-2020</td>
-                                        <td><span class="badge badge-pill badge-info">To be
-                                                Conducted</span></td>
-
-                                        <td>....</td>
-                                        <!-----for view data in action------->
-<!--                                         <div  class="dropdown show">
-                                            <a 
-                                                class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill"
-                                                data-toggle="dropdown" href="javascript:;"
-                                                aria-expanded="true">
-                                                <i  class="la la-ellipsis-h"></i>
-                                            </a> -->
-                                      
-                                        <!----------------------->
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let group of batchData">
+                                        <td></td>
+                                        <td>{{group.Melas. melaName}}</td>
+                                            <td>{{group.Melas. typeOfMela}}</td>
+                                           
+                                            
+                                            <td>{{group.district.districtName}}</td>
+                                            <td>{{group.melaStartDate | date : "dd/MM/yyyy"}}-{{group.melaEndDate | date : "dd/MM/yyyy"}}</td>
+                                            <td><a href="/candidate-viewMelas">View Details</a></td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Krishna Rozgar Mela</td>
-                                        <td>SSC</td>
-                                    
-                                        <td>Krishna</td>
-                                        <td>12-2-2020 to 12-2-2020</td>
-                                        <td><span class="badge badge-pill badge-info">To be
-                                                Conducted</span></td>
-                                        <td>....</td>
-
-
-                                    </tr>
-
-
                                 </tbody>
+                               
                             </table>
-                            <nav aria-label="...">
-                                <ul class="pagination">
-                                  <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
-                                  </li>
-                                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                  <li class="page-item active">
-                                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                                  </li>
-                                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                  <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                  </li>
-                                </ul>
-                              </nav>
+                   

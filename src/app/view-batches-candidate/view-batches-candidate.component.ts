@@ -37,6 +37,7 @@ export class ViewBatchesCandidateComponent implements OnInit {
   ngOnInit() {
     this.viewbatchService.getAllDistricts().subscribe(data => {
       this.districts = data;
+     
     });
     this.viewbatchService.getAllSectors().subscribe(data => {
       this.sectors = data;

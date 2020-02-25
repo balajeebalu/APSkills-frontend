@@ -553,7 +553,15 @@ padding-left:30px;
     font-size: 24px;
     font-weight: 500;
 }
-
+table
+{
+    border-collapse: separate;
+}
+tr td:first-child:before
+{
+  counter-increment: Count-Value;   
+  content: "" counter(Count-Value);
+}
 
 
 

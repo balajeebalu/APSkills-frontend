@@ -1,4 +1,3 @@
-
 <div class="search-apply">
     <div class="row">
         <div class="col-lg-12 search-header " style="z-index:100">
@@ -31,11 +30,10 @@
                             <div class="col-lg-12">
                                 <div class="assess-list">
                                     <ul class="list-ul">
-                                        <li class="list-li"> <a href="/candidate" 
-                                            class="link-style">Dashboard</a></li>
-                                 
-                                    <li class="list-li"><a href="/candidate-myprofile"
-                                            class="link-style">My Profile</a></li>
+                                        <li class="list-li"> <a href="/candidate" class="link-style">Dashboard</a></li>
+
+                                        <li class="list-li"><a href="/candidate-myprofile" class="link-style">My
+                                                Profile</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -61,7 +59,7 @@
 
                             <div class="dashboard-subheader">
                                 <div class="dashboard-content">
-                                   My Dashboard
+                                    My Dashboard
                                 </div>
                                 <ul class="dashboard-ul">
                                     <li class="dashboard-li">
@@ -70,10 +68,10 @@
                                     <li class="dashboard-li ">
                                         -
                                     </li>
-                                
-                                    
+
+
                                     <li class="dashboard-li Search Batches">
-                                        View / Add Preferences
+                                        View/Add Preferences
                                     </li>
                                 </ul>
                             </div>
@@ -86,139 +84,156 @@
                                         Training Preferences
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-lg-4">
-                                    &nbsp; &nbsp;    &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                 </div>
                                 <div class="col-lg-5 request-button">
-                                    <span style ="float:right">
-                                    <a type="button" class="btn  btn-outline-primary" href="/candidate-viewalltrainingcentres">View All Training Centres
-                                    </a>
+                                    <span style="float:right">
+                                        <a type="button" class="btn  btn-outline-primary"
+                                            href="/candidate-viewalltrainingcentres">View All Training Centres
+                                        </a>
                                     </span>
-                                    
+
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="dashboard-body">
                             <div class="row ">
-                                    
-                                    <div class="col-lg-3">
-                                        <div class="request-header">
-                                            <p class="job-text">Job Role Preferences</p>
+
+                                <div class="col-lg-3">
+                                    <div class="request-header">
+                                        <p class="job-text">Job Role Preferences</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4">
+                                    &nbsp;
+                                </div>
+                                <div class="col-lg-5 request-button">
+                                    <span style="float:right">
+                                        <!--   <button type="button" class="btn  btn-outline-primary margin-left-0">Add Preferred Job Role
+                                            </button> -->
+                                        <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                                            data-target="#exampleModal" data-whatever="@mdo">Add Preferred Job
+                                            Role</button>
+                                    </span>
+                                    <div class="col-lg-12 modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Add Preferred Job
+                                                        Role
+                                                    </h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <form [formGroup]="viewAddPreferencesForm"  (ngSubmit)="onSubmit(viewAddPreferencesForm.value)">
+                                                  <div class="modal-body">
+                                                   
+                                                       
+                                                        <div class="form-group">
+                                                            <label for="recipient-name"
+                                                                class="col-form-label">Sector:</label>
+
+                                                            <select class="form-control" formControlName="sectorId"
+                                                                (change)="getSubsectorsForSector($event.target.value)"
+                                                                id="sector">
+                                                                <option value=" " disabled>Select Sector</option>
+                                                                <option *ngFor="let sector of sectors; let i=index"
+                                                                    [value]="sectors[i].sectorId">
+                                                                    {{sectors[i].sectorName}}
+                                                                </option>
+
+
+
+
+                                                            </select>
+
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleFormControlInput1">Select Sub
+                                                                Sector:</label>
+                                                            <select class="form-control" formControlName="subSectorId"
+                                                                (change)="getJobrolesForSubsector($event.target.value)"
+                                                                id="subsector">
+                                                                <option value=" " disabled>Select Subsector</option>
+                                                                <option
+                                                                    *ngFor="let subsector of subSectors; let sectorId=index"
+                                                                    [value]="subSectors[sectorId].subSectorId">
+                                                                    {{subSectors[sectorId].subSectorName}}
+                                                                </option>
+
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleFormControlInput1"> JobRole</label>
+                                                            <select class="form-control" formControlName="jobRoleId"
+                                                                id="jobrole">
+                                                                <option value=" " disabled>Select Jobrole</option>
+                                                                <option
+                                                                    *ngFor="let jobrole of jobRoles; let jobId=index"
+                                                                    [value]="jobRoles[jobId].jobId">
+                                                                    {{jobRoles[jobId].jobName}}
+                                                                </option>
+
+                                                            </select>
+                                                        </div>
+                                                        
+                                                    
+                                                   </div>
+
+                                                   <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary"
+                                                       >Add</button>
+
+                                                   </div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
-
-                                    <div class="col-lg-4">
-                                        &nbsp;
-                                    </div>
-                                    <div class="col-lg-5 request-button">
-                                        <span style = "float:right">
-                                      <!--   <button type="button" class="btn  btn-outline-primary margin-left-0">Add Preferred Job Role
-                                            </button> -->
-                                            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Preferred Job Role</button>
-                                        </span>
-                                        <div class="col-lg-12 modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                              <div class="modal-content">
-                                                <div class="modal-header">
-                                                  <h5 class="modal-title" id="exampleModalLabel">Add Preferred Job Role
-                                                </h5>
-                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                  </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                  <form>
-                                                    <div class="form-group">
-                                                      <label for="recipient-name" class="col-form-label">Sector:</label>
-                                                    
-                                                            <select class="form-control"
-                                                                id="exampleFormControlSelect1"
-                                                                >
-                                                                <option disabled>Select Sector</option>
-                                                                <option>Agriculture</option>
-                                                                <option>Automotive</option>
-                                                                <option>Apparels</option>
-                                                                <option>BFSI</option>
-                                                                
-
-
-
-                                                            </select>
-                                                        
-                                                    </div>
-                                                    <div class="form-group">
-                                                      <label for="message-text" class="col-form-label">Select Sub Sector:</label>
-                                                      <select class="form-control"
-                                                      id="exampleFormControlSelect1"
-                                                      >
-                                                      <option disabled>Select Sub-Sector</option>
-                                                      <option>Agriculture</option>
-                                                      <option>Automotive</option>
-                                                      <option>Apparels</option>
-                                                      <option>BFSI</option>
-                                                      
-
-
-
-                                                  </select>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="message-text" class="col-form-label">Select Job Role:</label>
-                                                        <select class="form-control"
-                                                                id="exampleFormControlSelect1"
-                                                                >
-                                                                <option disabled>Select Job Role</option>
-                                                                <option>Agriculture</option>
-                                                                <option>Automotive</option>
-                                                                <option>Apparels</option>
-                                                                <option>BFSI</option>
-                                                                
-
-
-
-                                                            </select>
-                                                      </div>
-                                                  </form>
-                                                </div>
-                                                <div class="modal-footer">
-                                                  <button type="button" class="btn btn-primary" data-dismiss="modal">Add</button>
-                                                 
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                    </div>
-                                    
-
                                 </div>
-                                <div class="col-lg-12">
-                                    <table class="table table-striped">
-                                        <tbody>
-                                            <tr>
-                                              <th scope="row">S.No</th>
-                                              <td>Job Role Name</td>
-                                              <td>QP Code</td>
-                                              <td>Sector</td>
-                                              <td>Sub-Sector</td>
-                                              <td>Created On</td>
-                                              <td>Action</td>
-                                            </tr>
-                                            <tr>
-                                             <td>1</td>   
-                                            <td>Sales Consultant (Automotive Finance)</td>
-                                            <td>ASC/Q2001</td>
-                                            <td>Automotive</td>
-                                            <td>Auto Finance and Insurance</td>
-                                            <td>04-02-2020</td>
-                                            <td>...</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+
+
+                            </div>
+                            <div class="col-lg-12">
+                                <table class="table table-striped hover" datatable="ng" [dtOptions]="dtOptions"
+                                    id="viewAddPreferenceTable">
+                                    <thead>
+
+                                        <tr>
+                                            <th >S.No</th>
+                                            <td>Job Role Name</td>
+                                            <td>QP Code</td>
+                                            <td>Sector</td>
+                                            <td>Sub-Sector</td>
+                                            <td>Created On</td>
+                                            <td>Action</td>
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let group of batchData">
+
+                                            <td></td>
+                                            <td>{{group.jobRole.jobName}}</td>
+                                            <td>{{group.qpCode}}</td>
+                                            <td>{{group.sector.sectorName}}</td>
+                                            <td>{{group.subSector.subSectorName}}</td>
+                                            <td>{{group.user.utilDate}}</td>
+
+
+                                            <td><a href="/candidate-viewpreferences">View Details</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                       
+
                     </div>
                 </div>
             </div>

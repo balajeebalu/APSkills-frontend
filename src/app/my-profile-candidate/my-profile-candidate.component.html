@@ -84,377 +84,246 @@
                                         <h3 class="heading-text">Candidate Registration Form</h3>
 
                                     </div>
+
                                     <div class="registration-header">
                                         <form>
-                                            <div class="col-lg-12">
-                                                <div class="row">
+                                            <aw-wizard #wizard [navBarLayout]="'large-filled-symbol'"  class="horizontal">
+                                                <aw-wizard-step [stepTitle]="'Personal Details'"  [navigationSymbol]="{ symbol: '1' }">
+                                                    
+                                                    <div class="col-lg-12">
+                                                        <div class="row">
 
-                                                    <div class="col-lg-6">
-                                                        <div class="row row-text">
-                                                            <div class="col-lg-4">
-                                                                <label for="candidate-name ">Candidate Name:
-                                                                    <span class="mandatory-color">*</span>
-                                                                </label>
-                                                            </div>
-                                                            <div class="col-lg-8">
-                                                                <div class="row ">
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
                                                                     <div class="col-lg-4">
-                                                                        <select class="form-control"
-                                                                            id="exampleFormControlSelect1">
-                                                                            <option>Mr</option>
-                                                                            <option>Mrs</option>
-                                                                            <option>Ms</option>
-                                                                            <option>Mx</option>
+                                                                        <label for="candidate-name ">Candidate Name:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <div class="row ">
+                                                                            <div class="col-lg-4">
+                                                                                <select class="form-control"
+                                                                                    id="exampleFormControlSelect1">
+                                                                                    <option>Mr</option>
+                                                                                    <option>Mrs</option>
+                                                                                    <option>Ms</option>
+                                                                                    <option>Mx</option>
 
-                                                                        </select>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="col-lg-8">
+                                                                                <input class="form-control" type="text"
+                                                                                    placeholder="Venkatesh Peddada"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Upload Profile
+                                                                            Picture:
+
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+
+                                                                        <div class="custom-file">
+                                                                            <input type="file" class="custom-file-input"
+                                                                                id="inputGroupFile04"
+                                                                                aria-describedby="inputGroupFileAddon04">
+                                                                            <label class="custom-file-label"
+                                                                                for="inputGroupFile04">Choose
+                                                                                file:</label>
+                                                                        </div>
+                                                                        <label class="blue-color-text">
+                                                                            File size upto 3 mb
+                                                                        </label>
+                                                                        <label class="blue-color-text">
+                                                                            (Allowed formats jpeg, png, jpg)
+                                                                        </label>
+                                                                        <button type="button"
+                                                                            class="btn btn-outline-info">Upload</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="row">
+
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Country Codes:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <div class="row ">
+
+                                                                            <div class="col-lg-12">
+                                                                                <input class="form-control" type="text"
+                                                                                    placeholder="+91" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Phone Number:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <input type="email" class="form-control"
+                                                                            id="exampleInputEmail1"
+                                                                            aria-describedby="emailHelp"
+                                                                            value="9966567259">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="row">
+
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Email Address:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <div class="row ">
+
+                                                                            <div class="col-lg-12">
+                                                                                <input type="email" class="form-control"
+                                                                                    id="exampleInputEmail1"
+                                                                                    aria-describedby="emailHelp"
+                                                                                    placeholder="Enter Email Address"
+                                                                                    required>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Gender:
+
+                                                                        </label>
                                                                     </div>
                                                                     <div class="col-lg-8">
                                                                         <input class="form-control" type="text"
-                                                                            placeholder="Venkatesh Peddada" readonly>
+                                                                            placeholder="Male" readonly>
+
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="row row-text">
-                                                            <div class="col-lg-4">
-                                                                <label for="candidate-name ">Upload Profile Picture:
+                                                    <div class="col-lg-12">
+                                                        <div class="row">
 
-                                                                </label>
-                                                            </div>
-                                                            <div class="col-lg-8">
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Date of Birth:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <div class="row ">
 
-                                                                <div class="custom-file">
-                                                                    <input type="file" class="custom-file-input"
-                                                                        id="inputGroupFile04"
-                                                                        aria-describedby="inputGroupFileAddon04">
-                                                                    <label class="custom-file-label"
-                                                                        for="inputGroupFile04">Choose file:</label>
+                                                                            <div class="col-lg-12">
+                                                                                <input type="email" class="form-control"
+                                                                                    id="exampleInputEmail1"
+                                                                                    aria-describedby="emailHelp"
+                                                                                    placeholder="03/04/1991" readonly
+                                                                                    required>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
-                                                                <label class="blue-color-text">
-                                                                    File size upto 3 mb
-                                                                </label>
-                                                                <label class="blue-color-text">
-                                                                    (Allowed formats jpeg, png, jpg)
-                                                                </label>
-                                                                <button type="button"
-                                                                    class="btn btn-outline-info">Upload</button>
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Marital Status:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <select class="form-control"
+                                                                            id="exampleFormControlSelect1">
+                                                                            <option disabled>Select Marital Status
+                                                                            </option>
+                                                                            <option>Not to disclosed</option>
+                                                                            <option>Separated</option>
+                                                                            <option>Single/Unmarried</option>
+                                                                            <option>Married</option>
+                                                                            <option>Widowed</option>
+                                                                            <option>Divorced</option>
 
-                                                    <div class="col-lg-6">
-                                                        <div class="row row-text">
-                                                            <div class="col-lg-4">
-                                                                <label for="candidate-name ">Country Codes:
-                                                                    <span class="mandatory-color">*</span>
-                                                                </label>
-                                                            </div>
-                                                            <div class="col-lg-8">
-                                                                <div class="row ">
 
-                                                                    <div class="col-lg-12">
-                                                                        <input class="form-control" type="text"
-                                                                            placeholder="+91" readonly>
+                                                                        </select>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="row row-text">
-                                                            <div class="col-lg-4">
-                                                                <label for="candidate-name ">Phone Number:
-                                                                    <span class="mandatory-color">*</span>
-                                                                </label>
-                                                            </div>
-                                                            <div class="col-lg-8">
-                                                                <input type="email" class="form-control"
-                                                                    id="exampleInputEmail1" aria-describedby="emailHelp"
-                                                                    value="9966567259">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <div class="row">
 
-                                                    <div class="col-lg-6">
-                                                        <div class="row row-text">
-                                                            <div class="col-lg-4">
-                                                                <label for="candidate-name ">Email Address:
-                                                                    <span class="mandatory-color">*</span>
-                                                                </label>
-                                                            </div>
-                                                            <div class="col-lg-8">
-                                                                <div class="row ">
+                                                    <div class="col-lg-12">
+                                                        <div class="row">
 
-                                                                    <div class="col-lg-12">
-                                                                        <input type="email" class="form-control"
-                                                                            id="exampleInputEmail1"
-                                                                            aria-describedby="emailHelp"
-                                                                            placeholder="Enter Email Address" required>
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Domicile State:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <select class="form-control"
+                                                                            id="exampleFormControlSelect1">
+                                                                            <option disabled>Select Domicile State
+                                                                            </option>
+                                                                            <option>Andhra Pradesh</option>
+                                                                            <option>Bihar</option>
+                                                                            <option>Chhattisgarh</option>
+                                                                            <option>Telangana</option>
+
+
+
+                                                                        </select>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="row row-text">
-                                                            <div class="col-lg-4">
-                                                                <label for="candidate-name ">Gender:
-
-                                                                </label>
-                                                            </div>
-                                                            <div class="col-lg-8">
-                                                                <input class="form-control" type="text"
-                                                                    placeholder="Male" readonly>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <div class="row">
-
-                                                    <div class="col-lg-6">
-                                                        <div class="row row-text">
-                                                            <div class="col-lg-4">
-                                                                <label for="candidate-name ">Date of Birth:
-                                                                    <span class="mandatory-color">*</span>
-                                                                </label>
-                                                            </div>
-                                                            <div class="col-lg-8">
-                                                                <div class="row ">
-
-                                                                    <div class="col-lg-12">
-                                                                        <input type="email" class="form-control"
-                                                                            id="exampleInputEmail1"
-                                                                            aria-describedby="emailHelp"
-                                                                            placeholder="03/04/1991" readonly required>
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Domicile District:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
                                                                     </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="row row-text">
-                                                            <div class="col-lg-4">
-                                                                <label for="candidate-name ">Marital Status:
-                                                                    <span class="mandatory-color">*</span>
-                                                                </label>
-                                                            </div>
-                                                            <div class="col-lg-8">
-                                                                <select class="form-control"
-                                                                    id="exampleFormControlSelect1">
-                                                                    <option disabled>Select Marital Status</option>
-                                                                    <option>Not to disclosed</option>
-                                                                    <option>Separated</option>
-                                                                    <option>Single/Unmarried</option>
-                                                                    <option>Married</option>
-                                                                    <option>Widowed</option>
-                                                                    <option>Divorced</option>
-
-
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-12">
-                                                <div class="row">
-
-                                                    <div class="col-lg-6">
-                                                        <div class="row row-text">
-                                                            <div class="col-lg-4">
-                                                                <label for="candidate-name ">Domicile State:
-                                                                    <span class="mandatory-color">*</span>
-                                                                </label>
-                                                            </div>
-                                                            <div class="col-lg-8">
-                                                                <select class="form-control"
-                                                                    id="exampleFormControlSelect1">
-                                                                    <option disabled>Select Domicile State</option>
-                                                                    <option>Andhra Pradesh</option>
-                                                                    <option>Bihar</option>
-                                                                    <option>Chhattisgarh</option>
-                                                                    <option>Telangana</option>
-
-
-
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="row row-text">
-                                                            <div class="col-lg-4">
-                                                                <label for="candidate-name ">Domicile District:
-                                                                    <span class="mandatory-color">*</span>
-                                                                </label>
-                                                            </div>
-                                                            <div class="col-lg-8">
-                                                                <select class="form-control"
-                                                                    id="exampleFormControlSelect1"
-                                                                    aria-placeholder="Select Marital Status">
-                                                                    <option disabled>Select Domicile District</option>
-                                                                    <option>Ananthapur</option>
-                                                                    <option>Chittoor</option>
-                                                                    <option>East Godavari</option>
-                                                                    <option>Guntur</option>
-
-
-
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-lg-12">
-                                                <div class="row">
-
-                                                    <div class="col-lg-6">
-                                                        <div class="row row-text">
-                                                            <div class="col-lg-4">
-                                                                <label for="candidate-name ">Community:
-                                                                    <span class="mandatory-color">*</span>
-                                                                </label>
-                                                            </div>
-                                                            <div class="col-lg-8">
-                                                                <div class="row ">
-
-                                                                    <div class="col-lg-12">
+                                                                    <div class="col-lg-8">
                                                                         <select class="form-control"
                                                                             id="exampleFormControlSelect1"
                                                                             aria-placeholder="Select Marital Status">
-                                                                            <option disabled>Select Community</option>
-                                                                            <option>Kapu</option>
-                                                                            <option>Kamma</option>
-                                                                            <option>Brahmin</option>
-                                                                            <option>Vysya</option>
-
-
-
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="row row-text">
-                                                            <div class="col-lg-4">
-                                                                <label for="candidate-name ">Religion:
-                                                                    <span class="mandatory-color">*</span>
-                                                                </label>
-                                                            </div>
-                                                            <div class="col-lg-8">
-                                                                <div class="row ">
-
-                                                                    <div class="col-lg-12">
-                                                                        <select class="form-control"
-                                                                            id="exampleFormControlSelect1"
-                                                                            aria-placeholder="Select Religion">
-                                                                            <option disabled>Select Religion</option>
-                                                                            <option>Atheist</option>
-                                                                            <option>Jews</option>
-                                                                            <option>Sikh</option>
-                                                                            <option>Hindu</option>
-                                                                            <option>Christian</option>
-                                                                            <option>Muslim</option>
-
-
-
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-lg-12">
-                                                <div class="row">
-
-                                                    <div class="col-lg-6">
-                                                        <div class="row row-text">
-                                                            <div class="col-lg-4">
-                                                                <label for="candidate-name ">Mother's Name:
-                                                                    <span class="mandatory-color">*</span>
-                                                                </label>
-                                                            </div>
-                                                            <div class="col-lg-8">
-                                                                <div class="row ">
-
-                                                                    <div class="col-lg-12">
-                                                                        <input type="text" class="form-control"
-                                                                            id="exampleInputEmail1"
-                                                                            aria-describedby="emailHelp"
-                                                                            placeholder="Enter Mother Name" required>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="row row-text">
-                                                            <div class="col-lg-4">
-                                                                <label for="candidate-name ">Father's Name / Guardian's
-                                                                    Name:'
-                                                                    <span class="mandatory-color">*</span>
-                                                                </label>
-                                                            </div>
-                                                            <div class="col-lg-8">
-                                                                <div class="row ">
-
-                                                                    <div class="col-lg-12">
-                                                                        <input type="text" class="form-control"
-                                                                            id="exampleInputEmail1"
-                                                                            aria-describedby="emailHelp"
-                                                                            placeholder="Venkatesh" readonly required>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-lg-12">
-                                                <div class="row">
-
-                                                    <div class="col-lg-6">
-                                                        <div class="row row-text">
-                                                            <div class="col-lg-4">
-                                                                <label for="candidate-name ">Any Disability:
-                                                                    <span class="mandatory-color">*</span>
-                                                                </label>
-                                                            </div>
-                                                            <div class="col-lg-8">
-                                                                <div class="row ">
-
-                                                                    <div class="col-lg-12">
-                                                                        <select class="form-control"
-                                                                            id="exampleFormControlSelect1">
-                                                                            <option disabled>Select Any Disability
+                                                                            <option disabled>Select Domicile District
                                                                             </option>
-                                                                            <option>Yes</option>
-                                                                            <option>No</option>
+                                                                            <option>Ananthapur</option>
+                                                                            <option>Chittoor</option>
+                                                                            <option>East Godavari</option>
+                                                                            <option>Guntur</option>
 
 
 
@@ -464,277 +333,1104 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="row row-text">
-                                                            <div class="col-lg-4">
-                                                                <label for="candidate-name ">If yes, type of Disability:
-                                                                    <span class="mandatory-color">*</span>
+
+
+                                                    <div class="col-lg-12">
+                                                        <div class="row">
+
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Community:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <div class="row ">
+
+                                                                            <div class="col-lg-12">
+                                                                                <select class="form-control"
+                                                                                    id="exampleFormControlSelect1"
+                                                                                    aria-placeholder="Select Marital Status">
+                                                                                    <option disabled>Select Community
+                                                                                    </option>
+                                                                                    <option>Kapu</option>
+                                                                                    <option>Kamma</option>
+                                                                                    <option>Brahmin</option>
+                                                                                    <option>Vysya</option>
+
+
+
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Religion:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <div class="row ">
+
+                                                                            <div class="col-lg-12">
+                                                                                <select class="form-control"
+                                                                                    id="exampleFormControlSelect1"
+                                                                                    aria-placeholder="Select Religion">
+                                                                                    <option disabled>Select Religion
+                                                                                    </option>
+                                                                                    <option>Atheist</option>
+                                                                                    <option>Jews</option>
+                                                                                    <option>Sikh</option>
+                                                                                    <option>Hindu</option>
+                                                                                    <option>Christian</option>
+                                                                                    <option>Muslim</option>
+
+
+
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="col-lg-12">
+                                                        <div class="row">
+
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Mother's Name:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <div class="row ">
+
+                                                                            <div class="col-lg-12">
+                                                                                <input type="text" class="form-control"
+                                                                                    id="exampleInputEmail1"
+                                                                                    aria-describedby="emailHelp"
+                                                                                    placeholder="Enter Mother Name"
+                                                                                    required>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Father's Name /
+                                                                            Guardian's
+                                                                            Name:'
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <div class="row ">
+
+                                                                            <div class="col-lg-12">
+                                                                                <input type="text" class="form-control"
+                                                                                    id="exampleInputEmail1"
+                                                                                    aria-describedby="emailHelp"
+                                                                                    placeholder="Venkatesh" readonly
+                                                                                    required>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="col-lg-12">
+                                                        <div class="row">
+
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Any Disability:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <div class="row ">
+
+                                                                            <div class="col-lg-12">
+                                                                                <select class="form-control"
+                                                                                    id="exampleFormControlSelect1">
+                                                                                    <option disabled>Select Any
+                                                                                        Disability
+                                                                                    </option>
+                                                                                    <option>Yes</option>
+                                                                                    <option>No</option>
+
+
+
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">If yes, type of
+                                                                            Disability:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <div class="row ">
+
+                                                                            <div class="col-lg-12">
+                                                                                <select class="form-control"
+                                                                                    id="exampleFormControlSelect1">
+                                                                                    <option disabled>Select If Yes, type
+                                                                                        of
+                                                                                        Disability</option>
+                                                                                    <option>Blindness</option>
+                                                                                    <option>Deaf</option>
+                                                                                    <option>Dumb</option>
+
+
+
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12" style="padding-bottom:50px;">
+                                                        <div class="row">
+
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">If yes, upload
+                                                                            Supporting
+                                                                            Document:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+
+                                                                        <div class="custom-file"
+                                                                            style="margin-bottom:15px">
+                                                                            <input type="file" class="custom-file-input"
+                                                                                id="inputGroupFile04"
+                                                                                aria-describedby="inputGroupFileAddon04">
+                                                                            <label class="custom-file-label"
+                                                                                for="inputGroupFile04">Choose
+                                                                                file:</label>
+                                                                        </div>
+                                                                        <label class="blue-color-text">
+                                                                            File size upto 3 mb
+                                                                        </label>
+                                                                        <label class="blue-color-text">
+                                                                            (Allowed formats jpeg, png, jpg)
+                                                                        </label>
+                                                                        <button type="button"
+                                                                            class="btn btn-outline-info">Upload</button>
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+                                                            <hr>
+                                                        </div>
+
+
+
+                                                    </div>
+
+                                                    <hr>
+                                                    <div class="dashed-separator">
+
+                                                    </div>
+
+                                                    <div class="identification-group">
+                                                        <div class="row">
+                                                            <div class="col-lg-3">
+                                                                Identification Type:*
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                <input class="form-check-input" type="radio" name="tab"
+                                                                    value="igotnone" (onclick)="show1();" checked />
+
+                                                                <label class="form-check-label" for="exampleRadios1">
+                                                                    Alternate Id
+                                                                </label>
+
+                                                            </div>
+                                                            <div *ngIf="!show1">
+                                                                Alternate Id
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                <input class="form-check-input" type="radio" name="tab"
+                                                                    value="igottwo" (onclick)="show2();" />
+
+                                                                <label class="form-check-label" for="exampleRadios1">
+                                                                    Aadhaar
                                                                 </label>
                                                             </div>
-                                                            <div class="col-lg-8">
-                                                                <div class="row ">
+                                                            <div *ngIf="!show2">
+                                                                Aadhar
+                                                            </div>
 
-                                                                    <div class="col-lg-12">
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-3">
+                                                                <p
+                                                                    style="padding-top:20px; font-weight:400;font-size:1.3rem">
+                                                                    Identification:</p>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-3">
+                                                                <p style="padding-top:15px; font-size:1rem"> Alternate
+                                                                    Id: *</p>
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                <select id="disabledSelect" class="form-control"
+                                                                    style="background-color: #ebedf2;">
+                                                                    <option>Select identification Type</option>
+                                                                </select>
+                                                            </div>
+
+                                                        </div>
+                                                        <hr>
+
+                                                        <div class="row">
+                                                            <div class="col-lg-3">
+                                                                <p
+                                                                    style="padding-top:20px; font-weight:400;font-size:1.3rem">
+                                                                    Permanent Address:</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="row">
+                                                                    <div class="col-lg-4">
+                                                                        Address:
+                                                                        <span class="mandatory-color">*</span>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+
+
+                                                                        <textarea class="form-control"
+                                                                            id="exampleFormControlTextarea1"
+                                                                            rows="3"></textarea>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" style="padding-top: 40px;">
+                                                            <div class="col-lg-6">
+                                                                <div class="row">
+                                                                    <div class="col-lg-4">
+                                                                        Pincode:
+                                                                        <span class="mandatory-color">*</span>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <input type="text" class="form-control"
+                                                                            id="exampleInputEmail1"
+                                                                            aria-describedby="emailHelp" required>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" style="padding-top: 40px;">
+                                                            <div class="col-lg-6">
+                                                                <div class="row">
+                                                                    <div class="col-lg-4">
+                                                                        State / Union Territory :
+                                                                        <span class="mandatory-color">*</span>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
                                                                         <select class="form-control"
                                                                             id="exampleFormControlSelect1">
-                                                                            <option disabled>Select If Yes, type of
-                                                                                Disability</option>
-                                                                            <option>Blindness</option>
-                                                                            <option>Deaf</option>
-                                                                            <option>Dumb</option>
-
-
+                                                                            <option>ANDHRA PRADESH</option>
+                                                                            <option>TELANGANA</option>
+                                                                            <option>ARUNACHAL PRADESH</option>
+                                                                            <option>SIKKHIM</option>
 
                                                                         </select>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12" style="padding-bottom:50px;">
-                                                <div class="row">
+                                                        <div class="row" style="padding-top: 40px;">
+                                                            <div class="col-lg-6">
+                                                                <div class="row">
+                                                                    <div class="col-lg-4">
+                                                                        District:
+                                                                        <span class="mandatory-color">*</span>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <select class="form-control"
+                                                                            id="exampleFormControlSelect1">
+                                                                            <option></option>
+                                                                            <option></option>
+                                                                            <option></option>
+                                                                            <option></option>
 
-                                                    <div class="col-lg-6">
-                                                        <div class="row row-text">
-                                                            <div class="col-lg-4">
-                                                                <label for="candidate-name ">If yes, upload Supporting
-                                                                    Document:
-                                                                    <span class="mandatory-color">*</span>
-                                                                </label>
-                                                            </div>
-                                                            <div class="col-lg-8">
-
-                                                                <div class="custom-file" style="margin-bottom:15px">
-                                                                    <input type="file" class="custom-file-input"
-                                                                        id="inputGroupFile04"
-                                                                        aria-describedby="inputGroupFileAddon04">
-                                                                    <label class="custom-file-label"
-                                                                        for="inputGroupFile04">Choose file:</label>
+                                                                        </select>
+                                                                    </div>
                                                                 </div>
-                                                                <label class="blue-color-text">
-                                                                    File size upto 3 mb
-                                                                </label>
-                                                                <label class="blue-color-text">
-                                                                    (Allowed formats jpeg, png, jpg)
-                                                                </label>
-                                                                <button type="button"
-                                                                    class="btn btn-outline-info">Upload</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" style="padding-top: 40px;">
+                                                            <div class="col-lg-6">
+                                                                <div class="row">
+                                                                    <div class="col-lg-4">
+                                                                        Tehsil/Mandal/Block:
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <select class="form-control"
+                                                                            id="exampleFormControlSelect1">
+                                                                            <option></option>
+                                                                            <option></option>
+                                                                            <option></option>
+                                                                            <option></option>
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" style="padding-top: 40px;">
+                                                            <div class="col-lg-6">
+                                                                <div class="row">
+                                                                    <div class="col-lg-4">
+                                                                        City/Village/Town:
+
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <select class="form-control"
+                                                                            id="exampleFormControlSelect1">
+                                                                            <option></option>
+                                                                            <option></option>
+                                                                            <option></option>
+                                                                            <option></option>
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" style="padding-top: 40px;">
+                                                            <div class="col-lg-6">
+                                                                <div class="row">
+                                                                    <div class="col-lg-4">
+                                                                        Parliamentary Constituency:
+
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <select class="form-control"
+                                                                            id="exampleFormControlSelect1">
+                                                                            <option></option>
+                                                                            <option></option>
+                                                                            <option></option>
+                                                                            <option></option>
+
+                                                                        </select>
+                                                                    </div>
+
+                                                                </div>
                                                             </div>
                                                         </div>
 
-                                        
-                                </div>
-                                <hr>
-                            </div>
+                                                        <div class="col-lg-12"
+                                                            style="text-align:  center; padding-top: 40px;">
+                                                            <button class="btn btn-primary " type="button"
+                                                                awNextStep>Save &amp; Next</button>
+                                                            <button class="btn btn-outline-primary" type="button"
+                                                                style="margin-left:5px">Save As Draft</button>
+                                                        </div>
+                                                    </div>
+                                                </aw-wizard-step>
+                                                <aw-wizard-step [stepTitle]="'Contact Details'" [navigationSymbol]="{ symbol: '2' }" awOptionalStep>
+                                                    <div class="communication">
+                                                        <div class="col-lg-12">
+
+                                                            <div class="col-lg-6">
+                                                                <p class="heading">Communication Address</p>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-lg-2">
+                                                                    <p class="text">same as Permanent Address </p>
+                                                                </div>
+                                                                <div class="col-lg-3">
+                                                                    <input class="form-check-input" type="checkbox"
+                                                                        id="inlineCheckbox1" value="option1">
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="col-lg-12">
+
+                                                            <div class="col-lg-8">
+                                                                <div class="row">
+                                                                    <div class="col-lg-1">
+
+
+                                                                    </div>
+                                                                    <div class="col-lg-4">
+                                                                        <p class="text">Address <span
+                                                                                class="mandatory-color">*</span></p>
+
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="form-group">
+
+                                                                            <textarea class="form-control"
+                                                                                id="exampleFormControlTextarea1"
+                                                                                rows="3"
+                                                                                placeholder="Enter Address"></textarea>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
 
 
 
-                        </div>
-                        <!-- <div  class="progress">
-                            <div 
-                                aria-valuemax="100"
-                                aria-valuemin="0"
-                                aria-valuenow="100"
-                                class="progress-bar blue-bg"
-                                role="progressbar"
-                                style="width: calc(20% + 28px);">
-                            </div>
-                        </div> -->
-                  <hr>     
-                  <div  class="dashed-separator">
-                   
-                </div>
 
-                <div class="identification-group">
-                    <div class="row">
-                        <div class="col-lg-3">
-                      Identification Type:*
-                        </div>
-                        <div class="col-lg-3">
-                            <input class="form-check-input" type="radio" name="tab" value="igotnone" (onclick)="show1();" checked />
-                            
-                            <label class="form-check-label" for="exampleRadios1">
-                                Alternate Id
-                              </label>
-                          
-                        </div>
-                        <div *ngIf="!show1">
-                            Alternate Id
-                        </div>
-                        <div class="col-lg-3">
-                            <input  class="form-check-input" type="radio" name="tab" value="igottwo" (onclick)="show2();" />
-                            
-                            <label class="form-check-label" for="exampleRadios1">
-                                Aadhaar
-                              </label>
-                        </div>
-                        <div *ngIf="!show2">
-                           Aadhar
-                        </div>
-                      
-                </div>
-                <div class="row">
-                <div class="col-lg-3">
-                  <p style="padding-top:20px; font-weight:400;font-size:1.3rem"> Identification:</p> 
-                </div>
-               
-            </div>
-            <div class="row">
-                <div class="col-lg-3">
-                  <p style="padding-top:15px; font-size:1rem"> Alternate Id: *</p> 
-                </div>
-                  <div class="col-lg-3">
-                  <select id="disabledSelect" class="form-control" style="background-color: #ebedf2;">
-                    <option>Select identification Type</option>
-                  </select>
-                  </div>
-              
-                </div>
-                <hr>
+                                                        <div class="col-lg-12">
 
-                <div class="row">
-                    <div class="col-lg-3">
-                        <p style="padding-top:20px; font-weight:400;font-size:1.3rem"> Permanent Address:</p>    
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="row">
-                        <div class="col-lg-4">
-                            Address: 
-                            <span class="mandatory-color">*</span>
-                        </div>
-                        <div class="col-lg-8">
-                            
-                              
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                           
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="row" style="padding-top: 40px;">
-                    <div class="col-lg-6">
-                        <div class="row">
-                        <div class="col-lg-4">
-                            Pincode: 
-                            <span class="mandatory-color">*</span>
-                        </div>
-                        <div class="col-lg-8">
-                            <input type="text" class="form-control"
-                            id="exampleInputEmail1"
-                            aria-describedby="emailHelp"
-                             required>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="row" style="padding-top: 40px;">
-                    <div class="col-lg-6">
-                        <div class="row">
-                        <div class="col-lg-4">
-                            State / Union Territory :
-                            <span class="mandatory-color">*</span>
-                        </div>
-                        <div class="col-lg-8">
-                            <select class="form-control"
-                            id="exampleFormControlSelect1">
-                            <option>ANDHRA PRADESH</option>
-                            <option>TELANGANA</option>
-                            <option>ARUNACHAL PRADESH</option>
-                            <option>SIKKHIM</option>
+                                                            <div class="col-lg-8">
+                                                                <div class="row">
+                                                                    <div class="col-lg-1">
 
-                        </select>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="row" style="padding-top: 40px;">
-                    <div class="col-lg-6">
-                        <div class="row">
-                        <div class="col-lg-4">
-                            District:
-                            <span class="mandatory-color">*</span>
-                        </div>
-                        <div class="col-lg-8">
-                            <select class="form-control"
-                            id="exampleFormControlSelect1">
-                            <option></option>
-                            <option></option>
-                            <option></option>
-                            <option></option>
 
-                        </select>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="row" style="padding-top: 40px;">
-                    <div class="col-lg-6">
-                        <div class="row">
-                        <div class="col-lg-4">
-                            Tehsil/Mandal/Block:
-                        </div>
-                        <div class="col-lg-8">
-                            <select class="form-control"
-                            id="exampleFormControlSelect1">
-                            <option></option>
-                            <option></option>
-                            <option></option>
-                            <option></option>
+                                                                    </div>
+                                                                    <div class="col-lg-4">
+                                                                        <p class="text">Pincode <span
+                                                                                class="mandatory-color">*</span></p>
 
-                        </select>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="row" style="padding-top: 40px;">
-                    <div class="col-lg-6">
-                        <div class="row">
-                        <div class="col-lg-4">
-                            City/Village/Town:
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="form-group">
+                                                                            <input type="text" class="form-control"
+                                                                                id="exampleFormControlInput1"
+                                                                                placeholder="Enter Pincode">
+                                                                        </div>
+                                                                    </div>
 
-                        </div>
-                        <div class="col-lg-8">
-                            <select class="form-control"
-                            id="exampleFormControlSelect1">
-                            <option></option>
-                            <option></option>
-                            <option></option>
-                            <option></option>
+                                                                </div>
 
-                        </select>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="row" style="padding-top: 40px;">
-                    <div class="col-lg-6">
-                        <div class="row">
-                        <div class="col-lg-4">
-                            Parliamentary Constituency:
+                                                            </div>
+                                                        </div>
 
-                        </div>
-                        <div class="col-lg-8">
-                            <select class="form-control"
-                            id="exampleFormControlSelect1">
-                            <option></option>
-                            <option></option>
-                            <option></option>
-                            <option></option>
 
-                        </select>
-                        </div>
+                                                        <div class="col-lg-12">
 
-                    </div>
-                    </div>
-                </div>
+                                                            <div class="col-lg-8">
+                                                                <div class="row">
+                                                                    <div class="col-lg-1">
 
-                <div  class="col-LG-12" style="text-align:  center; padding-top: 40px;">
-                    <button  class="btn btn-primary " type="button" disabled="">Save &amp; Next</button>
-                       <button  class="btn btn-outline-primary" type="button" style="margin-left:5px">Save As Draft</button>
-                   </div>
-            </div>
-                  </form>
+
+                                                                    </div>
+                                                                    <div class="col-lg-4">
+                                                                        <p class="text">State / Union Territory <span
+                                                                                class="mandatory-color">*</span></p>
+
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="form-group">
+                                                                            <select class="form-control"
+                                                                                id="exampleFormControlSelect2">
+                                                                                <option disabled> Select State / Union
+                                                                                    Territory </option>
+                                                                                <option>2</option>
+                                                                                <option>3</option>
+                                                                                <option>4</option>
+                                                                                <option>5</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div class="col-lg-12">
+
+                                                            <div class="col-lg-8">
+                                                                <div class="row">
+                                                                    <div class="col-lg-1">
+
+
+                                                                    </div>
+                                                                    <div class="col-lg-4">
+                                                                        <p class="text">District <span
+                                                                                class="mandatory-color">*</span></p>
+
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="form-group">
+                                                                            <select class="form-control"
+                                                                                id="exampleFormControlSelect2">
+                                                                                <option disabled>Select District
+                                                                                </option>
+                                                                                <option>2</option>
+                                                                                <option>3</option>
+                                                                                <option>4</option>
+                                                                                <option>5</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div class="col-lg-12">
+
+                                                            <div class="col-lg-8">
+                                                                <div class="row">
+                                                                    <div class="col-lg-1">
+
+
+                                                                    </div>
+                                                                    <div class="col-lg-4">
+                                                                        <p class="text">Tehsil/Mandal/Block <span
+                                                                                class="mandatory-color">*</span></p>
+
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="form-group">
+                                                                            <select class="form-control"
+                                                                                id="exampleFormControlSelect2">
+                                                                                <option disabled>Select
+                                                                                    Tehsil/Mandal/Block</option>
+                                                                                <option>2</option>
+                                                                                <option>3</option>
+                                                                                <option>4</option>
+                                                                                <option>5</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div class="col-lg-12">
+
+                                                            <div class="col-lg-8">
+                                                                <div class="row">
+                                                                    <div class="col-lg-1">
+
+
+                                                                    </div>
+                                                                    <div class="col-lg-4">
+                                                                        <p class="text">City/Village/Town <span
+                                                                                class="mandatory-color">*</span></p>
+
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="form-group">
+                                                                            <select class="form-control"
+                                                                                id="exampleFormControlSelect2">
+                                                                                <option disabled>Select
+                                                                                    City/Village/Town </option>
+                                                                                <option>2</option>
+                                                                                <option>3</option>
+                                                                                <option>4</option>
+                                                                                <option>5</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div class="col-lg-12">
+
+                                                            <div class="col-lg-8">
+                                                                <div class="row">
+                                                                    <div class="col-lg-1">
+
+
+                                                                    </div>
+                                                                    <div class="col-lg-4">
+                                                                        <p class="text">Parliamentary Constituency<span
+                                                                                class="mandatory-color">*</span></p>
+
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="form-group">
+                                                                            <select class="form-control"
+                                                                                id="exampleFormControlSelect2">
+                                                                                <option disabled> Select Parliamentary
+                                                                                    Constituency</option>
+                                                                                <option>2</option>
+                                                                                <option>3</option>
+                                                                                <option>4</option>
+                                                                                <option>5</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-12"
+                                                            style="text-align:  center; padding-top: 40px;">
+                                                            <button class="btn btn-primary " type="button"
+                                                                awNextStep>Save &amp; Next</button>
+                                                            <button class="btn btn-outline-primary" type="button"
+                                                                style="margin-left:5px">Save As Draft</button>
+                                                        </div>
+
+
+                                                    </div>
+                                                </aw-wizard-step>
+                                                <aw-wizard-step [stepTitle]="'Education Details'" [navigationSymbol]="{ symbol: '3' }"  awOptionalStep>
+
+                                                    <div class="education">
+                                                        <div class="col-lg-12">
+                                                            <div class="row">
+                                                                <div class="col-lg-3">
+                                                                    <p class="text">Education<span
+                                                                            class="mandatory-color">*</span></p>
+                                                                </div>
+                                                                <div class="col-lg-3">
+                                                                    <div class="form-group">
+                                                                        <select class="form-control"
+                                                                            id="exampleFormControlSelect2">
+                                                                            <option> B.tech</option>
+                                                                            <option>2</option>
+                                                                            <option>3</option>
+                                                                            <option>4</option>
+                                                                            <option>5</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-12">
+                                                            <div class="row">
+                                                                <div class="col-lg-3">
+                                                                    <p class="text">Year of Passing<span
+                                                                            class="mandatory-color">*</span></p>
+                                                                </div>
+                                                                <div class="col-lg-3">
+                                                                    <div class="form-group">
+                                                                        <select class="form-control"
+                                                                            id="exampleFormControlSelect2">
+                                                                            <option>2017</option>
+                                                                            <option>2</option>
+                                                                            <option>3</option>
+                                                                            <option>4</option>
+                                                                            <option>5</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-2">
+                                                                    <p class="text">Upload Supporting Documents:
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-lg-4">
+
+                                                                    <div class="custom-file">
+                                                                        <input type="file" class="custom-file-input"
+                                                                            id="inputGroupFile04"
+                                                                            aria-describedby="inputGroupFileAddon04">
+                                                                        <label class="custom-file-label"
+                                                                            for="inputGroupFile04">Choose File:
+                                                                        </label>
+                                                                    </div>
+                                                                    <label class="blue-color-text">
+                                                                        File size upto 3 mb
+                                                                    </label>
+                                                                    <label class="blue-color-text">
+                                                                        (Allowed formats jpeg, png, jpg)
+                                                                    </label>
+                                                                    <button type="button"
+                                                                        class="btn btn-outline-info">Upload</button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-12">
+                                                                <div class="row" style="float:right;padding:20px">
+                                                                    <button class="btn btn-outline-primary"
+                                                                        type="button" style="margin-left:5px">Add
+                                                                        Education
+                                                                        Details</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="dashed-separator" style="padding-top:40px">
+
+                                                        </div>
+
+                                                        <div class="col-lg-12">
+
+                                                            <div class="col-lg-6">
+                                                                <p class="heading">Candidate Experience</p>
+                                                            </div>
+                                                            <div class="row">
+
+                                                                <div class="col-lg-3">
+                                                                    <p class="text">Pre-training Status
+                                                                        <span class="mandatory-color">*</span>
+                                                                    </p>
+                                                                </div>
+
+                                                                <div class="col-lg-3">
+                                                                    <div class="form-group">
+                                                                        <select class="form-control"
+                                                                            id="exampleFormControlSelect2">
+                                                                            <option>Fresher</option>
+                                                                            <option>2</option>
+                                                                            <option>3</option>
+                                                                            <option>4</option>
+                                                                            <option>5</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="dashed-separator" style="padding-top:30px">
+
+                                                        </div>
+
+
+                                                        <div class="col-lg-12">
+                                                            <div class="row">
+                                                                <div class="col-lg-3">
+                                                                    <p class="text">
+                                                                        Previous Experience Sector:
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-lg-3">
+                                                                    <div class="form-group">
+                                                                        <select class="form-control"
+                                                                            id="exampleFormControlSelect2">
+                                                                            <option></option>
+                                                                            <option>2</option>
+                                                                            <option>3</option>
+                                                                            <option>4</option>
+                                                                            <option>5</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3">
+                                                                    <p class="text">
+                                                                        Previous Experience Job Role:
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-lg-3">
+                                                                    <div class="form-group">
+                                                                        <select class="form-control"
+                                                                            id="exampleFormControlSelect2">
+                                                                            <option></option>
+                                                                            <option>2</option>
+                                                                            <option>3</option>
+                                                                            <option>4</option>
+                                                                            <option>5</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div class="col-lg-12">
+                                                            <div class="row">
+                                                                <div class="col-lg-3">
+                                                                    <p class="text">
+                                                                        No of months of previous experience:
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-lg-3">
+                                                                    <div class="form-group">
+                                                                        <select class="form-control"
+                                                                            id="exampleFormControlSelect2">
+                                                                            <option></option>
+                                                                            <option>2</option>
+                                                                            <option>3</option>
+                                                                            <option>4</option>
+                                                                            <option>5</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3">
+                                                                    <p class="text">
+                                                                        No of years of previous experience:
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-lg-3">
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control"
+                                                                            id="exampleFormControlInput1"
+                                                                            placeholder="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div class="col-lg-12">
+                                                            <div class="row">
+                                                                <div class="col-lg-3">
+                                                                    <p class="text">
+                                                                        Employed:
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-lg-3">
+                                                                    <div class="form-group">
+                                                                        <select class="form-control"
+                                                                            id="exampleFormControlSelect2">
+                                                                            <option></option>
+                                                                            <option>2</option>
+                                                                            <option>3</option>
+                                                                            <option>4</option>
+                                                                            <option>5</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-lg-12">
+                                                            <div class="row">
+                                                                <div class="col-lg-3">
+                                                                    <p class="text">
+                                                                        Employment status:
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-lg-3">
+                                                                    <div class="form-group">
+                                                                        <select class="form-control"
+                                                                            id="exampleFormControlSelect2">
+                                                                            <option></option>
+                                                                            <option>2</option>
+                                                                            <option>3</option>
+                                                                            <option>4</option>
+                                                                            <option>5</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3">
+                                                                    <p class="text">
+                                                                        Employment Details:
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-lg-3">
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control"
+                                                                            id="exampleFormControlInput1"
+                                                                            placeholder="Enter Employment Details">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="dashed-separator" style="padding-top:20px">
+
+                                                        </div>
+
+                                                        <div class="col-lg-12"
+                                                            style="text-align:  center; padding-top: 40px;">
+                                                            <button class="btn btn-primary " type="button"
+                                                                awNextStep>Save &amp; Next</button>
+                                                            <button class="btn btn-outline-primary" type="button"
+                                                                style="margin-left:5px">Save As Draft</button>
+                                                        </div>
+
+                                                    </div>
+
+
+                                                </aw-wizard-step>
+
+                                                <aw-wizard-step [stepTitle]="'Course Preferences'"  [navigationSymbol]="{ symbol: '4' }" awOptionalStep>
+
+                                                    <div class="course">
+                                                        <div class="col-lg-12">
+                                                            <div class="row">
+                                                                <div class="col-lg-3">
+                                                                    <p class="text">
+                                                                        Heard about us?
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-lg-9">
+                                                                    <div class="form-group">
+                                                                        <select class="form-control"
+                                                                            id="exampleFormControlSelect2">
+                                                                            <option></option>
+                                                                            <option>2</option>
+                                                                            <option>3</option>
+                                                                            <option>4</option>
+                                                                            <option>5</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-12">
+                                                            <div class="row">
+                                                                <div class="col-lg-3">
+                                                                    <p class="text">
+                                                                        Select Sector:
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-lg-3">
+                                                                    <div class="form-group">
+                                                                        <select class="form-control"
+                                                                            id="exampleFormControlSelect2">
+                                                                            <option>Select Sector</option>
+                                                                            <option>2</option>
+                                                                            <option>3</option>
+                                                                            <option>4</option>
+                                                                            <option>5</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3">
+                                                                    <p class="text">
+                                                                        Select Sub Sector:
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-lg-3">
+                                                                    <div class="form-group">
+                                                                        <select class="form-control"
+                                                                            id="exampleFormControlSelect2">
+                                                                            <option>Select Sub Sector</option>
+                                                                            <option>2</option>
+                                                                            <option>3</option>
+                                                                            <option>4</option>
+                                                                            <option>5</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12">
+                                                            <div class="row">
+                                                                <div class="col-lg-3">
+                                                                    <p class="text">
+                                                                        Select job Role:
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-lg-3">
+                                                                    <div class="form-group">
+                                                                        <select class="form-control"
+                                                                            id="exampleFormControlSelect2">
+                                                                            <option>Select job Role</option>
+                                                                            <option>2</option>
+                                                                            <option>3</option>
+                                                                            <option>4</option>
+                                                                            <option>5</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="col-lg-12">
+                                                            <div class="row" style="float:right;padding:30px">
+                                                                <button class="btn btn-outline-primary"
+                                                                    type="button" style="margin-left:5px">Add
+                                                                   Another Preference</button>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-lg-12"
+                                                            style="text-align:  center; padding-top: 40px;">
+                                                            <button class="btn btn-primary " type="button"
+                                                                awNextStep>Save &amp; Next</button>
+                                                            <button class="btn btn-outline-primary" type="button"
+                                                                style="margin-left:5px">Save As Draft</button>
+                                                        </div>
+
+                                                    </div>
+                                                </aw-wizard-step>
+
+                                                <aw-wizard-step [stepTitle]="'Declaration & Submission'" [navigationSymbol]="{ symbol: '5' }" awOptionalStep>
+                                                    <div class="declaration">
+                                                          <div class="col-lg-12">
+                                                              <div class="row">
+                                                                  <div class="col-lg-3">
+                                                                      <p class="text">
+                                                                          Declaration Undertaking:
+                                                                      </p>
+                                                                  </div>
+                                                                  <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                       
+                                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+
+                                                                      </div>
+                                                                      <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                                                        <label class="form-check-label" for="defaultCheck1">
+                                                                         I agree to the terms & conditions.
+                                                                        </label>
+                                                                      </div>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+
+                                                        <div class="col-lg-12"
+                                                            style="text-align:  center; padding-top: 40px;">
+                                                            <button class="btn btn-primary " type="button"
+                                                                awNextStep>Agree & Submit</button>
+                                                            <button class="btn btn-outline-primary" type="button"
+                                                                style="margin-left:5px">Review Before Submission</button>
+                                                        </div>
+                                                    </div>
+
+
+                                                </aw-wizard-step>
+
+                                            </aw-wizard>
+                                        </form>
+                                    </div>

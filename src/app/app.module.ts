@@ -8,7 +8,6 @@ import { AssessmentComponent } from './assessment/assessment.component';
 import { SearchApplyComponent } from './search-apply/search-apply.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
-/* import { AngularFontAwesomeModule } from 'angular-font-awesome'; */
 import { RecaptchaModule } from 'angular-google-recaptcha';
 import { FormsModule } from '@angular/forms';
 import { AssessorComponent } from './assessor/assessor.component';
@@ -35,8 +34,13 @@ import { DataTableModule } from 'ng-angular8-datatable';
 import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {DataTablesModule} from 'angular-datatables';
-
+import { ArchwizardModule } from 'angular-archwizard';
+import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,14 +76,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     AngularFontAwesomeModule,
     DataTableModule,
-ReactiveFormsModule, 
-HttpClientModule,
-DataTablesModule,
-NgbModule,
-    /* AngularFontAwesomeModule, */
+    ReactiveFormsModule, 
+    HttpClientModule,
+    DataTablesModule,
+    NgbModule,
+    ArchwizardModule,
+    BsDatepickerModule.forRoot(),
     RecaptchaModule.forRoot({
       siteKey: '6Lcgq9YUAAAAAHk4WH8GglapEtBwwY1C2jaJ4AJ-'
   }),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
