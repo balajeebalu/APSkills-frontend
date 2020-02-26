@@ -127,13 +127,15 @@
                                                 Date:</label>
                                         </div>
                                         <div class="form-group">
-                                           
+                                 <input
+                                    class="form-control"
+                                    #datepickerYMD="bsDatepicker"
+                                    bsDatepicker
+                                    formControlName="startDate"
+                                    [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
+                                            
     
-                                            <input type="text"
-                                            formControlName="startDate"
-                                            placeholder="Mela Start Date"
-                                            class="form-control"
-                                            bsDatepicker>
+                                          
 
 
                                               </div>
@@ -146,12 +148,14 @@
 
                                         
                                             <div class="form-group">
-                                                <input type="text"
+                                                
+                                                <input
+                                                class="form-control"
+                                                #datepickerYMD="bsDatepicker"
+                                                bsDatepicker
                                                 formControlName="endDate"
-                                            placeholder="Mela End Date"
-                                            class="form-control"
-                                            bsDatepicker>
-                                         
+                                                [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
+                                            
                                             
                                             
 
@@ -179,19 +183,19 @@
                                     <div class="col-lg-1">
                                         <div class="form-group">
                                             <input class="btn btn-primary  margin-left-15 active"
-                                                type="reset" value="Apply" role="button"
-                                                aria-pressed="false">
+                                            type="submit" value="Apply" role="button"
+                                                >
 
                                         </div>
                                     </div>
-                                    <div class="col-lg-1">
+                                   <!--  <div class="col-lg-1">
                                         <div class="form-group">
                                             <input class="btn btn-primary  margin-left-15 active"
                                                 type="reset" value="Reset" role="button"
                                                 aria-pressed="false">
 
                                         </div>
-                                    </div>
+                                    </div> -->
                                    
                                 </div>
                                
@@ -216,7 +220,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let group of batchData">
+                                    <tr *ngFor="let group of melaData">
                                         <td></td>
                                         <td>{{group.Melas. melaName}}</td>
                                             <td>{{group.Melas. typeOfMela}}</td>

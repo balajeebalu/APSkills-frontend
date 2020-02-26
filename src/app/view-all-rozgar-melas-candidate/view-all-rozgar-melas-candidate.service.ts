@@ -13,12 +13,9 @@ export class ViewRozgarMelaService {
     getAllDistricts(): Observable<any> {
         return this.http.get('//localhost:8080/districts');
         }
-     
-    getAllMelas(): Observable<any> {
-        return this.http.get('//localhost:8080/apply');
-        }
+
         onSubmit(districtId:any, melaStartDate:any,melaEndDate:any): Observable<any>  {
-            return this.http.get('//localhost:8080/melas?districtId='+districtId+'melaStartDate'+melaStartDate+'melaEndDate'+melaEndDate);
+            return this.http.get('//localhost:8080/melas?districtId='+districtId+'&melaStartDate'+melaStartDate+'&melaEndDate'+melaEndDate);
             
 
 }

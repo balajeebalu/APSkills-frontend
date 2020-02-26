@@ -30,7 +30,7 @@ export class ViewTrainingCentresService {
    onSubmit(districtId:any,sectorId: any,subSectorId: any,jobId:any): Observable<any>  {
     return this.http.get('//localhost:8080/batches?districtId='+districtId+'&sectorId='+sectorId+'&subSectorId='+subSectorId+'&jobId='+jobId);
     
-      }
+    }
 
 }
 
