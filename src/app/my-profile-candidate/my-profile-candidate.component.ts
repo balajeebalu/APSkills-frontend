@@ -8,81 +8,90 @@ import { MyProfileService } from './my-profile-candidate.service';
   styleUrls: ['./my-profile-candidate.component.css']
 })
 export class MyProfileCandidateComponent implements OnInit {
- 
-states:Array<any>;
-districts:Array<any>;
-mandals:Array<any>;
-villages:Array<any>;
-parliamentaries:Array<any>;
 
-//assigned in get methods
-stateId:string;
-districtId:string;
-mandalId:string;
+  states: Array<any>;
+  districts: Array<any>;
+  mandals: Array<any>;
+  villages: Array<any>;
+  parliamentaries: Array<any>;
 
-
-
+  dob: any;
+  //assigned in get methods
+  stateId: string;
+  districtId: string;
+  mandalId: string;
 
 
-  radio1=false;
-  radio2=false;
-  result:any;
-   constructor(public fb: FormBuilder, private myProfileCandidateService:MyProfileService) { }
+
+
+
+  radio1 = false;
+  radio2 = false;
+  result: any;
+  constructor(public fb: FormBuilder, private myProfileCandidateService: MyProfileService) { }
 
   ngOnInit() {
 
     this.myProfileCandidateService.getAllStates().subscribe(data => {
       this.states = data;
-  
+
     });
-   
-   
+
+
 
 
   }
 
   //get methods for contact details form
 
-  getDistrictsForState(stateId:string) {
-   
+  getDistrictsForState(stateName: string) {
+    let stateId = this.states.filter(ele => ele.stateName == stateName)[0].stateId
     this.myProfileCandidateService.getDistrictsForState(stateId).subscribe(data => {
       this.districts = data;
-    
+
     });
   }
 
-  getMandalForDistrict(districtId:string) {
-    
+  getMandalForDistrict(districtName: string) {
+    let districtId = this.districts.filter(ele => ele.districtName == districtName)[0].districtId
     this.myProfileCandidateService.getMandalForDistrict(districtId).subscribe(data => {
       this.mandals = data;
 
     });
   }
 
-  getVillageForMandal(mandalId:string) {
+  getVillageForMandal(mandalName: string) {
+    let mandalId = this.mandals.filter(ele => ele.mandalName == mandalName)[0].mandalId
     this.myProfileCandidateService.getVillageForMandal(mandalId).subscribe(data => {
       this.villages = data;
     });
   }
-  getParliamentaryForState(stateId:string) {
+  getParliamentaryForState(stateName: string) {
+    let stateId = this.states.filter(ele => ele.stateName == stateName)[0].stateId
     this.myProfileCandidateService.getParliamentaryForState(stateId).subscribe(data => {
       this.parliamentaries = data;
     });
   }
+  toString(dob: any) {
+    dob = new Date();
+    dob = dob.getUTCFullYear() + "-" + dob.getUTCMonth() + "-" + dob.getUTCDate();
 
-  show1(){
-    this.radio1=true;
-    this.radio2=false;
+    console.log(dob);
   }
 
-  show2(){
-    this.radio2=true;
-    this.radio1=false;
+  show1() {
+    this.radio1 = true;
+    this.radio2 = false;
   }
 
-//personal details form
-  personalDetailsForm= this.fb.group({
-  
+  show2() {
+    this.radio2 = true;
+    this.radio1 = false;
+  }
+
+  //personal details form
+  personalDetailsForm = this.fb.group({
+
     prefix: [' ', [Validators.required]],
     candidateFullName: [' ', [Validators.required]],
     uploadProfilePicture: [' ', [Validators.required]],
@@ -112,9 +121,9 @@ mandalId:string;
     village: [' ', [Validators.required]],
     parliamentaryConstituency: [' ', [Validators.required]],
   });
-//contact details form
-  contactDetailsForm= this.fb.group({
-  
+  //contact details form
+  contactDetailsForm = this.fb.group({
+
     address: [' ', [Validators.required]],
     pinCode: [' ', [Validators.required]],
     state: [' ', [Validators.required]],
@@ -127,12 +136,12 @@ mandalId:string;
     bankName: [' ', [Validators.required]],
     bankAddress: [' ', [Validators.required]],
     village: [' ', [Validators.required]],
-  
+
   });
   //education details form
 
-  educationalDetailsForm= this.fb.group({
-  
+  educationalDetailsForm = this.fb.group({
+
     education: [' ', [Validators.required]],
     yearOfPassing: [' ', [Validators.required]],
     preTrainingStatus: [' ', [Validators.required]],
@@ -144,82 +153,84 @@ mandalId:string;
     monthsOfExperience: [' ', [Validators.required]],
     employmentStatus: [' ', [Validators.required]],
     uploadSupportingDocuments: [' ', [Validators.required]],
-   
+
   });
 
   //course preferences form
-  coursePreferencesForm= this.fb.group({
-  
+  coursePreferencesForm = this.fb.group({
+
     heardAboutUs: [' ', [Validators.required]],
     sector: [' ', [Validators.required]],
     subSector: [' ', [Validators.required]],
     jobRole: [' ', [Validators.required]],
-   
+
   });
   //declaration form
 
-  declarationForm= this.fb.group({
-  
+  declarationForm = this.fb.group({
+
     declarationUndertaking: [' ', [Validators.required]],
-   
+
   });
 
 
-//posting data to forms on submit 
-  onSubmit(personalDetailsForm){
+  //posting data to forms on submit 
+  onSubmit(personalDetailsForm) {
     console.log(personalDetailsForm);
+    personalDetailsForm = Object.assign(personalDetailsForm, { userId: 10 });
     let serializedForm = JSON.stringify(personalDetailsForm);
     console.log(serializedForm);
-    this.myProfileCandidateService.onSubmit(serializedForm).subscribe((data)=>{
-    this.result=data;
-    console.log("success!", data),
-    error => console.error("couldn't post because", error)
+    this.myProfileCandidateService.onSubmit(serializedForm).subscribe((data) => {
+      this.result = data;
+      console.log("success!", data),
+        error => console.error("couldn't post because", error)
     })
   }
-  onSubmitContactForm(contactDetailsForm){
+  onSubmitContactForm(contactDetailsForm) {
     console.log(contactDetailsForm);
     let serializedContactDetailsForm = JSON.stringify(contactDetailsForm);
     console.log(serializedContactDetailsForm);
-    this.myProfileCandidateService.onSubmitContactForm(serializedContactDetailsForm).subscribe((data)=>{
-    this.result=data;
-    console.log("success!", data),
-    error => console.error("couldn't post because", error)
+    this.myProfileCandidateService.onSubmitContactForm(serializedContactDetailsForm).subscribe((data) => {
+      this.result = data;
+     alert("success!"),
+        error => console.error("couldn't post because", error)
     })
   }
 
-  onSubmitEducationForm(educationalDetailsForm){
+
+  onSubmitEducationForm(educationalDetailsForm) {
     console.log(educationalDetailsForm);
     let serializedEducationDetailsForm = JSON.stringify(educationalDetailsForm);
     console.log(serializedEducationDetailsForm);
-    this.myProfileCandidateService.onSubmitEducationForm(serializedEducationDetailsForm).subscribe((data)=>{
-    this.result=data;
-    console.log("success!", data),
-    error => console.error("couldn't post because", error)
+    this.myProfileCandidateService.onSubmitEducationForm(serializedEducationDetailsForm).subscribe((data) => {
+      this.result = data;
+      console.log("success!", data),
+        error => console.error("couldn't post because", error)
     })
   }
 
-  onSubmitCoursePreferencesForm(coursePreferencesForm){
+  onSubmitCoursePreferencesForm(coursePreferencesForm) {
     console.log(coursePreferencesForm);
     let serializedCoursePreferencesForm = JSON.stringify(coursePreferencesForm);
     console.log(serializedCoursePreferencesForm);
-    this.myProfileCandidateService.onSubmitCoursePreferencesForm(serializedCoursePreferencesForm).subscribe((data)=>{
-    this.result=data;
-    console.log("success!", data),
-    error => console.error("couldn't post because", error)
+    this.myProfileCandidateService.onSubmitCoursePreferencesForm(serializedCoursePreferencesForm).subscribe((data) => {
+      this.result = data;
+      console.log("success!", data),
+        error => console.error("couldn't post because", error)
     })
   }
 
 
-  onSubmitDeclarationForm(declarationForm){
+  onSubmitDeclarationForm(declarationForm) {
     console.log(declarationForm);
     let serializedDeclarationForm = JSON.stringify(declarationForm);
     console.log(serializedDeclarationForm);
-    this.myProfileCandidateService.onSubmitDeclarationForm(serializedDeclarationForm).subscribe((data)=>{
-    this.result=data;
-    console.log("success!", data),
-    error => console.error("couldn't post because", error)
+    this.myProfileCandidateService.onSubmitDeclarationForm(serializedDeclarationForm).subscribe((data) => {
+      this.result = data;
+      console.log("success!", data),
+        error => console.error("couldn't post because", error)
     })
   }
 
- 
+
 }
