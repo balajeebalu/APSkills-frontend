@@ -86,710 +86,687 @@
                                     </div>
 
                                     <div class="registration-header">
-                                      
-                                            <aw-wizard #wizard [navBarLayout]="'large-filled-symbol'"
-                                                class="horizontal">
-                                                <aw-wizard-step [stepTitle]="'Personal Details'"
-                                                    [navigationSymbol]="{ symbol: '1' }">
-                                                    <form [formGroup]="personalDetailsForm"
-                                                        (ngSubmit)="onSubmit(personalDetailsForm.value)">
-                                                        <div class="col-lg-12">
-                                                            <div class="row">
 
-                                                                <div class="col-lg-6">
-                                                                    <div class="row row-text">
-                                                                        <div class="col-lg-4">
-                                                                            <label for="candidate-name ">Candidate Name:
-                                                                                <span class="mandatory-color">*</span>
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="col-lg-8">
-                                                                            <div class="row ">
-                                                                                <div class="col-lg-4">
-                                                                                    <select class="form-control" formControlName="namePrefix"
-                                                                                        id="exampleFormControlSelect1">
-                                                                                        <option>Mr</option>
-                                                                                        <option>Mrs</option>
-                                                                                        <option>Ms</option>
-                                                                                        <option>Mx</option>
+                                        <aw-wizard #wizard [navBarLayout]="'large-filled-symbol'" class="horizontal">
+                                            <aw-wizard-step [stepTitle]="'Personal Details'"
+                                                [navigationSymbol]="{ symbol: '1' }">
+                                                <form [formGroup]="personalDetailsForm"
+                                                    (ngSubmit)="onSubmit(personalDetailsForm.value)">
+                                                    <div class="col-lg-12">
+                                                        <div class="row">
 
-                                                                                    </select>
-                                                                                </div>
-                                                                                <div class="col-lg-8">
-                                                                                    <input type="text" class="form-control"
-                                                                                         formControlName="candidateName"
-                                                                                       
-                                                                                        >
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Candidate Name:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
                                                                     </div>
-                                                                </div>
-                                                                <div class="col-lg-6">
-                                                                    <div class="row row-text">
-                                                                        <div class="col-lg-4">
-                                                                            <label for="candidate-name ">Upload Profile
-                                                                                Picture:
-
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="col-lg-8">
-
-                                                                            <div class="custom-file">
-                                                                                <input type="file"  class="custom-file-input" formControlName="image"
-                                                                                   
-                                                                                    >
-                                                                                <label class="custom-file-label"
-                                                                                    for="inputGroupFile04">Choose
-                                                                                    file:</label>
+                                                                    <div class="col-lg-8">
+                                                                        <div class="row ">
+                                                                            <div class="col-lg-4">
+                                                                                <select class="form-control"
+                                                                                    formControlName="prefix">
+                                                                                    <option>Mr</option>
+                                                                                    <option>Mrs</option>
+                                                                                    <option>Ms</option>
+                                                                                    <option>Mx</option>
+                                                                                </select>
                                                                             </div>
-                                                                            <label class="blue-color-text">
-                                                                                File size upto 3 mb
-                                                                            </label>
-                                                                            <label class="blue-color-text">
-                                                                                (Allowed formats jpeg, png, jpg)
-                                                                            </label>
-                                                                            <button type="button"
-                                                                                class="btn btn-outline-info">Upload</button>
+                                                                            <div class="col-lg-8">
+                                                                                <input type="text" class="form-control"
+                                                                                    formControlName="candidateFullName">
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-lg-12">
-                                                            <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Upload Profile
+                                                                            Picture:
 
-                                                                <div class="col-lg-6">
-                                                                    <div class="row row-text">
-                                                                        <div class="col-lg-4">
-                                                                            <label for="candidate-name ">Country Codes:
-                                                                                <span class="mandatory-color">*</span>
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="col-lg-8">
-                                                                            <div class="row ">
-
-                                                                                <div class="col-lg-12">
-                                                                                    <input class="form-control" formControlName="countryCode"
-                                                                                        type="text" 
-                                                                                        >
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
+                                                                        </label>
                                                                     </div>
-                                                                </div>
-                                                                <div class="col-lg-6">
-                                                                    <div class="row row-text">
-                                                                        <div class="col-lg-4">
-                                                                            <label for="candidate-name ">Phone Number:
-                                                                                <span class="mandatory-color">*</span>
-                                                                            </label>
+                                                                    <div class="col-lg-8">
+
+                                                                        <div class="custom-file">
+                                                                            <!--  <input type="file"  class="custom-file-input" formControlName="uploadProfilePicture"> -->
+                                                                            <label class="custom-file-label"
+                                                                                for="inputGroupFile04">Choose
+                                                                                file:</label>
                                                                         </div>
-                                                                        <div class="col-lg-8">
-                                                                            <input type="text" class="form-control"
-                                                                                id="exampleInputEmail1"
-                                                                                formControlName="contactNumber"
-                                                                                >
-                                                                        </div>
+                                                                        <label class="blue-color-text">
+                                                                            File size upto 3 mb
+                                                                        </label>
+                                                                        <label class="blue-color-text">
+                                                                            (Allowed formats jpeg, png, jpg)
+                                                                        </label>
+                                                                        <button type="button"
+                                                                            class="btn btn-outline-info">Upload</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-12">
-                                                            <div class="row">
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="row">
 
-                                                                <div class="col-lg-6">
-                                                                    <div class="row row-text">
-                                                                        <div class="col-lg-4">
-                                                                            <label for="candidate-name ">Email Address:
-                                                                                <span class="mandatory-color">*</span>
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="col-lg-8">
-                                                                            <div class="row ">
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Country Codes:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <div class="row ">
 
-                                                                                <div class="col-lg-12">
-                                                                                    <input type="email"
-                                                                                        class="form-control"
-                                                                                        id="exampleInputEmail1"
-                                                                                        formControlName="emailId"
-                                                                                        placeholder="Enter Email Address"
-                                                                                        required>
-                                                                                </div>
+                                                                            <div class="col-lg-12">
+                                                                                <input class="form-control"
+                                                                                    formControlName="countryCodes"
+                                                                                    type="text">
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-lg-6">
-                                                                    <div class="row row-text">
-                                                                        <div class="col-lg-4">
-                                                                            <label for="candidate-name ">Gender:
-
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="col-lg-8">
-                                                                            <input  type="text" formControlName="gender" class="form-control"
-                                                                                 >
-
-                                                                        </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Phone Number:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <input type="text" class="form-control"
+                                                                            formControlName="phoneNumber">
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-12">
-                                                            <div class="row">
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="row">
 
-                                                                <div class="col-lg-6">
-                                                                    <div class="row row-text">
-                                                                        <div class="col-lg-4">
-                                                                            <label for="candidate-name ">Date of Birth:
-                                                                                <span class="mandatory-color">*</span>
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="col-lg-8">
-                                                                            <div class="row ">
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Email Address:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <div class="row ">
 
-                                                                                <div class="col-lg-12">
-                                                                                    <input type="text"
-                                                                                        class="form-control"
-                                                                                        id="exampleInputEmail1"
-                                                                                        formControlName="dob"
-                                                                                       
-                                                                                         required>
-                                                                                </div>
+                                                                            <div class="col-lg-12">
+                                                                                <input type="email" class="form-control"
+                                                                                    formControlName="emailAddress"
+                                                                                    placeholder="Enter Email Address"
+                                                                                    required>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-lg-6">
-                                                                    <div class="row row-text">
-                                                                        <div class="col-lg-4">
-                                                                            <label for="candidate-name ">Marital Status:
-                                                                                <span class="mandatory-color">*</span>
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="col-lg-8">
-                                                                            <select class="form-control" formControlName="maritalStatus"
-                                                                                id="exampleFormControlSelect1">
-                                                                                <option disabled>Select Marital Status
-                                                                                </option>
-                                                                                <option>Not to disclosed</option>
-                                                                                <option>Separated</option>
-                                                                                <option>Single/Unmarried</option>
-                                                                                <option>Married</option>
-                                                                                <option>Widowed</option>
-                                                                                <option>Divorced</option>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Gender:
 
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <input type="text" formControlName="gender"
+                                                                            class="form-control">
 
-                                                                            </select>
-                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="row">
 
-                                                        <div class="col-lg-12">
-                                                            <div class="row">
-
-                                                                <div class="col-lg-6">
-                                                                    <div class="row row-text">
-                                                                        <div class="col-lg-4">
-                                                                            <label for="candidate-name ">Domicile State:
-                                                                                <span class="mandatory-color">*</span>
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="col-lg-8">
-                                                                            <select class="form-control" formControlName="domicileState"
-                                                                                id="exampleFormControlSelect1">
-                                                                                <option disabled>Select Domicile State
-                                                                                </option>
-                                                                                <option>Andhra Pradesh</option>
-                                                                                <option>Bihar</option>
-                                                                                <option>Chhattisgarh</option>
-                                                                                <option>Telangana</option>
-
-
-
-                                                                            </select>
-                                                                        </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Date of Birth:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
                                                                     </div>
-                                                                </div>
-                                                                <div class="col-lg-6">
-                                                                    <div class="row row-text">
-                                                                        <div class="col-lg-4">
-                                                                            <label for="candidate-name ">Domicile
-                                                                                District:
-                                                                                <span class="mandatory-color">*</span>
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="col-lg-8">
-                                                                            <select class="form-control"
-                                                                                id="exampleFormControlSelect1"
-                                                                                formControlName="domicileDistrict">
-                                                                                <option disabled>Select Domicile
-                                                                                    District
-                                                                                </option>
-                                                                                <option>Ananthapur</option>
-                                                                                <option>Chittoor</option>
-                                                                                <option>East Godavari</option>
-                                                                                <option>Guntur</option>
+                                                                    <div class="col-lg-8">
+                                                                        <div class="row ">
 
-
-
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-
-                                                        <div class="col-lg-12">
-                                                            <div class="row">
-
-                                                                <div class="col-lg-6">
-                                                                    <div class="row row-text">
-                                                                        <div class="col-lg-4">
-                                                                            <label for="candidate-name ">Community:
-                                                                                <span class="mandatory-color">*</span>
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="col-lg-8">
-                                                                            <div class="row ">
-
-                                                                                <div class="col-lg-12">
-                                                                                    <select class="form-control"
-                                                                                        id="exampleFormControlSelect1"
-                                                                                        formControlName="community">
-                                                                                        <option disabled>Select
-                                                                                            Community
-                                                                                        </option>
-                                                                                        <option>Kapu</option>
-                                                                                        <option>Kamma</option>
-                                                                                        <option>Brahmin</option>
-                                                                                        <option>Vysya</option>
-
-
-
-                                                                                    </select>
-                                                                                </div>
+                                                                            <div class="col-lg-12">
+                                                                                <input type="text" class="form-control"
+                                                                                    formControlName="dateOfBirth"
+                                                                                    required>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-lg-6">
-                                                                    <div class="row row-text">
-                                                                        <div class="col-lg-4">
-                                                                            <label for="candidate-name ">Religion:
-                                                                                <span class="mandatory-color">*</span>
-                                                                            </label>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Marital Status:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <select class="form-control"
+                                                                            formControlName="maritalStatus">
+                                                                            <option disabled>Select Marital Status
+                                                                            </option>
+                                                                            <option>Not to disclosed</option>
+                                                                            <option>Separated</option>
+                                                                            <option>Single/Unmarried</option>
+                                                                            <option>Married</option>
+                                                                            <option>Widowed</option>
+                                                                            <option>Divorced</option>
+
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-12">
+                                                        <div class="row">
+
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Domicile State:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <select class="form-control"
+                                                                            formControlName="domicileState">
+                                                                            <option disabled>Select Domicile State
+                                                                            </option>
+                                                                            <option>Andhra Pradesh</option>
+                                                                            <option>Bihar</option>
+                                                                            <option>Chhattisgarh</option>
+                                                                            <option>Telangana</option>
+
+
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Domicile
+                                                                            District:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <select class="form-control"
+                                                                            formControlName="domicileDistrict">
+                                                                            <option disabled>Select Domicile
+                                                                                District
+                                                                            </option>
+                                                                            <option>Ananthapur</option>
+                                                                            <option>Chittoor</option>
+                                                                            <option>East Godavari</option>
+                                                                            <option>Guntur</option>
+
+
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="col-lg-12">
+                                                        <div class="row">
+
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Community:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <div class="row ">
+
+                                                                            <div class="col-lg-12">
+                                                                                <select class="form-control"
+                                                                                    formControlName="category">
+                                                                                    <option disabled>Select
+                                                                                        Community
+                                                                                    </option>
+                                                                                    <option>Kapu</option>
+                                                                                    <option>Kamma</option>
+                                                                                    <option>Brahmin</option>
+                                                                                    <option>Vysya</option>
+
+
+
+                                                                                </select>
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="col-lg-8">
-                                                                            <div class="row ">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Religion:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <div class="row ">
 
-                                                                                <div class="col-lg-12">
-                                                                                    <select class="form-control"
-                                                                                        id="exampleFormControlSelect1"
-                                                                                        formControlName="religion">
-                                                                                        <option disabled>Select Religion
-                                                                                        </option>
-                                                                                        <option>Atheist</option>
-                                                                                        <option>Jews</option>
-                                                                                        <option>Sikh</option>
-                                                                                        <option>Hindu</option>
-                                                                                        <option>Christian</option>
-                                                                                        <option>Muslim</option>
+                                                                            <div class="col-lg-12">
+                                                                                <select class="form-control"
+                                                                                    formControlName="religion">
+                                                                                    <option disabled>Select Religion
+                                                                                    </option>
+                                                                                    <option>Atheist</option>
+                                                                                    <option>Jews</option>
+                                                                                    <option>Sikh</option>
+                                                                                    <option>Hindu</option>
+                                                                                    <option>Christian</option>
+                                                                                    <option>Muslim</option>
 
 
 
-                                                                                    </select>
-                                                                                </div>
+                                                                                </select>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                    </div>
 
 
-                                                        <div class="col-lg-12">
-                                                            <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="row">
 
-                                                                <div class="col-lg-6">
-                                                                    <div class="row row-text">
-                                                                        <div class="col-lg-4">
-                                                                            <label for="candidate-name ">Mother's Name:
-                                                                                <span class="mandatory-color">*</span>
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="col-lg-8">
-                                                                            <div class="row ">
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Mother's Name:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <div class="row ">
 
-                                                                                <div class="col-lg-12">
-                                                                                    <input type="text"
-                                                                                        class="form-control"
-                                                                                        id="exampleInputEmail1"
-                                                                                        formControlName="mothersName"
-                                                                                        placeholder="Enter Mother's Name"
-                                                                                        required>
-                                                                                </div>
+                                                                            <div class="col-lg-12">
+                                                                                <input type="text" class="form-control"
+                                                                                    formControlName="motherName"
+                                                                                    placeholder="Enter Mother's Name"
+                                                                                    required>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-lg-6">
-                                                                    <div class="row row-text">
-                                                                        <div class="col-lg-4">
-                                                                            <label for="candidate-name ">Father's Name /
-                                                                                Guardian's
-                                                                                Name:'
-                                                                                <span class="mandatory-color">*</span>
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="col-lg-8">
-                                                                            <div class="row ">
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Father's Name /
+                                                                            Guardian's
+                                                                            Name:'
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <div class="row ">
 
-                                                                                <div class="col-lg-12">
-                                                                                    <input type="text"
-                                                                                        class="form-control"
-                                                                                        id="exampleInputEmail1"
-                                                                                        formControlName="fathersName"
-                                                                                        placeholder="Venkatesh" 
-                                                                                        required>
-                                                                                </div>
+                                                                            <div class="col-lg-12">
+                                                                                <input type="text" class="form-control"
+                                                                                    formControlName="fatherName"
+                                                                                    placeholder="Venkatesh" required>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                    </div>
 
 
-                                                        <div class="col-lg-12">
-                                                            <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="row">
 
-                                                                <div class="col-lg-6">
-                                                                    <div class="row row-text">
-                                                                        <div class="col-lg-4">
-                                                                            <label for="candidate-name ">Any Disability:
-                                                                                <span class="mandatory-color">*</span>
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="col-lg-8">
-                                                                            <div class="row ">
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">Any Disability:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <div class="row ">
 
-                                                                                <div class="col-lg-12">
-                                                                                    <select class="form-control" formControlName="disability"
-                                                                                        id="exampleFormControlSelect1">
-                                                                                        <option disabled>Select Any
-                                                                                            Disability
-                                                                                        </option>
-                                                                                        <option>Yes</option>
-                                                                                        <option>No</option>
+                                                                            <div class="col-lg-12">
+                                                                                <select class="form-control"
+                                                                                    formControlName="anyDisability">
+                                                                                    <option disabled>Select Any
+                                                                                        Disability
+                                                                                    </option>
+                                                                                    <option>Yes</option>
+                                                                                    <option>No</option>
 
 
 
-                                                                                    </select>
-                                                                                </div>
+                                                                                </select>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-lg-6">
-                                                                    <div class="row row-text">
-                                                                        <div class="col-lg-4">
-                                                                            <label for="candidate-name ">If yes, type of
-                                                                                Disability:
-                                                                                <span class="mandatory-color">*</span>
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="col-lg-8">
-                                                                            <div class="row ">
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">If yes, type of
+                                                                            Disability:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <div class="row ">
 
-                                                                                <div class="col-lg-12">
-                                                                                    <select class="form-control" formControlName="disabilityType"
-                                                                                        id="exampleFormControlSelect1">
-                                                                                        <option disabled>Select If Yes,
-                                                                                            type
-                                                                                            of
-                                                                                            Disability</option>
-                                                                                        <option>Blindness</option>
-                                                                                        <option>Deaf</option>
-                                                                                        <option>Dumb</option>
+                                                                            <div class="col-lg-12">
+                                                                                <select class="form-control"
+                                                                                    formControlName="typeOfDisability">
+                                                                                    <option disabled>Select If Yes,
+                                                                                        type
+                                                                                        of
+                                                                                        Disability</option>
+                                                                                    <option>Blindness</option>
+                                                                                    <option>Deaf</option>
+                                                                                    <option>Dumb</option>
 
 
 
-                                                                                    </select>
-                                                                                </div>
+                                                                                </select>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-12" style="padding-bottom:50px;">
-                                                            <div class="row">
+                                                    </div>
+                                                    <div class="col-lg-12" style="padding-bottom:50px;">
+                                                        <div class="row">
 
-                                                                <div class="col-lg-6">
-                                                                    <div class="row row-text">
-                                                                        <div class="col-lg-4">
-                                                                            <label for="candidate-name ">If yes, upload
-                                                                                Supporting
-                                                                                Document:
-                                                                                <span class="mandatory-color">*</span>
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="col-lg-8">
+                                                            <div class="col-lg-6">
+                                                                <div class="row row-text">
+                                                                    <div class="col-lg-4">
+                                                                        <label for="candidate-name ">If yes, upload
+                                                                            Supporting
+                                                                            Document:
+                                                                            <span class="mandatory-color">*</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
 
-                                                                            <div class="custom-file"
-                                                                                style="margin-bottom:15px">
-                                                                                <input type="file"
+                                                                        <div class="custom-file"
+                                                                            style="margin-bottom:15px">
+                                                                            <!--         <input type="file"
                                                                                     class="custom-file-input"
                                                                                     id="inputGroupFile04"
-                                                                                    formControlName="supportingDocument">
-                                                                                <label class="custom-file-label"
-                                                                                    for="inputGroupFile04">Choose
-                                                                                    file:</label>
-                                                                            </div>
-                                                                            <label class="blue-color-text">
-                                                                                File size upto 3 mb
-                                                                            </label>
-                                                                            <label class="blue-color-text">
-                                                                                (Allowed formats jpeg, png, jpg)
-                                                                            </label>
-                                                                            <button type="button"
-                                                                                class="btn btn-outline-info">Upload</button>
+                                                                                    formControlName="uploadSupportingDocument"> -->
+                                                                            <label class="custom-file-label"
+                                                                                for="inputGroupFile04">Choose
+                                                                                file:</label>
                                                                         </div>
+                                                                        <label class="blue-color-text">
+                                                                            File size upto 3 mb
+                                                                        </label>
+                                                                        <label class="blue-color-text">
+                                                                            (Allowed formats jpeg, png, jpg)
+                                                                        </label>
+                                                                        <button type="button"
+                                                                            class="btn btn-outline-info">Upload</button>
                                                                     </div>
-
-
-                                                                </div>
-                                                                <hr>
-                                                            </div>
-
-
-
-                                                        </div>
-
-                                                        <hr>
-                                                        <div class="dashed-separator">
-
-                                                        </div>
-
-                                                        <div class="identification-group">
-                                                            <div class="row">
-                                                                <div class="col-lg-3">
-                                                                    Identification Type:*
-                                                                </div>
-                                                                <div class="col-lg-3">
-                                                                    <input class="form-check-input" type="radio" formControlName="identification"
-                                                                        name="tab" value="igotnone" (onclick)="show1();"
-                                                                        checked />
-
-                                                                    <label class="form-check-label"
-                                                                        for="exampleRadios1">
-                                                                        Alternate Id
-                                                                    </label>
-
-                                                                </div>
-                                                                <div *ngIf="!show1">
-                                                                    Alternate Id
-                                                                </div>
-                                                                <div class="col-lg-3">
-                                                                    <input class="form-check-input" type="radio" formControlName="alternateId"
-                                                                        name="tab" value="igottwo"
-                                                                        (onclick)="show2();" />
-
-                                                                    <label class="form-check-label"
-                                                                        for="exampleRadios1">
-                                                                        Aadhaar
-                                                                    </label>
-                                                                </div>
-                                                                <div *ngIf="!show2">
-                                                                    Aadhar
                                                                 </div>
 
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-lg-3">
-                                                                    <p
-                                                                        style="padding-top:20px; font-weight:400;font-size:1.3rem">
-                                                                        Identification:</p>
-                                                                </div>
-
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-lg-3">
-                                                                    <p style="padding-top:15px; font-size:1rem">
-                                                                        Alternate
-                                                                        Id: *</p>
-                                                                </div>
-                                                                <div class="col-lg-3">
-                                                                    <select id="disabledSelect" class="form-control" formControlName="identificationType"
-                                                                        style="background-color: #ebedf2;">
-                                                                        <option>Select identification Type</option>
-                                                                    </select>
-                                                                </div>
 
                                                             </div>
                                                             <hr>
+                                                        </div>
 
-                                                            <div class="row">
-                                                                <div class="col-lg-3">
-                                                                    <p
-                                                                        style="padding-top:20px; font-weight:400;font-size:1.3rem">
-                                                                        Permanent Address:</p>
-                                                                </div>
+
+
+                                                    </div>
+
+                                                    <hr>
+                                                    <div class="dashed-separator">
+
+                                                    </div>
+
+                                                    <div class="identification-group">
+                                                        <div class="row">
+                                                            <div class="col-lg-3">
+                                                                Identification Type:*
                                                             </div>
-                                                            <div class="row">
-                                                                <div class="col-lg-6">
-                                                                    <div class="row">
-                                                                        <div class="col-lg-4">
-                                                                            Address:
-                                                                            <span class="mandatory-color">*</span>
-                                                                        </div>
-                                                                        <div class="col-lg-8">
+                                                            <div class="col-lg-3">
+                                                                <input class="form-check-input" type="radio"
+                                                                    name="identification" (onclick)="show1();"
+                                                                    checked />
 
+                                                                <label class="form-check-label" for="exampleRadios1">
+                                                                    Alternate Id
+                                                                </label>
 
-                                                                            <textarea class="form-control" formControlName="address"
-                                                                                id="exampleFormControlTextarea1"
-                                                                                rows="3"></textarea>
-
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
                                                             </div>
-                                                            <div class="row" style="padding-top: 40px;">
-                                                                <div class="col-lg-6">
-                                                                    <div class="row">
-                                                                        <div class="col-lg-4">
-                                                                            Pincode:
-                                                                            <span class="mandatory-color">*</span>
-                                                                        </div>
-                                                                        <div class="col-lg-8">
-                                                                            <input type="text" class="form-control" formControlName="pinCode"
-                                                                                id="exampleInputEmail1"
-                                                                                aria-describedby="emailHelp" required>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                                            <div *ngIf="!show1">
+                                                                Alternate Id
                                                             </div>
-                                                            <div class="row" style="padding-top: 40px;">
-                                                                <div class="col-lg-6">
-                                                                    <div class="row">
-                                                                        <div class="col-lg-4">
-                                                                            State / Union Territory :
-                                                                            <span class="mandatory-color">*</span>
-                                                                        </div>
-                                                                        <div class="col-lg-8">
-                                                                            <select class="form-control" formControlName="state"
-                                                                                id="exampleFormControlSelect1">
-                                                                                <option>ANDHRA PRADESH</option>
-                                                                                <option>TELANGANA</option>
-                                                                                <option>ARUNACHAL PRADESH</option>
-                                                                                <option>SIKKHIM</option>
+                                                            <div class="col-lg-3">
+                                                                <input class="form-check-input" type="radio"
+                                                                    name="alternateId" />
 
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                                                <label class="form-check-label" for="exampleRadios1">
+                                                                    Aadhaar
+                                                                </label>
                                                             </div>
-                                                            <div class="row" style="padding-top: 40px;">
-                                                                <div class="col-lg-6">
-                                                                    <div class="row">
-                                                                        <div class="col-lg-4">
-                                                                            District:
-                                                                            <span class="mandatory-color">*</span>
-                                                                        </div>
-                                                                        <div class="col-lg-8">
-                                                                            <select class="form-control" formControlName="district"
-                                                                                id="exampleFormControlSelect1">
-                                                                                <option>Ananthapur</option>
-                                                                                <option></option>
-                                                                                <option></option>
-                                                                                <option></option>
-
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row" style="padding-top: 40px;">
-                                                                <div class="col-lg-6">
-                                                                    <div class="row">
-                                                                        <div class="col-lg-4">
-                                                                            Tehsil/Mandal/Block:
-                                                                        </div>
-                                                                        <div class="col-lg-8">
-                                                                            <select class="form-control" formControlName="mandal"
-                                                                                id="exampleFormControlSelect1">
-                                                                                <option>abc</option>
-                                                                                <option></option>
-                                                                                <option></option>
-                                                                                <option></option>
-
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row" style="padding-top: 40px;">
-                                                                <div class="col-lg-6">
-                                                                    <div class="row">
-                                                                        <div class="col-lg-4">
-                                                                            City/Village/Town:
-
-                                                                        </div>
-                                                                        <div class="col-lg-8">
-                                                                            <select class="form-control" formControlName="city"
-                                                                                id="exampleFormControlSelect1">
-                                                                                <option>sgsgrgr</option>
-                                                                                <option></option>
-                                                                                <option></option>
-                                                                                <option></option>
-
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row" style="padding-top: 40px;">
-                                                                <div class="col-lg-6">
-                                                                    <div class="row">
-                                                                        <div class="col-lg-4">
-                                                                            Parliamentary Constituency:
-
-                                                                        </div>
-                                                                        <div class="col-lg-8"> 
-                                                                            <select class="form-control" formControlName="parliamentaryConstituency"
-                                                                                id="exampleFormControlSelect1">
-                                                                                <option>sgsrgrg</option>
-                                                                                <option></option>
-                                                                                <option></option>
-                                                                                <option></option>
-
-                                                                            </select>
-                                                                        </div>
-
-                                                                    </div>
-                                                                </div>
+                                                            <div *ngIf="!show2">
+                                                                Aadhar
                                                             </div>
 
-                                                            <div class="col-lg-12"
-                                                                style="text-align:  center; padding-top: 40px;">
-                                                                <button class="btn btn-primary " type="submit"
-                                                                    awNextStep>Save &amp; Next</button>
-                                                                <button class="btn btn-outline-primary" type="button"
-                                                                    style="margin-left:5px">Save As Draft</button>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-3">
+                                                                <p
+                                                                    style="padding-top:20px; font-weight:400;font-size:1.3rem">
+                                                                    Identification:</p>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-3">
+                                                                <p style="padding-top:15px; font-size:1rem">
+                                                                    Alternate
+                                                                    Id: *</p>
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                <select id="disabledSelect" class="form-control"
+                                                                    formControlName="identificationType"
+                                                                    style="background-color: #ebedf2;">
+                                                                    <option>Select identification Type</option>
+                                                                </select>
+                                                            </div>
+
+                                                        </div>
+                                                        <hr>
+
+                                                        <div class="row">
+                                                            <div class="col-lg-3">
+                                                                <p
+                                                                    style="padding-top:20px; font-weight:400;font-size:1.3rem">
+                                                                    Permanent Address:</p>
                                                             </div>
                                                         </div>
-                                                    </form>
-                                                </aw-wizard-step>
-                                                <aw-wizard-step [stepTitle]="'Contact Details'"
-                                                    [navigationSymbol]="{ symbol: '2' }" awOptionalStep>
-                                                    <form [formGroup]="contactDetailsForm"
-                                                        (ngSubmit)="onSubmit(contactDetailsForm.value)">
-                                                        <div class="communication">
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="row">
+                                                                    <div class="col-lg-4">
+                                                                        Address:
+                                                                        <span class="mandatory-color">*</span>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+
+
+                                                                        <textarea class="form-control"
+                                                                            formControlName="address"
+                                                                            rows="3"></textarea>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" style="padding-top: 40px;">
+                                                            <div class="col-lg-6">
+                                                                <div class="row">
+                                                                    <div class="col-lg-4">
+                                                                        Pincode:
+                                                                        <span class="mandatory-color">*</span>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <input type="text" class="form-control"
+                                                                            formControlName="pinCode"
+                                                                            aria-describedby="emailHelp" required>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" style="padding-top: 40px;">
+                                                            <div class="col-lg-6">
+                                                                <div class="row">
+                                                                    <div class="col-lg-4">
+                                                                        State / Union Territory :
+                                                                        <span class="mandatory-color">*</span>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <select class="form-control"
+                                                                            formControlName="state">
+                                                                            <option>ANDHRA PRADESH</option>
+                                                                            <option>TELANGANA</option>
+                                                                            <option>ARUNACHAL PRADESH</option>
+                                                                            <option>SIKKHIM</option>
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" style="padding-top: 40px;">
+                                                            <div class="col-lg-6">
+                                                                <div class="row">
+                                                                    <div class="col-lg-4">
+                                                                        District:
+                                                                        <span class="mandatory-color">*</span>
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <select class="form-control"
+                                                                            formControlName="district">
+                                                                            <option>Ananthapur</option>
+                                                                            <option></option>
+                                                                            <option></option>
+                                                                            <option></option>
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" style="padding-top: 40px;">
+                                                            <div class="col-lg-6">
+                                                                <div class="row">
+                                                                    <div class="col-lg-4">
+                                                                        Tehsil/Mandal/Block:
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <select class="form-control"
+                                                                            formControlName="mandal">
+                                                                            <option>abc</option>
+                                                                            <option></option>
+                                                                            <option></option>
+                                                                            <option></option>
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" style="padding-top: 40px;">
+                                                            <div class="col-lg-6">
+                                                                <div class="row">
+                                                                    <div class="col-lg-4">
+                                                                        City/Village/Town:
+
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <select class="form-control"
+                                                                            formControlName="village">
+                                                                            <option>sgsgrgr</option>
+                                                                            <option></option>
+                                                                            <option></option>
+                                                                            <option></option>
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" style="padding-top: 40px;">
+                                                            <div class="col-lg-6">
+                                                                <div class="row">
+                                                                    <div class="col-lg-4">
+                                                                        Parliamentary Constituency:
+
+                                                                    </div>
+                                                                    <div class="col-lg-8">
+                                                                        <select class="form-control"
+                                                                            formControlName="parliamentaryConstituency">
+                                                                            <option>sgsrgrg</option>
+                                                                            <option></option>
+                                                                            <option></option>
+                                                                            <option></option>
+
+                                                                        </select>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-12"
+                                                            style="text-align:  center; padding-top: 40px;">
+                                                            <button class="btn btn-primary " type="submit"
+                                                                awNextStep>Save &amp; Next</button>
+                                                            <button class="btn btn-outline-primary" type="button"
+                                                                style="margin-left:5px">Save As Draft</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </aw-wizard-step>
+                                            <aw-wizard-step [stepTitle]="'Contact Details'"
+                                                [navigationSymbol]="{ symbol: '2' }" awOptionalStep>
+                                                <form [formGroup]="contactDetailsForm"
+                                                    (ngSubmit)="onSubmitContactForm(contactDetailsForm.value)">
+                                                    <div class="communication">
                                                         <div class="col-lg-12">
 
                                                             <div class="col-lg-6">
@@ -825,6 +802,7 @@
                                                                         <div class="form-group">
 
                                                                             <textarea class="form-control"
+                                                                                formControlName="address"
                                                                                 id="exampleFormControlTextarea1"
                                                                                 rows="3"
                                                                                 placeholder="Enter Address"></textarea>
@@ -855,7 +833,7 @@
                                                                     <div class="col-lg-6">
                                                                         <div class="form-group">
                                                                             <input type="text" class="form-control"
-                                                                                id="exampleFormControlInput1"
+                                                                                formControlName="pinCode"
                                                                                 placeholder="Enter Pincode">
                                                                         </div>
                                                                     </div>
@@ -875,54 +853,24 @@
 
                                                                     </div>
                                                                     <div class="col-lg-4">
-                                                                        <p class="text">State / Union Territory <span
-                                                                                class="mandatory-color">*</span></p>
+
+                                                                        <label for="exampleFormControlInput1"> State
+                                                                            <span
+                                                                                class="mandatory-color">*</span></label>
 
                                                                     </div>
                                                                     <div class="col-lg-6">
                                                                         <div class="form-group">
-                                                                            <select class="form-control"
-                                                                                id="exampleFormControlSelect2">
-                                                                                <option disabled> Select State / Union
-                                                                                    Territory </option>
-                                                                                <option>2</option>
-                                                                                <option>3</option>
-                                                                                <option>4</option>
-                                                                                <option>5</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
 
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-
-
-
-                                                        <div class="col-lg-12">
-
-                                                            <div class="col-lg-8">
-                                                                <div class="row">
-                                                                    <div class="col-lg-1">
-
-
-                                                                    </div>
-                                                                    <div class="col-lg-4">
-                                                                        <p class="text">District <span
-                                                                                class="mandatory-color">*</span></p>
-
-                                                                    </div>
-                                                                    <div class="col-lg-6">
-                                                                        <div class="form-group">
-                                                                            <select class="form-control"
-                                                                                id="exampleFormControlSelect2">
-                                                                                <option disabled>Select District
+                                                                            <select  (change)="getDistrictsForState($event.target.value)"  (change)="getParliamentaryForState($event.target.value)" class="form-control "
+                                                                                formControlName="state">
+                                                                                <option value=" " disabled>Select State
                                                                                 </option>
-                                                                                <option>2</option>
-                                                                                <option>3</option>
-                                                                                <option>4</option>
-                                                                                <option>5</option>
+                                                                                <option
+                                                                                    *ngFor="let state of states; let i = index"
+                                                                                    [value]="states[i].stateId">
+                                                                                    {{states[i].stateName}}
+                                                                                </option>
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -943,21 +891,21 @@
 
                                                                     </div>
                                                                     <div class="col-lg-4">
-                                                                        <p class="text">Tehsil/Mandal/Block <span
-                                                                                class="mandatory-color">*</span></p>
+                                                                        <label for="exampleFormControlInput1"> District <span
+                                                                                class="mandatory-color">*</span></label>
 
                                                                     </div>
                                                                     <div class="col-lg-6">
                                                                         <div class="form-group">
-                                                                            <select class="form-control"
-                                                                                id="exampleFormControlSelect2">
-                                                                                <option disabled>Select
-                                                                                    Tehsil/Mandal/Block</option>
-                                                                                <option>2</option>
-                                                                                <option>3</option>
-                                                                                <option>4</option>
-                                                                                <option>5</option>
-                                                                            </select>
+                                                                            <select class="form-control" formControlName="district" (change)="getMandalForDistrict($event.target.value)"
+                                                                            id="district">
+                                                                            <option value=" " disabled>Select District</option>
+                                                                            <option *ngFor="let district of districts; let stateId=index"
+                                                                                [value]="districts[stateId].districtId">
+                                                                                {{districts[stateId].districtName}}
+                                                                            </option>
+                                                                        </select>
+                                                                          
                                                                         </div>
                                                                     </div>
 
@@ -977,21 +925,23 @@
 
                                                                     </div>
                                                                     <div class="col-lg-4">
-                                                                        <p class="text">City/Village/Town <span
-                                                                                class="mandatory-color">*</span></p>
+                                                                        <label for="exampleFormControlInput1"> Tehsil/Mandal/Block <span
+                                                                            class="mandatory-color">*</span></label>
+                                                                       
 
                                                                     </div>
                                                                     <div class="col-lg-6">
                                                                         <div class="form-group">
-                                                                            <select class="form-control"
-                                                                                id="exampleFormControlSelect2">
-                                                                                <option disabled>Select
-                                                                                    City/Village/Town </option>
-                                                                                <option>2</option>
-                                                                                <option>3</option>
-                                                                                <option>4</option>
-                                                                                <option>5</option>
-                                                                            </select>
+                                                                            <select class="form-control" formControlName="mandal"  (change)="getVillageForMandal($event.target.value)"
+                                                                            id="mandal">
+                                                                            <option value=" " disabled>Select
+                                                                                Tehsil/Mandal/Block</option>
+                                                                            <option *ngFor="let mandal of mandals; let i=index"
+                                                                                [value]="mandals[i].mandalId">
+                                                                                {{mandals[i].mandalName}}
+                                                                            </option>
+                                                                        </select>
+                                                                           
                                                                         </div>
                                                                     </div>
 
@@ -1011,21 +961,24 @@
 
                                                                     </div>
                                                                     <div class="col-lg-4">
-                                                                        <p class="text">Parliamentary Constituency<span
-                                                                                class="mandatory-color">*</span></p>
+                                                                       
+                                                                                <label for="exampleFormControlInput1">City/Village/Town<span
+                                                                                    class="mandatory-color">*</span></label>
 
                                                                     </div>
                                                                     <div class="col-lg-6">
                                                                         <div class="form-group">
-                                                                            <select class="form-control"
-                                                                                id="exampleFormControlSelect2">
-                                                                                <option disabled> Select Parliamentary
-                                                                                    Constituency</option>
-                                                                                <option>2</option>
-                                                                                <option>3</option>
-                                                                                <option>4</option>
-                                                                                <option>5</option>
-                                                                            </select>
+
+                                                                            <select class="form-control" formControlName="village"  
+                                                                            id="village">
+                                                                            <option value=" " disabled>Select
+                                                                                City/Village/Town</option>
+                                                                            <option *ngFor="let village of villages; let i=index"
+                                                                                [value]="villages[i].villageId">
+                                                                                {{villages[i].villageName}}
+                                                                            </option>
+                                                                        </select>
+                                                                           
                                                                         </div>
                                                                     </div>
 
@@ -1033,10 +986,144 @@
 
                                                             </div>
                                                         </div>
+
+
+
+                                                        <div class="col-lg-12">
+
+                                                            <div class="col-lg-8">
+                                                                <div class="row">
+                                                                    <div class="col-lg-1">
+
+
+                                                                    </div>
+                                                                    <div class="col-lg-4">
+                                                                        <label for="exampleFormControlInput1">Parliamentary Constituency<span
+                                                                            class="mandatory-color">*</span></label>
+                                                                      
+
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="form-group">
+
+                                                                            <select class="form-control" formControlName="parliamentary"  
+                                                                            id="parliamentary">
+                                                                            <option value=" " disabled>Select Parliamentary
+                                                                                Constituency</option>
+                                                                            <option *ngFor="let parliamentary of parliamentaries; let i=index"
+                                                                                [value]="parliamentaries[i].parliamentaryId">
+                                                                                {{parliamentaries[i].parliamentaryName}}
+                                                                            </option>
+                                                                        </select>
+                                                                           
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12">
+
+                                                            <div class="col-lg-6">
+                                                                <p class="heading">Bank Details:</p>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-12">
+                                                            <div class="row">
+
+                                                                <div class="col-lg-6">
+                                                                    <div class="row row-text">
+                                                                        <div class="col-lg-4">
+                                                                            <label for="candidate-name ">Account Holder
+                                                                                Name
+                                                                                <span class="mandatory-color">*</span>
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="col-lg-8">
+                                                                            <input type="text" class="form-control"
+                                                                                formControlName="accountHolderName"
+                                                                                placeholder="Enter Pincode">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="row row-text">
+                                                                        <div class="col-lg-4">
+                                                                            <label for="candidate-name ">Account Number
+                                                                                <span class="mandatory-color">*</span>
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="col-lg-8">
+                                                                            <input type="text" class="form-control"
+                                                                                formControlName="accountNumber"
+                                                                                placeholder="Enter Pincode">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12">
+                                                            <div class="row">
+
+                                                                <div class="col-lg-6">
+                                                                    <div class="row row-text">
+                                                                        <div class="col-lg-4">
+                                                                            <label for="candidate-name ">IFSC Code
+                                                                                <span class="mandatory-color">*</span>
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="col-lg-8">
+                                                                            <input type="text" class="form-control"
+                                                                                formControlName="ifscCode"
+                                                                                placeholder="Enter Pincode">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="row row-text">
+                                                                        <div class="col-lg-4">
+                                                                            <label for="candidate-name ">Bank Name
+                                                                                <span class="mandatory-color">*</span>
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="col-lg-8">
+                                                                            <input type="text" class="form-control"
+                                                                                formControlName="bankName"
+                                                                                placeholder="Enter Pincode">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-12">
+                                                            <div class="row">
+
+                                                                <div class="col-lg-6">
+                                                                    <div class="row row-text">
+                                                                        <div class="col-lg-4">
+                                                                            <label for="candidate-name ">Bank Address
+                                                                                <span class="mandatory-color">*</span>
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="col-lg-8">
+                                                                            <input type="text" class="form-control"
+                                                                                formControlName="bankAddress"
+                                                                                placeholder="Enter Pincode">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+
 
                                                         <div class="col-lg-12"
                                                             style="text-align:  center; padding-top: 40px;">
-                                                            <button class="btn btn-primary " type="button"
+                                                            <button class="btn btn-primary " type="submit"
                                                                 awNextStep>Save &amp; Next</button>
                                                             <button class="btn btn-outline-primary" type="button"
                                                                 style="margin-left:5px">Save As Draft</button>
@@ -1045,11 +1132,13 @@
 
                                                     </div>
                                                 </form>
-                                                </aw-wizard-step>
-                                                <aw-wizard-step [stepTitle]="'Education Details'"
-                                                    [navigationSymbol]="{ symbol: '3' }" awOptionalStep>
-                                                    <form [formGroup]="educationalDetailsForm"  (ngSubmit)="onSubmit(educationalDetailsForm.value)">
-                                                      <div class="education">
+                                            </aw-wizard-step>
+                                            <aw-wizard-step [stepTitle]="'Education Details'"
+                                                [navigationSymbol]="{ symbol: '3' }" awOptionalStep>
+
+                                                <form [formGroup]="educationalDetailsForm"
+                                                    (ngSubmit)="onSubmitEducationForm(educationalDetailsForm.value)">
+                                                    <div class="education">
                                                         <div class="col-lg-12">
                                                             <div class="row">
                                                                 <div class="col-lg-3">
@@ -1059,6 +1148,7 @@
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
                                                                         <select class="form-control"
+                                                                            formControlName="education"
                                                                             id="exampleFormControlSelect2">
                                                                             <option> B.tech</option>
                                                                             <option>2</option>
@@ -1080,6 +1170,7 @@
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
                                                                         <select class="form-control"
+                                                                            formControlName="yearOfPassing"
                                                                             id="exampleFormControlSelect2">
                                                                             <option>2017</option>
                                                                             <option>2</option>
@@ -1096,9 +1187,9 @@
                                                                 <div class="col-lg-4">
 
                                                                     <div class="custom-file">
-                                                                        <input type="file" class="custom-file-input"
+                                                                        <!--                            <input type="file" class="custom-file-input" formControlName="uploadSupportingDocuments"
                                                                             id="inputGroupFile04"
-                                                                            aria-describedby="inputGroupFileAddon04">
+                                                                            aria-describedby="inputGroupFileAddon04"> -->
                                                                         <label class="custom-file-label"
                                                                             for="inputGroupFile04">Choose File:
                                                                         </label>
@@ -1144,6 +1235,7 @@
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
                                                                         <select class="form-control"
+                                                                            formControlName="preTrainingStatus"
                                                                             id="exampleFormControlSelect2">
                                                                             <option>Fresher</option>
                                                                             <option>2</option>
@@ -1172,6 +1264,7 @@
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
                                                                         <select class="form-control"
+                                                                            formControlName="previousExperiencesector"
                                                                             id="exampleFormControlSelect2">
                                                                             <option></option>
                                                                             <option>2</option>
@@ -1189,6 +1282,7 @@
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
                                                                         <select class="form-control"
+                                                                            formControlName="previousExperienceJobRole"
                                                                             id="exampleFormControlSelect2">
                                                                             <option></option>
                                                                             <option>2</option>
@@ -1213,6 +1307,7 @@
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
                                                                         <select class="form-control"
+                                                                            formControlName="monthsOfExperience"
                                                                             id="exampleFormControlSelect2">
                                                                             <option></option>
                                                                             <option>2</option>
@@ -1230,6 +1325,7 @@
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
                                                                         <input type="text" class="form-control"
+                                                                            formControlName="previousExperience"
                                                                             id="exampleFormControlInput1"
                                                                             placeholder="">
                                                                     </div>
@@ -1249,6 +1345,7 @@
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
                                                                         <select class="form-control"
+                                                                            formControlName="employed"
                                                                             id="exampleFormControlSelect2">
                                                                             <option></option>
                                                                             <option>2</option>
@@ -1273,6 +1370,7 @@
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
                                                                         <select class="form-control"
+                                                                            formControlName="employmentStatus"
                                                                             id="exampleFormControlSelect2">
                                                                             <option></option>
                                                                             <option>2</option>
@@ -1290,6 +1388,7 @@
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
                                                                         <input type="text" class="form-control"
+                                                                            formControlName="employmentDetails"
                                                                             id="exampleFormControlInput1"
                                                                             placeholder="Enter Employment Details">
                                                                     </div>
@@ -1302,22 +1401,24 @@
 
                                                         <div class="col-lg-12"
                                                             style="text-align:  center; padding-top: 40px;">
-                                                            <button class="btn btn-primary " type="button"
+                                                            <button class="btn btn-primary " type="submit"
                                                                 awNextStep>Save &amp; Next</button>
                                                             <button class="btn btn-outline-primary" type="button"
                                                                 style="margin-left:5px">Save As Draft</button>
                                                         </div>
 
-                                                       </div>
-                                                       </form>
+                                                    </div>
+                                                </form>
 
 
-                                                </aw-wizard-step>
+                                            </aw-wizard-step>
 
-                                                <aw-wizard-step [stepTitle]="'Course Preferences'"
-                                                    [navigationSymbol]="{ symbol: '4' }" awOptionalStep>
-                                                    <form [formGroup]="coursePreferencesForm"  (ngSubmit)="onSubmit(coursePreferencesForm.value)">
-                                                       <div class="course">
+                                            <aw-wizard-step [stepTitle]="'Course Preferences'"
+                                                [navigationSymbol]="{ symbol: '4' }" awOptionalStep>
+                                                <form [formGroup]="coursePreferencesForm"
+                                                    (ngSubmit)="onSubmitCoursePreferencesForm(coursePreferencesForm.value)">
+
+                                                    <div class="course">
                                                         <div class="col-lg-12">
                                                             <div class="row">
                                                                 <div class="col-lg-3">
@@ -1328,6 +1429,7 @@
                                                                 <div class="col-lg-9">
                                                                     <div class="form-group">
                                                                         <select class="form-control"
+                                                                            formControlName="heardAboutUs"
                                                                             id="exampleFormControlSelect2">
                                                                             <option></option>
                                                                             <option>2</option>
@@ -1350,6 +1452,7 @@
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
                                                                         <select class="form-control"
+                                                                            formControlName="sector"
                                                                             id="exampleFormControlSelect2">
                                                                             <option>Select Sector</option>
                                                                             <option>2</option>
@@ -1367,6 +1470,7 @@
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
                                                                         <select class="form-control"
+                                                                            formControlName="subSector"
                                                                             id="exampleFormControlSelect2">
                                                                             <option>Select Sub Sector</option>
                                                                             <option>2</option>
@@ -1388,6 +1492,7 @@
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
                                                                         <select class="form-control"
+                                                                            formControlName="jobRole"
                                                                             id="exampleFormControlSelect2">
                                                                             <option>Select job Role</option>
                                                                             <option>2</option>
@@ -1411,21 +1516,23 @@
 
                                                         <div class="col-lg-12"
                                                             style="text-align:  center; padding-top: 40px;">
-                                                            <button class="btn btn-primary " type="button"
+                                                            <button class="btn btn-primary " type="submit"
                                                                 awNextStep>Save &amp; Next</button>
                                                             <button class="btn btn-outline-primary" type="button"
                                                                 style="margin-left:5px">Save As Draft</button>
                                                         </div>
 
                                                     </div>
-                                                    </form>
-                                                </aw-wizard-step>
+                                                </form>
+                                            </aw-wizard-step>
 
-                                                <aw-wizard-step [stepTitle]="'Declaration & Submission'"
-                                                    [navigationSymbol]="{ symbol: '5' }" awOptionalStep>
-                                                     
-                                                    <form [formGroup]="declarationForm"  (ngSubmit)="onSubmit(declarationForm.value)">
-                                                      <div class="declaration">
+                                            <aw-wizard-step [stepTitle]="'Declaration & Submission'"
+                                                [navigationSymbol]="{ symbol: '5' }" awOptionalStep>
+                                                <form [formGroup]="declarationForm"
+                                                    (ngSubmit)="onSubmitDeclarationForm(declarationForm.value)">
+
+
+                                                    <div class="declaration">
                                                         <div class="col-lg-12">
                                                             <div class="row">
                                                                 <div class="col-lg-3">
@@ -1437,7 +1544,7 @@
                                                                     <div class="form-group">
 
                                                                         <textarea class="form-control"
-                                                                            id="exampleFormControlTextarea1"
+                                                                            formControlName="declarationUndertaking"
                                                                             rows="3"></textarea>
 
 
@@ -1456,18 +1563,18 @@
 
                                                         <div class="col-lg-12"
                                                             style="text-align:  center; padding-top: 40px;">
-                                                            <button class="btn btn-primary " type="button"
+                                                            <button class="btn btn-primary " type="submit"
                                                                 awNextStep>Agree & Submit</button>
                                                             <button class="btn btn-outline-primary" type="button"
                                                                 style="margin-left:5px">Review Before
                                                                 Submission</button>
                                                         </div>
                                                     </div>
-                                                    </form>
+                                                </form>
 
 
-                                                </aw-wizard-step>
+                                            </aw-wizard-step>
 
-                                            </aw-wizard>
-                                       
+                                        </aw-wizard>
+
                                     </div>
