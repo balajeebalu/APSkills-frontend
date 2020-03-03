@@ -40,6 +40,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
+import { FileUploadModule } from 'ng2-file-upload';
+
 
 @NgModule({
   declarations: [
@@ -81,6 +83,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DataTablesModule,
     NgbModule,
     ArchwizardModule,
+  
+    FileUploadModule,
     BsDatepickerModule.forRoot(),
     RecaptchaModule.forRoot({
       siteKey: '6Lcgq9YUAAAAAHk4WH8GglapEtBwwY1C2jaJ4AJ-'

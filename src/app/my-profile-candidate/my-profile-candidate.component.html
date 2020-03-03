@@ -105,17 +105,24 @@
                                                                     <div class="col-lg-8">
                                                                         <div class="row ">
                                                                             <div class="col-lg-4">
-                                                                                <select class="form-control"
+                                                                                <select class="form-control "
                                                                                     formControlName="prefix">
-                                                                                    <option>Mr</option>
-                                                                                    <option>Mrs</option>
-                                                                                    <option>Ms</option>
-                                                                                    <option>Mx</option>
+
+                                                                                    <option
+                                                                                        *ngFor="let name of prefix ; let i = index"
+                                                                                        [value]="prefix[i].prefixName">
+                                                                                        {{prefix[i].prefixName}}
+                                                                                    </option>
                                                                                 </select>
                                                                             </div>
                                                                             <div class="col-lg-8">
                                                                                 <input type="text" class="form-control"
                                                                                     formControlName="candidateFullName">
+                                                                                    <div *ngIf="personalDetailsForm.controls['candidateFullName'].invalid && (personalDetailsForm.controls['candidateFullName'].dirty || personalDetailsForm.controls['candidateFullName'].touched)" class="alert alert-danger">
+                                                                                        <div *ngIf="personalDetailsForm.controls['candidateFullName'].errors.required">
+                                                                                        Name is required.
+                                                                                      </div>
+                                                                                      </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -133,10 +140,12 @@
 
                                                                         <div class="custom-file">
                                                                             <!--  <input type="file"  class="custom-file-input" formControlName="uploadProfilePicture"> -->
-                                                                            <label class="custom-file-label"
-                                                                                for="inputGroupFile04">Choose
-                                                                                file:</label>
+
+                                                                            <input type="file" name="file" ng2FileSelect
+                                                                                [uploader]="uploader" />
+
                                                                         </div>
+
                                                                         <label class="blue-color-text">
                                                                             File size upto 3 mb
                                                                         </label>
@@ -144,7 +153,12 @@
                                                                             (Allowed formats jpeg, png, jpg)
                                                                         </label>
                                                                         <button type="button"
-                                                                            class="btn btn-outline-info">Upload</button>
+                                                                            class="btn btn-outline-info"
+                                                                            (click)="uploader.uploadAll()"
+                                                                            [disabled]="!uploader.getNotUploadedItems().length">
+                                                                            Upload
+                                                                        </button>
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -240,7 +254,9 @@
                                                                         <div class="row ">
 
                                                                             <div class="col-lg-12">
-                                                                                <input type="text" class="form-control" (change)="toString($event.target.value)" [(ngModel)]="dob"
+                                                                                <input type="text" class="form-control"
+                                                                                    (change)="toString($event.target.value)"
+                                                                                    [(ngModel)]="dob"
                                                                                     formControlName="dateOfBirth"
                                                                                     required>
                                                                             </div>
@@ -256,19 +272,15 @@
                                                                         </label>
                                                                     </div>
                                                                     <div class="col-lg-8">
-                                                                        <select class="form-control"
+                                                                        <select class="form-control "
                                                                             formControlName="maritalStatus">
-                                                                            <option disabled>Select Marital Status
+                                                                            <option
+                                                                                *ngFor="let status of maritalStatus ; let i = index"
+                                                                                [value]="maritalStatus[i].maritalStatusName">
+                                                                                {{maritalStatus[i].maritalStatusName}}
                                                                             </option>
-                                                                            <option>Not to disclosed</option>
-                                                                            <option>Separated</option>
-                                                                            <option>Single/Unmarried</option>
-                                                                            <option>Married</option>
-                                                                            <option>Widowed</option>
-                                                                            <option>Divorced</option>
-
-
                                                                         </select>
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -286,18 +298,16 @@
                                                                         </label>
                                                                     </div>
                                                                     <div class="col-lg-8">
-                                                                        <select class="form-control"
-                                                                            formControlName="domicileState">
-                                                                            <option disabled>Select Domicile State
+                                                                        <select class="form-control "
+                                                                            formControlName="domicileState"
+                                                                            (change)="getDomicileDistrictforDomicileState($event.target.value)">
+                                                                            <option
+                                                                                *ngFor="let group of domicileStates ; let i = index"
+                                                                                [value]="domicileStates[i].domicileState">
+                                                                                {{domicileStates[i].domicileState}}
                                                                             </option>
-                                                                            <option>Andhra Pradesh</option>
-                                                                            <option>Bihar</option>
-                                                                            <option>Chhattisgarh</option>
-                                                                            <option>Telangana</option>
-
-
-
                                                                         </select>
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -310,19 +320,15 @@
                                                                         </label>
                                                                     </div>
                                                                     <div class="col-lg-8">
-                                                                        <select class="form-control"
+                                                                        <select class="form-control "
                                                                             formControlName="domicileDistrict">
-                                                                            <option disabled>Select Domicile
-                                                                                District
+                                                                            <option
+                                                                                *ngFor="let group of domicileDistricts ; let i = index"
+                                                                                [value]="domicileDistricts[i].domicileDistrict">
+                                                                                {{domicileDistricts[i].domicileDistrict}}
                                                                             </option>
-                                                                            <option>Ananthapur</option>
-                                                                            <option>Chittoor</option>
-                                                                            <option>East Godavari</option>
-                                                                            <option>Guntur</option>
-
-
-
                                                                         </select>
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -344,19 +350,17 @@
                                                                         <div class="row ">
 
                                                                             <div class="col-lg-12">
-                                                                                <select class="form-control"
+                                                                                <select class="form-control "
                                                                                     formControlName="category">
-                                                                                    <option disabled>Select
-                                                                                        Community
+                                                                                    <option disabled>Select Community
                                                                                     </option>
-                                                                                    <option>Kapu</option>
-                                                                                    <option>Kamma</option>
-                                                                                    <option>Brahmin</option>
-                                                                                    <option>Vysya</option>
-
-
-
+                                                                                    <option
+                                                                                        *ngFor="let group of community ; let i = index"
+                                                                                        [value]="community[i].categoryName">
+                                                                                        {{community[i].categoryName}}
+                                                                                    </option>
                                                                                 </select>
+
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -373,20 +377,17 @@
                                                                         <div class="row ">
 
                                                                             <div class="col-lg-12">
-                                                                                <select class="form-control"
+                                                                                <select class="form-control "
                                                                                     formControlName="religion">
                                                                                     <option disabled>Select Religion
                                                                                     </option>
-                                                                                    <option>Atheist</option>
-                                                                                    <option>Jews</option>
-                                                                                    <option>Sikh</option>
-                                                                                    <option>Hindu</option>
-                                                                                    <option>Christian</option>
-                                                                                    <option>Muslim</option>
-
-
-
+                                                                                    <option
+                                                                                        *ngFor="let group of religion ; let i = index"
+                                                                                        [value]="religion[i].religionName">
+                                                                                        {{religion[i].religionName}}
+                                                                                    </option>
                                                                                 </select>
+
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -458,17 +459,19 @@
                                                                         <div class="row ">
 
                                                                             <div class="col-lg-12">
-                                                                                <select class="form-control"
-                                                                                    formControlName="anyDisability">
+                                                                                <select class="form-control "
+                                                                                    formControlName="anyDisability"
+                                                                                    (change)="getDisabilityType($event.target.value)">
                                                                                     <option disabled>Select Any
                                                                                         Disability
                                                                                     </option>
-                                                                                    <option>Yes</option>
-                                                                                    <option>No</option>
-
-
-
+                                                                                    <option
+                                                                                        *ngFor="let group of disability ; let i = index"
+                                                                                        [value]="disability[i].disability">
+                                                                                        {{disability[i].disability}}
+                                                                                    </option>
                                                                                 </select>
+
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -492,13 +495,13 @@
                                                                                         type
                                                                                         of
                                                                                         Disability</option>
-                                                                                    <option>Blindness</option>
-                                                                                    <option>Deaf</option>
-                                                                                    <option>Dumb</option>
-
-
-
+                                                                                    <option
+                                                                                        *ngFor="let group of typeOfDisability; let i=index"
+                                                                                        [value]="typeOfDisability[i].typeOfDisability">
+                                                                                        {{typeOfDisability[i].typeOfDisability}}
+                                                                                    </option>
                                                                                 </select>
+
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -520,16 +523,14 @@
                                                                     </div>
                                                                     <div class="col-lg-8">
 
-                                                                        <div class="custom-file"
-                                                                            style="margin-bottom:15px">
-                                                                            <!--         <input type="file"
-                                                                                    class="custom-file-input"
-                                                                                    id="inputGroupFile04"
-                                                                                    formControlName="uploadSupportingDocument"> -->
-                                                                            <label class="custom-file-label"
-                                                                                for="inputGroupFile04">Choose
-                                                                                file:</label>
+                                                                        <div class="custom-file">
+
+
+                                                                            <input type="file" name="file" ng2FileSelect
+                                                                                [uploader]="uploader" />
+
                                                                         </div>
+
                                                                         <label class="blue-color-text">
                                                                             File size upto 3 mb
                                                                         </label>
@@ -537,7 +538,11 @@
                                                                             (Allowed formats jpeg, png, jpg)
                                                                         </label>
                                                                         <button type="button"
-                                                                            class="btn btn-outline-info">Upload</button>
+                                                                            class="btn btn-outline-info"
+                                                                            (click)="uploader.uploadAll()"
+                                                                            [disabled]="!uploader.getNotUploadedItems().length">
+                                                                            Upload
+                                                                        </button>
                                                                     </div>
                                                                 </div>
 
@@ -562,53 +567,82 @@
                                                             </div>
                                                             <div class="col-lg-3">
                                                                 <input class="form-check-input" type="radio"
-                                                                    name="identification" (onclick)="show1();"
-                                                                    checked />
+                                                                    value="radio1" formControlName="identification"
+                                                                    [(ngModel)]="readioSelected" checked />
 
                                                                 <label class="form-check-label" for="exampleRadios1">
                                                                     Alternate Id
                                                                 </label>
 
                                                             </div>
-                                                            <div *ngIf="!show1">
-                                                                Alternate Id
-                                                            </div>
+
                                                             <div class="col-lg-3">
                                                                 <input class="form-check-input" type="radio"
-                                                                    name="alternateId" />
+                                                                    value="radio2" formControlName="alternateId"
+                                                                    [(ngModel)]="readioSelected" />
 
                                                                 <label class="form-check-label" for="exampleRadios1">
                                                                     Aadhaar
                                                                 </label>
                                                             </div>
-                                                            <div *ngIf="!show2">
-                                                                Aadhar
-                                                            </div>
 
+                                                            <button  class="btn btn-outline-primary" (click)="showContent()">Submit</button>
                                                         </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-3">
-                                                                <p
-                                                                    style="padding-top:20px; font-weight:400;font-size:1.3rem">
-                                                                    Identification:</p>
-                                                            </div>
+                                                        <div *ngIf="showcontent=='radio1'">
+                                                            <div class="row">
+                                                                <div class="col-lg-3">
+                                                                    <p
+                                                                        style="padding-top:20px; font-weight:400;font-size:1.3rem">
+                                                                        Identification:</p>
+                                                                </div>
 
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-3">
-                                                                <p style="padding-top:15px; font-size:1rem">
-                                                                    Alternate
-                                                                    Id: *</p>
                                                             </div>
-                                                            <div class="col-lg-3">
-                                                                <select id="disabledSelect" class="form-control"
-                                                                    formControlName="identificationType"
-                                                                    style="background-color: #ebedf2;">
-                                                                    <option>Select identification Type</option>
-                                                                </select>
-                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-lg-3">
+                                                                    <p style="padding-top:15px; font-size:1rem">
+                                                                        Alternate
+                                                                        Id: *</p>
+                                                                </div>
+                                                                <div class="col-lg-3">
+                                                                    <select id="disabledSelect" class="form-control"
+                                                                        formControlName="identificationType"
+                                                                        style="background-color: #ebedf2;">
+                                                                        <option>Select identification Type</option>
+                                                                    </select>
+                                                                </div>
 
+                                                            </div>
                                                         </div>
+                                                            <div *ngIf="showcontent=='radio2'">
+                                                                <div class="row">
+                                                                    <div class="col-lg-3">
+                                                                        <p
+                                                                            style="padding-top:20px; font-weight:400;font-size:1.3rem">
+                                                                            Aadhaar Id:</p>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-lg-3">
+                                                                        <p style="padding-top:15px; font-size:1rem">
+                                                                            Aadhaar Number: <span
+                                                                                class="mandatory-color">*</span></p>
+                                                                    </div>
+                                                                    <div class="col-lg-3">
+                                                                        <input type="text" class="form-control"
+                                                                            formControlName="aadharNumber"
+                                                                            placeholder="Enter Aadhar Number">
+                                                                        </div>
+                                                                            <div class="col-lg-3">
+                                                                            <button type="button"
+                                                                            class="btn btn-outline-info">
+                                                                           Verify
+                                                                        </button>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                       
                                                         <hr>
 
                                                         <div class="row">
@@ -618,146 +652,269 @@
                                                                     Permanent Address:</p>
                                                             </div>
                                                         </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-6">
+                                                        <div class="col-lg-12">
+
+                                                            <div class="col-lg-8">
                                                                 <div class="row">
+                                                                    <div class="col-lg-1">
+
+
+                                                                    </div>
                                                                     <div class="col-lg-4">
-                                                                        Address:
-                                                                        <span class="mandatory-color">*</span>
-                                                                    </div>
-                                                                    <div class="col-lg-8">
-
-
-                                                                        <textarea class="form-control"
-                                                                            formControlName="address"
-                                                                            rows="3"></textarea>
+                                                                        <p class="text">Address <span
+                                                                                class="mandatory-color">*</span></p>
 
                                                                     </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="form-group">
+
+                                                                            <textarea class="form-control"
+                                                                                formControlName="address"
+                                                                                id="exampleFormControlTextarea1"
+                                                                                rows="3"
+                                                                                placeholder="Enter Address"></textarea>
+                                                                        </div>
+                                                                    </div>
+
                                                                 </div>
+
                                                             </div>
                                                         </div>
-                                                        <div class="row" style="padding-top: 40px;">
-                                                            <div class="col-lg-6">
+
+
+
+
+                                                        <div class="col-lg-12">
+
+                                                            <div class="col-lg-8">
                                                                 <div class="row">
+                                                                    <div class="col-lg-1">
+
+
+                                                                    </div>
                                                                     <div class="col-lg-4">
-                                                                        Pincode:
-                                                                        <span class="mandatory-color">*</span>
+                                                                        <p class="text">Pincode <span
+                                                                                class="mandatory-color">*</span></p>
+
                                                                     </div>
-                                                                    <div class="col-lg-8">
-                                                                        <input type="text" class="form-control"
-                                                                            formControlName="pinCode"
-                                                                            aria-describedby="emailHelp" required>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="form-group">
+                                                                            <input type="text" class="form-control"
+                                                                                formControlName="pinCode"
+                                                                                placeholder="Enter Pincode">
+                                                                        </div>
                                                                     </div>
+
                                                                 </div>
+
                                                             </div>
                                                         </div>
-                                                        <div class="row" style="padding-top: 40px;">
-                                                            <div class="col-lg-6">
-                                                                <div class="row">
-                                                                    <div class="col-lg-4">
-                                                                        State / Union Territory :
-                                                                        <span class="mandatory-color">*</span>
-                                                                    </div>
-                                                                    <div class="col-lg-8">
-                                                                        <select class="form-control"
-                                                                            formControlName="state">
-                                                                            <option>ANDHRA PRADESH</option>
-                                                                            <option>TELANGANA</option>
-                                                                            <option>ARUNACHAL PRADESH</option>
-                                                                            <option>SIKKHIM</option>
 
-                                                                        </select>
+
+                                                        <div class="col-lg-12">
+
+                                                            <div class="col-lg-8">
+                                                                <div class="row">
+                                                                    <div class="col-lg-1">
+
+
                                                                     </div>
+                                                                    <div class="col-lg-4">
+
+                                                                        <label for="exampleFormControlInput1"> State
+                                                                            <span
+                                                                                class="mandatory-color">*</span></label>
+
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="form-group">
+
+                                                                            <select
+                                                                                (change)="getDistrictsForState($event.target.value)"
+                                                                                (change)="getParliamentaryForState($event.target.value)"
+                                                                                class="form-control "
+                                                                                formControlName="state">
+                                                                                <option value=" " disabled>Select State
+                                                                                </option>
+                                                                                <option
+                                                                                    *ngFor="let state of states; let i = index"
+                                                                                    [value]="states[i].stateName">
+                                                                                    {{states[i].stateName}}
+                                                                                </option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+
                                                                 </div>
+
                                                             </div>
                                                         </div>
-                                                        <div class="row" style="padding-top: 40px;">
-                                                            <div class="col-lg-6">
-                                                                <div class="row">
-                                                                    <div class="col-lg-4">
-                                                                        District:
-                                                                        <span class="mandatory-color">*</span>
-                                                                    </div>
-                                                                    <div class="col-lg-8">
-                                                                        <select class="form-control"
-                                                                            formControlName="district">
-                                                                            <option>Ananthapur</option>
-                                                                            <option></option>
-                                                                            <option></option>
-                                                                            <option></option>
 
-                                                                        </select>
+
+
+                                                        <div class="col-lg-12">
+
+                                                            <div class="col-lg-8">
+                                                                <div class="row">
+                                                                    <div class="col-lg-1">
+
+
                                                                     </div>
+                                                                    <div class="col-lg-4">
+                                                                        <label for="exampleFormControlInput1"> District
+                                                                            <span
+                                                                                class="mandatory-color">*</span></label>
+
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="form-group">
+                                                                            <select class="form-control"
+                                                                                formControlName="district"
+                                                                                (change)="getMandalForDistrict($event.target.value)"
+                                                                                id="district">
+                                                                                <option value=" " disabled>Select
+                                                                                    District</option>
+                                                                                <option
+                                                                                    *ngFor="let district of districts; let stateId=index"
+                                                                                    [value]="districts[stateId].districtName">
+                                                                                    {{districts[stateId].districtName}}
+                                                                                </option>
+                                                                            </select>
+
+                                                                        </div>
+                                                                    </div>
+
                                                                 </div>
+
                                                             </div>
                                                         </div>
-                                                        <div class="row" style="padding-top: 40px;">
-                                                            <div class="col-lg-6">
-                                                                <div class="row">
-                                                                    <div class="col-lg-4">
-                                                                        Tehsil/Mandal/Block:
-                                                                    </div>
-                                                                    <div class="col-lg-8">
-                                                                        <select class="form-control"
-                                                                            formControlName="mandal">
-                                                                            <option>abc</option>
-                                                                            <option></option>
-                                                                            <option></option>
-                                                                            <option></option>
 
-                                                                        </select>
+
+
+                                                        <div class="col-lg-12">
+
+                                                            <div class="col-lg-8">
+                                                                <div class="row">
+                                                                    <div class="col-lg-1">
+
+
                                                                     </div>
+                                                                    <div class="col-lg-4">
+                                                                        <label for="exampleFormControlInput1">
+                                                                            Tehsil/Mandal/Block <span
+                                                                                class="mandatory-color">*</span></label>
+
+
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="form-group">
+                                                                            <select class="form-control"
+                                                                                formControlName="mandal"
+                                                                                (change)="getVillageForMandal($event.target.value)"
+                                                                                id="mandal">
+                                                                                <option value=" " disabled>Select
+                                                                                    Tehsil/Mandal/Block</option>
+                                                                                <option
+                                                                                    *ngFor="let mandal of mandals; let i=index"
+                                                                                    [value]="mandals[i].mandalName">
+                                                                                    {{mandals[i].mandalName}}
+                                                                                </option>
+                                                                            </select>
+
+                                                                        </div>
+                                                                    </div>
+
                                                                 </div>
+
                                                             </div>
                                                         </div>
-                                                        <div class="row" style="padding-top: 40px;">
-                                                            <div class="col-lg-6">
+
+
+
+                                                        <div class="col-lg-12">
+
+                                                            <div class="col-lg-8">
                                                                 <div class="row">
+                                                                    <div class="col-lg-1">
+
+
+                                                                    </div>
                                                                     <div class="col-lg-4">
-                                                                        City/Village/Town:
+
+                                                                        <label
+                                                                            for="exampleFormControlInput1">City/Village/Town<span
+                                                                                class="mandatory-color">*</span></label>
 
                                                                     </div>
-                                                                    <div class="col-lg-8">
-                                                                        <select class="form-control"
-                                                                            formControlName="village">
-                                                                            <option>sgsgrgr</option>
-                                                                            <option></option>
-                                                                            <option></option>
-                                                                            <option></option>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="form-group">
 
-                                                                        </select>
+                                                                            <select class="form-control"
+                                                                                formControlName="village" id="village">
+                                                                                <option value=" " disabled>Select
+                                                                                    City/Village/Town</option>
+                                                                                <option
+                                                                                    *ngFor="let village of villages; let i=index"
+                                                                                    [value]="villages[i].villageName">
+                                                                                    {{villages[i].villageName}}
+                                                                                </option>
+                                                                            </select>
+
+                                                                        </div>
                                                                     </div>
+
                                                                 </div>
+
                                                             </div>
                                                         </div>
-                                                        <div class="row" style="padding-top: 40px;">
-                                                            <div class="col-lg-6">
+
+
+
+                                                        <div class="col-lg-12">
+
+                                                            <div class="col-lg-8">
                                                                 <div class="row">
-                                                                    <div class="col-lg-4">
-                                                                        Parliamentary Constituency:
+                                                                    <div class="col-lg-1">
+
 
                                                                     </div>
-                                                                    <div class="col-lg-8">
-                                                                        <select class="form-control"
-                                                                            formControlName="parliamentaryConstituency">
-                                                                            <option>sgsrgrg</option>
-                                                                            <option></option>
-                                                                            <option></option>
-                                                                            <option></option>
+                                                                    <div class="col-lg-4">
+                                                                        <label
+                                                                            for="exampleFormControlInput1">Parliamentary
+                                                                            Constituency<span
+                                                                                class="mandatory-color">*</span></label>
 
-                                                                        </select>
+
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="form-group">
+
+                                                                            <select class="form-control"
+                                                                                formControlName="parliamentaryConstituency">
+                                                                                <option value=" " disabled>Select
+                                                                                    Parliamentary
+                                                                                    Constituency</option>
+                                                                                <option
+                                                                                    *ngFor="let parliamentary of parliamentaries; let i=index"
+                                                                                    [value]="parliamentaries[i].parliamentaryName">
+                                                                                    {{parliamentaries[i].parliamentaryName}}
+                                                                                </option>
+                                                                            </select>
+
+                                                                        </div>
                                                                     </div>
 
                                                                 </div>
+
                                                             </div>
                                                         </div>
 
                                                         <div class="col-lg-12"
                                                             style="text-align:  center; padding-top: 40px;">
-                                                            <button class="btn btn-primary " type="submit"
+                                                            <button class="btn btn-primary " type="submit" [disabled]="!personalDetailsForm.valid"
                                                                 awNextStep>Save &amp; Next</button>
-                                                            <button class="btn btn-outline-primary" type="button"
-                                                                style="margin-left:5px">Save As Draft</button>
+                                                           <!--  <button class="btn btn-outline-primary" type="button"
+                                                                style="margin-left:5px">Save As Draft</button> -->
                                                         </div>
                                                     </div>
                                                 </form>
@@ -862,8 +1019,11 @@
                                                                     <div class="col-lg-6">
                                                                         <div class="form-group">
 
-                                                                            <select  (change)="getDistrictsForState($event.target.value)"  (change)="getParliamentaryForState($event.target.value)" class="form-control "
-                                                                               formControlName="state">
+                                                                            <select
+                                                                                (change)="getDistrictsForState($event.target.value)"
+                                                                                (change)="getParliamentaryForState($event.target.value)"
+                                                                                class="form-control "
+                                                                                formControlName="state">
                                                                                 <option value=" " disabled>Select State
                                                                                 </option>
                                                                                 <option
@@ -891,21 +1051,26 @@
 
                                                                     </div>
                                                                     <div class="col-lg-4">
-                                                                        <label for="exampleFormControlInput1"> District <span
+                                                                        <label for="exampleFormControlInput1"> District
+                                                                            <span
                                                                                 class="mandatory-color">*</span></label>
 
                                                                     </div>
                                                                     <div class="col-lg-6">
                                                                         <div class="form-group">
-                                                                            <select class="form-control" formControlName="district" (change)="getMandalForDistrict($event.target.value)"
-                                                                            id="district">
-                                                                            <option value=" " disabled>Select District</option>
-                                                                            <option *ngFor="let district of districts; let stateId=index"
-                                                                                [value]="districts[stateId].districtName">
-                                                                                {{districts[stateId].districtName}}
-                                                                            </option>
-                                                                        </select>
-                                                                          
+                                                                            <select class="form-control"
+                                                                                formControlName="district"
+                                                                                (change)="getMandalForDistrict($event.target.value)"
+                                                                                id="district">
+                                                                                <option value=" " disabled>Select
+                                                                                    District</option>
+                                                                                <option
+                                                                                    *ngFor="let district of districts; let stateId=index"
+                                                                                    [value]="districts[stateId].districtName">
+                                                                                    {{districts[stateId].districtName}}
+                                                                                </option>
+                                                                            </select>
+
                                                                         </div>
                                                                     </div>
 
@@ -925,23 +1090,27 @@
 
                                                                     </div>
                                                                     <div class="col-lg-4">
-                                                                        <label for="exampleFormControlInput1"> Tehsil/Mandal/Block <span
-                                                                            class="mandatory-color">*</span></label>
-                                                                       
+                                                                        <label for="exampleFormControlInput1">
+                                                                            Tehsil/Mandal/Block <span
+                                                                                class="mandatory-color">*</span></label>
+
 
                                                                     </div>
                                                                     <div class="col-lg-6">
                                                                         <div class="form-group">
-                                                                            <select class="form-control" formControlName="mandal"  (change)="getVillageForMandal($event.target.value)"
-                                                                            id="mandal">
-                                                                            <option value=" " disabled>Select
-                                                                                Tehsil/Mandal/Block</option>
-                                                                            <option *ngFor="let mandal of mandals; let i=index"
-                                                                                [value]="mandals[i].mandalName">
-                                                                                {{mandals[i].mandalName}}
-                                                                            </option>
-                                                                        </select>
-                                                                           
+                                                                            <select class="form-control"
+                                                                                formControlName="mandal"
+                                                                                (change)="getVillageForMandal($event.target.value)"
+                                                                                id="mandal">
+                                                                                <option value=" " disabled>Select
+                                                                                    Tehsil/Mandal/Block</option>
+                                                                                <option
+                                                                                    *ngFor="let mandal of mandals; let i=index"
+                                                                                    [value]="mandals[i].mandalName">
+                                                                                    {{mandals[i].mandalName}}
+                                                                                </option>
+                                                                            </select>
+
                                                                         </div>
                                                                     </div>
 
@@ -961,24 +1130,26 @@
 
                                                                     </div>
                                                                     <div class="col-lg-4">
-                                                                       
-                                                                                <label for="exampleFormControlInput1">City/Village/Town<span
-                                                                                    class="mandatory-color">*</span></label>
+
+                                                                        <label
+                                                                            for="exampleFormControlInput1">City/Village/Town<span
+                                                                                class="mandatory-color">*</span></label>
 
                                                                     </div>
                                                                     <div class="col-lg-6">
                                                                         <div class="form-group">
 
-                                                                            <select class="form-control" formControlName="village"  
-                                                                            id="village">
-                                                                            <option value=" " disabled>Select
-                                                                                City/Village/Town</option>
-                                                                            <option *ngFor="let village of villages; let i=index"
-                                                                                [value]="villages[i].villageName">
-                                                                                {{villages[i].villageName}}
-                                                                            </option>
-                                                                        </select>
-                                                                           
+                                                                            <select class="form-control"
+                                                                                formControlName="village" id="village">
+                                                                                <option value=" " disabled>Select
+                                                                                    City/Village/Town</option>
+                                                                                <option
+                                                                                    *ngFor="let village of villages; let i=index"
+                                                                                    [value]="villages[i].villageName">
+                                                                                    {{villages[i].villageName}}
+                                                                                </option>
+                                                                            </select>
+
                                                                         </div>
                                                                     </div>
 
@@ -998,24 +1169,29 @@
 
                                                                     </div>
                                                                     <div class="col-lg-4">
-                                                                        <label for="exampleFormControlInput1">Parliamentary Constituency<span
-                                                                            class="mandatory-color">*</span></label>
-                                                                      
+                                                                        <label
+                                                                            for="exampleFormControlInput1">Parliamentary
+                                                                            Constituency<span
+                                                                                class="mandatory-color">*</span></label>
+
 
                                                                     </div>
                                                                     <div class="col-lg-6">
                                                                         <div class="form-group">
 
-                                                                            <select class="form-control" formControlName="parliamentary"  
-                                                                            id="parliamentary">
-                                                                            <option value=" " disabled>Select Parliamentary
-                                                                                Constituency</option>
-                                                                            <option *ngFor="let parliamentary of parliamentaries; let i=index"
-                                                                                [value]="parliamentaries[i].parliamentaryName">
-                                                                                {{parliamentaries[i].parliamentaryName}}
-                                                                            </option>
-                                                                        </select>
-                                                                           
+                                                                            <select class="form-control"
+                                                                                formControlName="parliamentaryConstituency"
+                                                                                id="parliamentary">
+                                                                                <option value=" " disabled>Select
+                                                                                    Parliamentary
+                                                                                    Constituency</option>
+                                                                                <option
+                                                                                    *ngFor="let parliamentary of parliamentaries; let i=index"
+                                                                                    [value]="parliamentaries[i].parliamentaryName">
+                                                                                    {{parliamentaries[i].parliamentaryName}}
+                                                                                </option>
+                                                                            </select>
+
                                                                         </div>
                                                                     </div>
 
@@ -1123,10 +1299,10 @@
 
                                                         <div class="col-lg-12"
                                                             style="text-align:  center; padding-top: 40px;">
-                                                            <button class="btn btn-primary " type="submit"
+                                                            <button class="btn btn-primary " type="submit" 
                                                                 awNextStep>Save &amp; Next</button>
-                                                            <button class="btn btn-outline-primary" type="button"
-                                                                style="margin-left:5px">Save As Draft</button>
+                                                            <!-- <button class="btn btn-outline-primary" type="button"
+                                                                style="margin-left:5px">Save As Draft</button> -->
                                                         </div>
 
 
@@ -1142,20 +1318,24 @@
                                                         <div class="col-lg-12">
                                                             <div class="row">
                                                                 <div class="col-lg-3">
-                                                                    <p class="text">Education<span
-                                                                            class="mandatory-color">*</span></p>
+                                                                    <label for="exampleFormControlInput1">Education<span
+                                                                            class="mandatory-color">*</span></label>
+
                                                                 </div>
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
+
                                                                         <select class="form-control"
-                                                                            formControlName="education"
-                                                                            id="exampleFormControlSelect2">
-                                                                            <option> B.tech</option>
-                                                                            <option>2</option>
-                                                                            <option>3</option>
-                                                                            <option>4</option>
-                                                                            <option>5</option>
+                                                                            formControlName="education">
+                                                                            <option value=" " disabled>Select Education
+                                                                                Details</option>
+                                                                            <option
+                                                                                *ngFor="let educationDetails of education; let i=index"
+                                                                                [value]="education[i].education">
+                                                                                {{education[i].education}}
+                                                                            </option>
                                                                         </select>
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1164,44 +1344,53 @@
                                                         <div class="col-lg-12">
                                                             <div class="row">
                                                                 <div class="col-lg-3">
-                                                                    <p class="text">Year of Passing<span
-                                                                            class="mandatory-color">*</span></p>
+                                                                    <label for="exampleFormControlInput1">Year of
+                                                                        Passisng<span
+                                                                            class="mandatory-color">*</span></label>
                                                                 </div>
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
+
                                                                         <select class="form-control"
-                                                                            formControlName="yearOfPassing"
-                                                                            id="exampleFormControlSelect2">
-                                                                            <option>2017</option>
-                                                                            <option>2</option>
-                                                                            <option>3</option>
-                                                                            <option>4</option>
-                                                                            <option>5</option>
+                                                                            formControlName="yearOfPassing">
+                                                                            <option value=" " disabled>Select Year Of
+                                                                                Passing</option>
+                                                                            <option
+                                                                                *ngFor="let year of yearOfPassing; let i=index"
+                                                                                [value]="yearOfPassing[i].yearOfPassing">
+                                                                                {{yearOfPassing[i].yearOfPassing}}
+                                                                            </option>
                                                                         </select>
+
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-2">
-                                                                    <p class="text">Upload Supporting Documents:
-                                                                    </p>
+                                                                    <label for="exampleFormControlInput1">Upload
+                                                                        Supporting Documents:<span
+                                                                            class="mandatory-color">*</span></label>
+
                                                                 </div>
                                                                 <div class="col-lg-4">
 
                                                                     <div class="custom-file">
-                                                                        <!--                            <input type="file" class="custom-file-input" formControlName="uploadSupportingDocuments"
-                                                                            id="inputGroupFile04"
-                                                                            aria-describedby="inputGroupFileAddon04"> -->
-                                                                        <label class="custom-file-label"
-                                                                            for="inputGroupFile04">Choose File:
-                                                                        </label>
+                                                                        <!--  <input type="file"  class="custom-file-input" formControlName="uploadProfilePicture"> -->
+
+                                                                        <input type="file" name="file" ng2FileSelect
+                                                                            [uploader]="uploader" />
+
                                                                     </div>
+
                                                                     <label class="blue-color-text">
                                                                         File size upto 3 mb
                                                                     </label>
                                                                     <label class="blue-color-text">
                                                                         (Allowed formats jpeg, png, jpg)
                                                                     </label>
-                                                                    <button type="button"
-                                                                        class="btn btn-outline-info">Upload</button>
+                                                                    <button type="button" class="btn btn-outline-info"
+                                                                        (click)="uploader.uploadAll()"
+                                                                        [disabled]="!uploader.getNotUploadedItems().length">
+                                                                        Upload
+                                                                    </button>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-12">
@@ -1227,22 +1416,25 @@
                                                             <div class="row">
 
                                                                 <div class="col-lg-3">
-                                                                    <p class="text">Pre-training Status
-                                                                        <span class="mandatory-color">*</span>
-                                                                    </p>
+                                                                    <label for="exampleFormControlInput1">Pre-training
+                                                                        Status<span
+                                                                            class="mandatory-color">*</span></label>
+
                                                                 </div>
 
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
                                                                         <select class="form-control"
-                                                                            formControlName="preTrainingStatus"
-                                                                            id="exampleFormControlSelect2">
-                                                                            <option>Fresher</option>
-                                                                            <option>2</option>
-                                                                            <option>3</option>
-                                                                            <option>4</option>
-                                                                            <option>5</option>
+                                                                            formControlName="preTrainingStatus">
+                                                                            <option value=" " disabled>Select Status
+                                                                            </option>
+                                                                            <option
+                                                                                *ngFor="let status of preTrainingStatus; let i=index"
+                                                                                [value]="preTrainingStatus[i].preTrainingStatus">
+                                                                                {{preTrainingStatus[i].preTrainingStatus}}
+                                                                            </option>
                                                                         </select>
+
                                                                     </div>
                                                                 </div>
 
@@ -1257,39 +1449,46 @@
                                                         <div class="col-lg-12">
                                                             <div class="row">
                                                                 <div class="col-lg-3">
-                                                                    <p class="text">
-                                                                        Previous Experience Sector:
-                                                                    </p>
+                                                                    <label for="exampleFormControlInput1">Previous
+                                                                        Experience Sector:<span
+                                                                            class="mandatory-color">*</span></label>
+
                                                                 </div>
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
                                                                         <select class="form-control"
                                                                             formControlName="previousExperiencesector"
-                                                                            id="exampleFormControlSelect2">
-                                                                            <option></option>
-                                                                            <option>2</option>
-                                                                            <option>3</option>
-                                                                            <option>4</option>
-                                                                            <option>5</option>
+                                                                            (change)="getJobRoleForEducationSector($event.target.value)">
+                                                                            <option value=" " disabled>Select Sector
+                                                                            </option>
+                                                                            <option
+                                                                                *ngFor="let sector of previousExperienceSector; let i=index"
+                                                                                [value]="previousExperienceSector[i].previousExperienceSector">
+                                                                                {{previousExperienceSector[i].previousExperienceSector}}
+                                                                            </option>
                                                                         </select>
+
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-3">
-                                                                    <p class="text">
-                                                                        Previous Experience Job Role:
-                                                                    </p>
+                                                                    <label for="exampleFormControlInput1"> Previous
+                                                                        Experience Job Role:<span
+                                                                            class="mandatory-color">*</span></label>
+
                                                                 </div>
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
                                                                         <select class="form-control"
-                                                                            formControlName="previousExperienceJobRole"
-                                                                            id="exampleFormControlSelect2">
-                                                                            <option></option>
-                                                                            <option>2</option>
-                                                                            <option>3</option>
-                                                                            <option>4</option>
-                                                                            <option>5</option>
+                                                                            formControlName="previousExperienceJobRole">
+                                                                            <option value=" " disabled>Select JobRole
+                                                                            </option>
+                                                                            <option
+                                                                                *ngFor="let jobRole of educationJobRole; let roleId=index"
+                                                                                [value]="educationJobRole[roleId].educationJobRole">
+                                                                                {{educationJobRole[roleId].educationJobRole}}
+                                                                            </option>
                                                                         </select>
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1300,27 +1499,31 @@
                                                         <div class="col-lg-12">
                                                             <div class="row">
                                                                 <div class="col-lg-3">
-                                                                    <p class="text">
-                                                                        No of months of previous experience:
-                                                                    </p>
+                                                                    <label for="exampleFormControlInput1"> No of months
+                                                                        of previous experience:<span
+                                                                            class="mandatory-color">*</span></label>
+
                                                                 </div>
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
                                                                         <select class="form-control"
-                                                                            formControlName="monthsOfExperience"
-                                                                            id="exampleFormControlSelect2">
-                                                                            <option></option>
-                                                                            <option>2</option>
-                                                                            <option>3</option>
-                                                                            <option>4</option>
-                                                                            <option>5</option>
+                                                                            formControlName="monthsOfExperience">
+                                                                            <option value=" " disabled>Select Months Of
+                                                                                Experience</option>
+                                                                            <option
+                                                                                *ngFor="let months of monthsOfExperience; let i=index"
+                                                                                [value]="monthsOfExperience[i].monthsOfExperience">
+                                                                                {{monthsOfExperience[i].monthsOfExperience}}
+                                                                            </option>
                                                                         </select>
+
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-3">
-                                                                    <p class="text">
-                                                                        No of years of previous experience:
-                                                                    </p>
+                                                                    <label for="exampleFormControlInput1"> No of years
+                                                                        of previous experience:<span
+                                                                            class="mandatory-color">*</span></label>
+
                                                                 </div>
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
@@ -1338,21 +1541,23 @@
                                                         <div class="col-lg-12">
                                                             <div class="row">
                                                                 <div class="col-lg-3">
-                                                                    <p class="text">
-                                                                        Employed:
-                                                                    </p>
+                                                                    <label for="exampleFormControlInput1">
+                                                                        Employed:<span
+                                                                            class="mandatory-color">*</span></label>
+
                                                                 </div>
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
                                                                         <select class="form-control"
-                                                                            formControlName="employed"
-                                                                            id="exampleFormControlSelect2">
-                                                                            <option></option>
-                                                                            <option>2</option>
-                                                                            <option>3</option>
-                                                                            <option>4</option>
-                                                                            <option>5</option>
+                                                                            formControlName="employed">
+                                                                            <option value=" " disabled>Employed</option>
+                                                                            <option
+                                                                                *ngFor="let employ of employed; let i=index"
+                                                                                [value]="employed[i].employed">
+                                                                                {{employed[i].employed}}
+                                                                            </option>
                                                                         </select>
+
                                                                     </div>
                                                                 </div>
 
@@ -1363,27 +1568,31 @@
                                                         <div class="col-lg-12">
                                                             <div class="row">
                                                                 <div class="col-lg-3">
-                                                                    <p class="text">
-                                                                        Employment status:
-                                                                    </p>
+                                                                    <label for="exampleFormControlInput1"> Employment
+                                                                        status:<span
+                                                                            class="mandatory-color">*</span></label>
+
                                                                 </div>
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
                                                                         <select class="form-control"
-                                                                            formControlName="employmentStatus"
-                                                                            id="exampleFormControlSelect2">
-                                                                            <option></option>
-                                                                            <option>2</option>
-                                                                            <option>3</option>
-                                                                            <option>4</option>
-                                                                            <option>5</option>
+                                                                            formControlName="employmentStatus">
+                                                                            <option value=" " disabled>Employment Status
+                                                                            </option>
+                                                                            <option
+                                                                                *ngFor="let status of employmentStatus; let i=index"
+                                                                                [value]="employmentStatus[i].status">
+                                                                                {{employmentStatus[i].status}}
+                                                                            </option>
                                                                         </select>
+
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-3">
-                                                                    <p class="text">
-                                                                        Employment Details:
-                                                                    </p>
+                                                                    <label for="exampleFormControlInput1">Employment
+                                                                        Details:<span
+                                                                            class="mandatory-color">*</span></label>
+
                                                                 </div>
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
@@ -1403,8 +1612,8 @@
                                                             style="text-align:  center; padding-top: 40px;">
                                                             <button class="btn btn-primary " type="submit"
                                                                 awNextStep>Save &amp; Next</button>
-                                                            <button class="btn btn-outline-primary" type="button"
-                                                                style="margin-left:5px">Save As Draft</button>
+                                                            <!-- <button class="btn btn-outline-primary" type="button"
+                                                                style="margin-left:5px">Save As Draft</button> -->
                                                         </div>
 
                                                     </div>
@@ -1422,21 +1631,24 @@
                                                         <div class="col-lg-12">
                                                             <div class="row">
                                                                 <div class="col-lg-3">
-                                                                    <p class="text">
-                                                                        Heard about us?
-                                                                    </p>
+                                                                    <label for="exampleFormControlInput1"> Heard about
+                                                                        us?<span
+                                                                            class="mandatory-color">*</span></label>
+
                                                                 </div>
                                                                 <div class="col-lg-9">
                                                                     <div class="form-group">
                                                                         <select class="form-control"
-                                                                            formControlName="heardAboutUs"
-                                                                            id="exampleFormControlSelect2">
-                                                                            <option></option>
-                                                                            <option>2</option>
-                                                                            <option>3</option>
-                                                                            <option>4</option>
-                                                                            <option>5</option>
+                                                                            formControlName="heardAboutUs">
+                                                                            <option value=" " disabled>Select Source
+                                                                            </option>
+                                                                            <option
+                                                                                *ngFor="let source of heardAboutUs; let i=index"
+                                                                                [value]="heardAboutUs[i].heardAboutUs">
+                                                                                {{heardAboutUs[i].heardAboutUs}}
+                                                                            </option>
                                                                         </select>
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1445,39 +1657,47 @@
                                                         <div class="col-lg-12">
                                                             <div class="row">
                                                                 <div class="col-lg-3">
-                                                                    <p class="text">
-                                                                        Select Sector:
-                                                                    </p>
+                                                                    <label for="exampleFormControlInput1"> Select
+                                                                        Sector:<span
+                                                                            class="mandatory-color">*</span></label>
+
                                                                 </div>
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
                                                                         <select class="form-control"
                                                                             formControlName="sector"
-                                                                            id="exampleFormControlSelect2">
-                                                                            <option>Select Sector</option>
-                                                                            <option>2</option>
-                                                                            <option>3</option>
-                                                                            <option>4</option>
-                                                                            <option>5</option>
+                                                                            (change)="getSubsectorsForSectors($event.target.value)">
+                                                                            <option value=" " disabled>Select Sector
+                                                                            </option>
+                                                                            <option
+                                                                                *ngFor="let sector of sectors; let i=index"
+                                                                                [value]="sectors[i].sectorName">
+                                                                                {{sectors[i].sectorName}}
+                                                                            </option>
                                                                         </select>
+
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-3">
-                                                                    <p class="text">
-                                                                        Select Sub Sector:
-                                                                    </p>
+                                                                    <label for="exampleFormControlInput1"> Select Sub
+                                                                        Sector:<span
+                                                                            class="mandatory-color">*</span></label>
+
                                                                 </div>
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
                                                                         <select class="form-control"
                                                                             formControlName="subSector"
-                                                                            id="exampleFormControlSelect2">
-                                                                            <option>Select Sub Sector</option>
-                                                                            <option>2</option>
-                                                                            <option>3</option>
-                                                                            <option>4</option>
-                                                                            <option>5</option>
+                                                                            (change)="getJobrolesForSubsector($event.target.value)">
+                                                                            <option value=" " disabled>Select Sub Sector
+                                                                            </option>
+                                                                            <option
+                                                                                *ngFor="let subsector of subSectors; let sectorId=index"
+                                                                                [value]="subSectors[sectorId].subSectorName">
+                                                                                {{subSectors[sectorId].subSectorName}}
+                                                                            </option>
                                                                         </select>
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1485,21 +1705,24 @@
                                                         <div class="col-lg-12">
                                                             <div class="row">
                                                                 <div class="col-lg-3">
-                                                                    <p class="text">
-                                                                        Select job Role:
-                                                                    </p>
+                                                                    <label for="exampleFormControlInput1"> Select Job
+                                                                        Role:<span
+                                                                            class="mandatory-color">*</span></label>
+
                                                                 </div>
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
                                                                         <select class="form-control"
-                                                                            formControlName="jobRole"
-                                                                            id="exampleFormControlSelect2">
-                                                                            <option>Select job Role</option>
-                                                                            <option>2</option>
-                                                                            <option>3</option>
-                                                                            <option>4</option>
-                                                                            <option>5</option>
+                                                                            formControlName="jobRole">
+                                                                            <option value=" " disabled>Select job Role
+                                                                            </option>
+                                                                            <option
+                                                                                *ngFor="let jobRole of jobRoles; let subSectorId=index"
+                                                                                [value]="jobRoles[subSectorId].jobName">
+                                                                                {{jobRoles[subSectorId].jobName}}
+                                                                            </option>
                                                                         </select>
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1518,8 +1741,8 @@
                                                             style="text-align:  center; padding-top: 40px;">
                                                             <button class="btn btn-primary " type="submit"
                                                                 awNextStep>Save &amp; Next</button>
-                                                            <button class="btn btn-outline-primary" type="button"
-                                                                style="margin-left:5px">Save As Draft</button>
+                                                           <!--  <button class="btn btn-outline-primary" type="button"
+                                                                style="margin-left:5px">Save As Draft</button> -->
                                                         </div>
 
                                                     </div>
@@ -1536,16 +1759,25 @@
                                                         <div class="col-lg-12">
                                                             <div class="row">
                                                                 <div class="col-lg-3">
-                                                                    <p class="text">
-                                                                        Declaration Undertaking:
-                                                                    </p>
+                                                                    <label for="exampleFormControlInput1"> Declaration
+                                                                        Undertaking:<span
+                                                                            class="mandatory-color">*</span></label>
+
                                                                 </div>
                                                                 <div class="col-lg-6">
-                                                                    <div class="form-group">
+                                                                    <div class="form-group"
+                                                                        *ngFor="let declarationUndertaking of declaration; let i=index">
 
                                                                         <textarea class="form-control"
                                                                             formControlName="declarationUndertaking"
-                                                                            rows="3"></textarea>
+                                                                            rows="3"
+                                                                            readonly>Training Partner/ Project Implementing Agency (PIA)/ Special Projects Implementing Agency(SPIA) and its Training Centre/Location confirms to the following by saving the candidate for registration:
+                                                                            1.The data entered is true and verified.
+                                                                            2.Agrees to ensure upload of the candidate photo and the proof for District of Domicile (Aadhaar/PAN/Voter card copy/Birth Certificate issued by govt./BPL Card/Domicile Certificate/Driving License/Identity proof by Gazetted officers/Jail Identification Card / Number/Letter of domicile from SDM / DM / Govt. authority/National Population Register (NPR) Card/Permanent Residential Certificate (PRC)/Passport/Ration Card/ST/SC Certificate/School leaving certificate / 10th certificate/Other) and proof for Person with Disability.
+                                                                            3.Agrees to upload alternate id (PAN/Voter card copy) only for candidates with domicile (place of belonging) as Jammu and Kashmir or North East (Arunachal Pradesh, Assam, Manipur, Meghalaya, Mizoram, Nagaland, Sikkim and Tripura). Further the Training Partner/PIA/SPIA and its Training Centre/Location understands and accepts that misrepresentation of candidate information may lead to blacklisting/cancellation of the Training Centre / Training Partner / Project Implementing Agency/Project, and disciplinary actions be initiated as per the decision of PMKVY Monitoring Committee.
+                                                                            4.I understand that if the domicile district of the candidate and the training center district is the same, no Boarding & Lodging pay-out will be made.
+                                                                            5.I understand that candidate details, employment letter, salary slip, bank statement and other relevant documents can be shared with relevant stakeholders in ecosystem for the purpose of placement verification as well as facilitating placement for candidate.
+                                                                            6.I have informed candidates that the training/orientation and certification by NSDC/SSC is not in substitution of the statutory requirement of specific license/diploma/degree or any other certificate for taking up or performing the job for which there is a requirement under any statute for any specific license/diploma/degree or any other certificate for taking up or performing that job.</textarea>
 
 
                                                                     </div>

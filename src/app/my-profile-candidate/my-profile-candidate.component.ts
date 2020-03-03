@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from "@angular/forms";
+import { FormBuilder,FormGroup, Validators } from "@angular/forms";
 import { MyProfileService } from './my-profile-candidate.service';
+import { FileUploader } from 'ng2-file-upload';
+
+const uploadAPI = '//localhost:8080/upload'; 
 
 @Component({
   selector: 'app-my-profile-candidate',
@@ -8,38 +11,148 @@ import { MyProfileService } from './my-profile-candidate.service';
   styleUrls: ['./my-profile-candidate.component.css']
 })
 export class MyProfileCandidateComponent implements OnInit {
+  public uploader: FileUploader = new FileUploader({ url: uploadAPI, itemAlias: 'file' });
 
+ //assigned in get and post methods
   states: Array<any>;
   districts: Array<any>;
   mandals: Array<any>;
   villages: Array<any>;
   parliamentaries: Array<any>;
-
-  dob: any;
-  //assigned in get methods
+  education: Array<any>;
+  yearOfPassing: Array<any>;
+  preTrainingStatus: Array<any>;
+  previousExperienceSector: Array<any>;
+  educationJobRole: Array<any>;
+  monthsOfExperience: Array<any>;
+  employmentStatus: Array<any>;
+  employed: Array<any>;
+  heardAboutUs:Array<any>;
+  declaration: Array<any>;
+  sectors:Array<any>;
+  prefix:Array<any>;
   stateId: string;
   districtId: string;
   mandalId: string;
-
-
-
-
-
-  radio1 = false;
-  radio2 = false;
+  educationSectorId:string;
+  sectorName:Array<any>;
+  subSectors:Array<any>;
+  jobRoles: Array<any>;
+  subSectorId: Array<any>;
+  maritalStatus:Array<any>;
+  community:Array<any>;
+  religion:Array<any>;
+  disability:Array<any>;
+  typeOfDisability:Array<any>;
+  disabilityId:string;
+  domicileStates:Array<any>;
+  domicileDistricts:Array<any>;
+  domicileStateId:string;
+  readioSelected:any;
+  showcontent:boolean=false;
   result: any;
-  constructor(public fb: FormBuilder, private myProfileCandidateService: MyProfileService) { }
+  dob: any;
+  submitted = false;
+
+  
+  
+  
+constructor(public fb: FormBuilder, private myProfileCandidateService: MyProfileService) { }
 
   ngOnInit() {
+    this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
+    this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
+         console.log('FileUpload:uploaded successfully:', item, status, response);
+         alert('Your file has been uploaded successfully');
+    };
 
     this.myProfileCandidateService.getAllStates().subscribe(data => {
       this.states = data;
+    });
 
+    this.myProfileCandidateService.getEducation().subscribe(data => {
+      this.education = data;
+      
+    });
+    this.myProfileCandidateService.getYearOfPassing().subscribe(data => {
+      this.yearOfPassing = data;
+      
+    });
+    this.myProfileCandidateService.getPreTrainingStatus().subscribe(data => {
+      this.preTrainingStatus = data;
+      
+    });
+    this.myProfileCandidateService.getExperienceSector().subscribe(data => {
+      this.previousExperienceSector = data;
+      
+    });
+    this.myProfileCandidateService.getMonthsOfExperience().subscribe(data => {
+      this.monthsOfExperience = data;
+     
+      
+    });
+    this.myProfileCandidateService.getEmployed().subscribe(data => {
+      this.employed = data;
+      
+    });
+    this.myProfileCandidateService.getAllSectors().subscribe(data => {
+      this.sectors = data;
+      
+    });
+    this.myProfileCandidateService. getHeardAboutUs().subscribe(data => {
+      this.heardAboutUs = data;
+      
+    });
+    this.myProfileCandidateService. getDeclaration().subscribe(data => {
+      this.declaration = data;
+    
+    });
+    this.myProfileCandidateService. getPrefix().subscribe(data => {
+      this.prefix = data;
+    
+    });
+    this.myProfileCandidateService.getMaritalStatus().subscribe(data => {
+      this.maritalStatus = data;
+    
+    });
+    this.myProfileCandidateService.getCommunity().subscribe(data => {
+      this.community = data;
+    
+    });
+    this.myProfileCandidateService.getReligion().subscribe(data => {
+      this.religion = data;
+    
+    });
+    this.myProfileCandidateService.getDisability().subscribe(data => {
+      this.disability = data;
+       
+    });
+    this.myProfileCandidateService.getDomicileState().subscribe(data => {
+      this.domicileStates = data;
+       
     });
 
 
 
 
+
+  }
+
+  //get methods for personal details form
+  getDisabilityType(disabilityName: string) {
+    let disabilityId = this.disability.filter(ele => ele.disability == disabilityName)[0].disabilityId
+    console.log(disabilityId);
+    this.myProfileCandidateService.getDisabilityType(disabilityId).subscribe(data => {
+      this.typeOfDisability = data;
+
+    });
+  }
+  getDomicileDistrictforDomicileState(domicileStateName: string) {
+    let domicileStateId = this.domicileStates.filter(ele => ele.domicileState == domicileStateName)[0].domicileStateId 
+    this.myProfileCandidateService.getDomicileDistrictforDomicileState(domicileStateId ).subscribe(data => {
+      this.domicileDistricts = data;
+
+    });
   }
 
   //get methods for contact details form
@@ -72,21 +185,45 @@ export class MyProfileCandidateComponent implements OnInit {
       this.parliamentaries = data;
     });
   }
+
+  //get methods for education details form
+  getJobRoleForEducationSector(previousExperienceSector: string) {
+    let educationSectorId = this.previousExperienceSector.filter(ele => ele.previousExperienceSector == previousExperienceSector)[0].educationSectorId
+    this.myProfileCandidateService.getJobRoleForEducationSector(educationSectorId).subscribe(data => {
+      this.educationJobRole = data;
+     
+    });
+  }
+
+    
+
+
+ 
+
+  //get methods for course preferences form
+  getSubsectorsForSectors(sectorName :string) {
+    let sectorId = this.sectors.filter(ele => ele.sectorName == sectorName)[0].sectorId
+    this.myProfileCandidateService.getSubsectorsForSectors(sectorId).subscribe(data => {
+      this.subSectors = data;
+     
+    });
+  }
+  getJobrolesForSubsector(subSectorName :string) {
+    let subSectorId = this.subSectors.filter(ele => ele.subSectorName == subSectorName)[0].subSectorId
+    this.myProfileCandidateService.getJobrolesForSubsector(subSectorId).subscribe(data => {
+      this.jobRoles = data;
+      console.log(this.jobRoles);
+    });
+  }
+
   toString(dob: any) {
     dob = new Date();
     dob = dob.getUTCFullYear() + "-" + dob.getUTCMonth() + "-" + dob.getUTCDate();
 
     console.log(dob);
   }
-
-  show1() {
-    this.radio1 = true;
-    this.radio2 = false;
-  }
-
-  show2() {
-    this.radio2 = true;
-    this.radio1 = false;
+  showContent(){
+    this.showcontent=this.readioSelected;
   }
 
   //personal details form
@@ -110,9 +247,10 @@ export class MyProfileCandidateComponent implements OnInit {
     anyDisability: [' ', [Validators.required]],
     typeOfDisability: [' ', [Validators.required]],
     uploadSupportingDocument: [' ', [Validators.required]],
-    /* identification: [' ', [Validators.required]],
-    alternateId: [' ', [Validators.required]], */
+     identification: [' ', [Validators.required]],
+    alternateId: [' ', [Validators.required]], 
     identificationType: [' ', [Validators.required]],
+    aadharNumber:[' ', [Validators.required]],
     address: [' ', [Validators.required]],
     pinCode: [' ', [Validators.required]],
     state: [' ', [Validators.required]],
@@ -129,7 +267,7 @@ export class MyProfileCandidateComponent implements OnInit {
     state: [' ', [Validators.required]],
     district: [' ', [Validators.required]],
     mandal: [' ', [Validators.required]],
-    parliamentary: [' ', [Validators.required]],
+    parliamentaryConstituency: [' ', [Validators.required]],
     accountHolderName: [' ', [Validators.required]],
     accountNumber: [' ', [Validators.required]],
     ifscCode: [' ', [Validators.required]],
@@ -176,6 +314,12 @@ export class MyProfileCandidateComponent implements OnInit {
 
   //posting data to forms on submit 
   onSubmit(personalDetailsForm) {
+    if (this.personalDetailsForm.valid) {
+      console.log('form submitted');
+    } else {
+      // validate all form fields
+    }
+
     console.log(personalDetailsForm);
     personalDetailsForm = Object.assign(personalDetailsForm, { userId: 10 });
     let serializedForm = JSON.stringify(personalDetailsForm);
@@ -188,11 +332,12 @@ export class MyProfileCandidateComponent implements OnInit {
   }
   onSubmitContactForm(contactDetailsForm) {
     console.log(contactDetailsForm);
+    contactDetailsForm= Object.assign(contactDetailsForm, { userId: 11 });
     let serializedContactDetailsForm = JSON.stringify(contactDetailsForm);
     console.log(serializedContactDetailsForm);
     this.myProfileCandidateService.onSubmitContactForm(serializedContactDetailsForm).subscribe((data) => {
       this.result = data;
-     alert("success!"),
+    
         error => console.error("couldn't post because", error)
     })
   }
@@ -200,6 +345,7 @@ export class MyProfileCandidateComponent implements OnInit {
 
   onSubmitEducationForm(educationalDetailsForm) {
     console.log(educationalDetailsForm);
+    educationalDetailsForm= Object.assign(educationalDetailsForm, { userId: 12 });
     let serializedEducationDetailsForm = JSON.stringify(educationalDetailsForm);
     console.log(serializedEducationDetailsForm);
     this.myProfileCandidateService.onSubmitEducationForm(serializedEducationDetailsForm).subscribe((data) => {
@@ -211,6 +357,7 @@ export class MyProfileCandidateComponent implements OnInit {
 
   onSubmitCoursePreferencesForm(coursePreferencesForm) {
     console.log(coursePreferencesForm);
+    coursePreferencesForm= Object.assign(coursePreferencesForm, { userId: 13 });
     let serializedCoursePreferencesForm = JSON.stringify(coursePreferencesForm);
     console.log(serializedCoursePreferencesForm);
     this.myProfileCandidateService.onSubmitCoursePreferencesForm(serializedCoursePreferencesForm).subscribe((data) => {
@@ -223,6 +370,7 @@ export class MyProfileCandidateComponent implements OnInit {
 
   onSubmitDeclarationForm(declarationForm) {
     console.log(declarationForm);
+    declarationForm= Object.assign(declarationForm, { userId: 13 });
     let serializedDeclarationForm = JSON.stringify(declarationForm);
     console.log(serializedDeclarationForm);
     this.myProfileCandidateService.onSubmitDeclarationForm(serializedDeclarationForm).subscribe((data) => {
