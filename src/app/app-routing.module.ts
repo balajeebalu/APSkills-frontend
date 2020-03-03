@@ -1,29 +1,32 @@
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AssessmentComponent } from './assessment/assessment.component';
+
 import  {LandingPageComponent} from './landing-page/landing-page.component';
-import {SearchApplyComponent} from  './search-apply/search-apply.component';
+
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
-import { AssessorComponent } from './assessor/assessor.component';
-import { MyProfileComponent } from './my-profile/my-profile.component';
-import { SearchBatchesComponent } from './search-batches/search-batches.component';
-import { ViewBatchesComponent } from './view-batches/view-batches.component';
-import { ViewCertificatesComponent } from './view-certificates/view-certificates.component';
-import { AssessorViewBatchesComponent } from './assessor-view-batches/assessor-view-batches.component';
-import { AssessmentBatchesComponent } from './assessment-batches/assessment-batches.component';
-import { CancelledBatchesComponent } from './cancelled-batches/cancelled-batches.component';
-import { EditProfileComponent } from './edit-profile/edit-profile.component';
-import { ContactAddressComponent } from './contact-address/contact-address.component';
-import { CandidateRegistrationFormComponent } from './candidate-registration-form/candidate-registration-form.component';
-import { DashboardCandidateComponent } from './dashboard-candidate/dashboard-candidate.component';
-import { ViewBatchesCandidateComponent } from './view-batches-candidate/view-batches-candidate.component';
-import { ViewMyBatchesCandidateComponent } from './view-my-batches-candidate/view-my-batches-candidate.component';
-import { ViewAllTrainingCentresCandidateComponent } from './view-all-training-centres-candidate/view-all-training-centres-candidate.component';
-import { ViewAllRozgarMelasCandidateComponent } from './view-all-rozgar-melas-candidate/view-all-rozgar-melas-candidate.component';
-import { ViewAddPreferencesCandidateComponent } from './view-add-preferences-candidate/view-add-preferences-candidate.component';
-import { MyProfileCandidateComponent } from './my-profile-candidate/my-profile-candidate.component';
-import { EnrolledRozgarmelaCandidateComponent } from './enrolled-rozgarmela-candidate/enrolled-rozgarmela-candidate.component';
+
+import { CandidateRegistrationFormComponent } from './candidate/candidate-registration-form/candidate-registration-form.component';
+import { DashboardCandidateComponent } from './candidate/dashboard-candidate/dashboard-candidate.component';
+import { ViewBatchesCandidateComponent } from './candidate/view-batches-candidate/view-batches-candidate.component';
+import { ViewMyBatchesCandidateComponent } from './candidate/view-my-batches-candidate/view-my-batches-candidate.component';
+import { ViewAllTrainingCentresCandidateComponent } from './candidate/view-all-training-centres-candidate/view-all-training-centres-candidate.component';
+import { ViewAllRozgarMelasCandidateComponent } from './candidate/view-all-rozgar-melas-candidate/view-all-rozgar-melas-candidate.component';
+import { MyProfileCandidateComponent } from './candidate/my-profile-candidate/my-profile-candidate.component';
+import { EnrolledRozgarmelaCandidateComponent } from './candidate/enrolled-rozgarmela-candidate/enrolled-rozgarmela-candidate.component';
+import { AssessmentComponent } from './assessorModule/assessment/assessment.component';
+import { ViewAddPreferencesCandidateComponent } from './candidate/view-add-preferences-candidate/view-add-preferences-candidate.component';
+import { AssessorComponent } from './assessorModule/assessor/assessor.component';
+import { MyProfileComponent } from './assessorModule/my-profile/my-profile.component';
+import { SearchApplyComponent } from './assessorModule/search-apply/search-apply.component';
+import { SearchBatchesComponent } from './assessorModule/search-batches/search-batches.component';
+import { ViewCertificatesComponent } from './assessorModule/view-certificates/view-certificates.component';
+import { ViewBatchesComponent } from './assessorModule/view-batches/view-batches.component';
+import { AssessorViewBatchesComponent } from './assessorModule/assessor-view-batches/assessor-view-batches.component';
+import { AssessmentBatchesComponent } from './assessorModule/assessment-batches/assessment-batches.component';
+import { EditProfileComponent } from './assessorModule/edit-profile/edit-profile.component';
+import { CancelledBatchesComponent } from './assessorModule/cancelled-batches/cancelled-batches.component';
+import { ContactAddressComponent } from './assessorModule/contact-address/contact-address.component';
 
 const routes: Routes = [
   {

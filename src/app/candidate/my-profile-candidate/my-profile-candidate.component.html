@@ -117,12 +117,13 @@
                                                                             </div>
                                                                             <div class="col-lg-8">
                                                                                 <input type="text" class="form-control"
-                                                                                    formControlName="candidateFullName">
-                                                                                    <div *ngIf="personalDetailsForm.controls['candidateFullName'].invalid && (personalDetailsForm.controls['candidateFullName'].dirty || personalDetailsForm.controls['candidateFullName'].touched)" class="alert alert-danger">
-                                                                                        <div *ngIf="personalDetailsForm.controls['candidateFullName'].errors.required">
-                                                                                        Name is required.
-                                                                                      </div>
-                                                                                      </div>
+                                                                                    formControlName="candidateFullName" [ngClass]="{ 'is-invalid': submitted && fval.candidateFullName.errors }">
+                                                                                    <div *ngIf="submitted && fval.candidateFullName.errors" class="invalid-feedback">
+                                                                                        <div *ngIf="fval.candidateFullName.errors.required">
+                                                                                        Full Name is required and must be a valid name
+                                                                                        </div>
+                                                                                         
+                                                                                        </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -911,7 +912,7 @@
 
                                                         <div class="col-lg-12"
                                                             style="text-align:  center; padding-top: 40px;">
-                                                            <button class="btn btn-primary " type="submit" [disabled]="!personalDetailsForm.valid"
+                                                            <button class="btn btn-primary " type="submit" 
                                                                 awNextStep>Save &amp; Next</button>
                                                            <!--  <button class="btn btn-outline-primary" type="button"
                                                                 style="margin-left:5px">Save As Draft</button> -->

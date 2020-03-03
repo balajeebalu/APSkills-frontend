@@ -311,14 +311,15 @@ constructor(public fb: FormBuilder, private myProfileCandidateService: MyProfile
 
   });
 
-
+  get fval() {
+    return this.personalDetailsForm.controls;
+    }
   //posting data to forms on submit 
   onSubmit(personalDetailsForm) {
-    if (this.personalDetailsForm.valid) {
-      console.log('form submitted');
-    } else {
-      // validate all form fields
-    }
+    this.submitted = true;
+  if (this.personalDetailsForm.invalid) {
+  return;
+  }
 
     console.log(personalDetailsForm);
     personalDetailsForm = Object.assign(personalDetailsForm, { userId: 10 });
