@@ -14,7 +14,7 @@
                         </div>
                         <div class="col-lg-9  padding-top-80">
                             <span class="header-text">
-                                Andhra Pradesh State Skill Development Corporation
+                               Andhra Pradesh State Skill Development Corporation
                             </span>
                         </div>
                         <div class="col-lg-2 padding-right-50" onclick="toggleDisplay()">
@@ -30,10 +30,14 @@
                             <div class="col-lg-12">
                                 <div class="assess-list">
                                     <ul class="list-ul">
-                                        <li class="list-li"> <a href="/candidate" class="link-style">Dashboard</a></li>
-
-                                        <li class="list-li"><a href="/candidate-myprofile" class="link-style">My
-                                                Profile</a></li>
+                                        
+                                       <li class="list-li" > <span  [routerLink]="[ '/candidate']"
+                                                    class="link-style">Dashboard</span> 
+                                                   </li>
+                                     
+                                        <li class="list-li" > <span  [routerLink]="[ '/candidate-myprofile']"
+                                                class="link-style">My Profile</span> 
+                                               </li>
                                     </ul>
                                 </div>
                             </div>

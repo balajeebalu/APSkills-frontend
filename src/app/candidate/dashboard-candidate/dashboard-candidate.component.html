@@ -30,11 +30,13 @@
                             <div class="col-lg-12">
                                 <div class="assess-list">
                                     <ul class="list-ul">
-                                        <li class="list-li"> <a href="/candidate" 
-                                                class="link-style">Dashboard</a></li>
+                                        
+                                       <li class="list-li" > <span  [routerLink]="[ '/candidate']"
+                                                    class="link-style">Dashboard</span> 
+                                                   </li>
                                      
-                                        <li class="list-li"  [routerLink]="[ '/candidate-myprofile']"><!-- <a href="/candidate-myprofile"
-                                                class="link-style">My Profile</a> -->My Profile
+                                        <li class="list-li" > <span  [routerLink]="[ '/candidate-myprofile']"
+                                                class="link-style">My Profile</span> 
                                                </li>
                                     </ul>
                                 </div>
@@ -64,7 +66,7 @@
                             </div>
                             <ul class="dashboard-ul">
                                 <li class="dashboard-li">
-                                    <i class="fas fa-home"></i>
+                                    <i class="fa fa-home fa-2x" ></i>
                                 </li>
                                 <li class="dashboard-li text">
                                   - Dashboard
@@ -96,7 +98,7 @@
 
 
 
-                                                    <div class="card col-lg-4" tabindex="0">
+                                                    <div class="card col-lg-4" tabindex="0" routerLink="/candidate-viewbatches">
 
                                                         <svg class="" height="46" viewBox="0 0 48 46" width="48">
                                                             <g fill="none" fill-rule="evenodd">
@@ -141,14 +143,14 @@
                                                         <div class="card-text">
                                                             <p class="card-title"> 
                                                        
-                                                            <a href="/candidate-viewbatches" class="card-link">View Batches</a>
+                                                            <span class="card-link">View Batches</span>
                                                             </p>
                                                           
                                                             <p class="card-subtitle">All Batches Registered</p>
                                                         </div>
                                                      
                                                     </div>
-                                                    <div class="card col-lg-4" tabindex="0">
+                                                    <div class="card col-lg-4" tabindex="0" routerLink="/candidate-viewmybatches">
 
                                                         <svg class="" height="46" viewBox="0 0 48 46" width="48">
                                                             <g fill="none" fill-rule="evenodd">
@@ -190,14 +192,14 @@
                                                         </svg>
                                                         <div class="card-text">
                                                             <p class="card-title">
-                                                                <a href="/candidate-viewmybatches"
-                                                                    class="card-link"> View My  Batches</a>
+                                                                <span
+                                                                    class="card-link"> View My  Batches</span>
                                                             </p>
                                                             <p class="card-subtitle">All Batches Enrolled/Ongoing</p>
                                                         </div>
 
                                                     </div>
-                                                    <div class="card col-lg-4" tabindex="0">
+                                                    <div class="card col-lg-4" tabindex="0" routerLink="/candidate-viewalltrainingcentres">
 
                                                         <svg class="" height="46" viewBox="0 0 48 46" width="48">
                                                             <g fill="none" fill-rule="evenodd">
@@ -239,14 +241,14 @@
                                                         </svg>
                                                         <div class="card-text">
                                                             <p class="card-title">
-                                                                <a href="/candidate-viewalltrainingcentres"
-                                                                    class="card-link"> View All Training Centers</a>
+                                                                <span
+                                                                    class="card-link"> View All Training Centers</span>
                                                             </p>
                                                             <p class="card-subtitle"></p>
                                                         </div>
 
                                                     </div>
-                                                    <div class="card col-lg-4" tabindex="0">
+                                                    <div class="card col-lg-4" tabindex="0" routerLink="/candidate-viewallrozgarmelas">
 
                                                         <svg class="" height="46" viewBox="0 0 48 46" width="48">
                                                             <g fill="none" fill-rule="evenodd">
@@ -288,14 +290,14 @@
                                                         </svg>
                                                         <div class="card-text">
                                                             <p class="card-title">
-                                                                <a href="/candidate-viewallrozgarmelas"
-                                                                    class="card-link"> View All Rozgar Melas</a>
+                                                                <span
+                                                                    class="card-link"> View All Rozgar Melas</span>
                                                             </p>
                                                             <p class="card-subtitle">All Rozgar Melas</p>
                                                         </div>
 
                                                     </div>
-                                                    <div class="card col-lg-4" tabindex="0">
+                                                    <div class="card col-lg-4" tabindex="0" routerLink="/candidate-viewpreferences">
 
                                                         <svg xmlns:xlink="http://www.w3.org/1999/xlink"
                                                         class="icon-align" height="47" viewBox="0 0 47 47"
@@ -319,8 +321,7 @@
 
                                                         <div class="card-text">
                                                             <p class="card-title">
-                                                                <a href="/candidate-viewpreferences"
-                                                               class="card-link"> View/ Add Preferences</a>
+                                                                <span class="card-link"> View/ Add Preferences</span>
                                                             </p>
                                                             <p class="card-subtitle">View /Edit My Preferences
                                                             </p>

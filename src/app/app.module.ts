@@ -44,6 +44,14 @@ import { CancelledBatchesComponent } from './assessorModule/cancelled-batches/ca
 import { EditProfileComponent } from './assessorModule/edit-profile/edit-profile.component';
 import { ContactAddressComponent } from './assessorModule/contact-address/contact-address.component';
 import { ViewAddPreferencesCandidateComponent } from './candidate/view-add-preferences-candidate/view-add-preferences-candidate.component';
+import { DashboardTrainerComponent } from './trainerModule/dashboard-trainer/dashboard-trainer.component';
+import { SearchBatchesTrainerComponent } from './trainerModule/search-batches-trainer/search-batches-trainer.component';
+import { HeaderComponent } from './trainerModule/header/header.component';
+import { ViewBatchesTrainerComponent } from './trainerModule/view-batches-trainer/view-batches-trainer.component';
+import { CertificateRequestsTrainerComponent } from './trainerModule/certificate-requests-trainer/certificate-requests-trainer.component';
+import { TrainerComponent } from './trainerModule/trainer/trainer.component';
+import { MyProfileTrainerComponent } from './trainerModule/my-profile-trainer/my-profile-trainer.component';
+import { CandidateHeaderComponent } from './candidate/candidate-header/candidate-header.component';
 
 
 @NgModule({
@@ -73,6 +81,14 @@ import { ViewAddPreferencesCandidateComponent } from './candidate/view-add-prefe
     ViewAddPreferencesCandidateComponent,
     MyProfileCandidateComponent,
     EnrolledRozgarmelaCandidateComponent,
+    DashboardTrainerComponent,
+    SearchBatchesTrainerComponent,
+    HeaderComponent,
+    ViewBatchesTrainerComponent,
+    CertificateRequestsTrainerComponent,
+    TrainerComponent,
+    MyProfileTrainerComponent,
+    CandidateHeaderComponent,
     
   ],
   imports: [
@@ -86,7 +102,7 @@ import { ViewAddPreferencesCandidateComponent } from './candidate/view-add-prefe
     DataTablesModule,
     NgbModule,
     ArchwizardModule,
-  
+    AngularFontAwesomeModule,
     FileUploadModule,
     BsDatepickerModule.forRoot(),
     RecaptchaModule.forRoot({

@@ -27,6 +27,12 @@ import { AssessmentBatchesComponent } from './assessorModule/assessment-batches/
 import { EditProfileComponent } from './assessorModule/edit-profile/edit-profile.component';
 import { CancelledBatchesComponent } from './assessorModule/cancelled-batches/cancelled-batches.component';
 import { ContactAddressComponent } from './assessorModule/contact-address/contact-address.component';
+import { DashboardTrainerComponent } from './trainerModule/dashboard-trainer/dashboard-trainer.component';
+import { SearchBatchesTrainerComponent } from './trainerModule/search-batches-trainer/search-batches-trainer.component';
+import { ViewBatchesTrainerComponent } from './trainerModule/view-batches-trainer/view-batches-trainer.component';
+import { CertificateRequestsTrainerComponent } from './trainerModule/certificate-requests-trainer/certificate-requests-trainer.component';
+import { TrainerComponent } from './trainerModule/trainer/trainer.component';
+import { MyProfileTrainerComponent } from './trainerModule/my-profile-trainer/my-profile-trainer.component';
 
 const routes: Routes = [
   {
@@ -140,6 +146,28 @@ component:RegistrationPageComponent},
   path:'candidate-myprofile',
   component:MyProfileCandidateComponent,
 },
+
+/* trainer pages */
+{
+  path:'trainer-dashboard',
+  component:DashboardTrainerComponent,   
+},
+{path:'searchBatches-trainer',
+component:SearchBatchesTrainerComponent,
+},
+{path:'viewBatches-trainer',
+component:ViewBatchesTrainerComponent,
+},
+{path:'certificateRequests-trainer',
+component:CertificateRequestsTrainerComponent,
+},
+{path:'trainer',
+component:TrainerComponent,
+},
+{path:'myProfile-trainer',
+component:MyProfileTrainerComponent,
+},
+
 
 ]
 @NgModule({
