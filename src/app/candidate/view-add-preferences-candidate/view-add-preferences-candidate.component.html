@@ -136,6 +136,7 @@
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
+                                                
                                                 <form [formGroup]="viewAddPreferencesForm"  (ngSubmit)="onSubmit(viewAddPreferencesForm.value)">
                                                   <div class="modal-body">
                                                    
@@ -194,7 +195,9 @@
                                                    <div class="modal-footer">
                                                     <button type="submit" class="btn btn-primary"
                                                        >Add</button>
-
+                                                       <button type="button" class="btn btn-outline-primary" data-dismiss="modal"
+                                                       aria-label="Close"
+                                                       >close</button>
                                                    </div>
                                                 </form>
                                             </div>

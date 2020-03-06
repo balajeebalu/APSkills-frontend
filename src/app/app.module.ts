@@ -45,14 +45,16 @@ import { EditProfileComponent } from './assessorModule/edit-profile/edit-profile
 import { ContactAddressComponent } from './assessorModule/contact-address/contact-address.component';
 import { ViewAddPreferencesCandidateComponent } from './candidate/view-add-preferences-candidate/view-add-preferences-candidate.component';
 import { DashboardTrainerComponent } from './trainerModule/dashboard-trainer/dashboard-trainer.component';
-import { SearchBatchesTrainerComponent } from './trainerModule/search-batches-trainer/search-batches-trainer.component';
+import { TrainingRequestsTrainerComponent } from './trainerModule/training-requests-trainer/training-requests-trainer.component';
 import { HeaderComponent } from './trainerModule/header/header.component';
 import { ViewBatchesTrainerComponent } from './trainerModule/view-batches-trainer/view-batches-trainer.component';
 import { CertificateRequestsTrainerComponent } from './trainerModule/certificate-requests-trainer/certificate-requests-trainer.component';
 import { TrainerComponent } from './trainerModule/trainer/trainer.component';
 import { MyProfileTrainerComponent } from './trainerModule/my-profile-trainer/my-profile-trainer.component';
 import { CandidateHeaderComponent } from './candidate/candidate-header/candidate-header.component';
-
+import {TabComponent} from './tabs/tab.component';
+import {TabsComponent} from './tabs/tabs.component';
+import { SearchBatchesTrainerComponent } from './trainerModule/search-batches-trainer/search-batches-trainer.component';
 
 @NgModule({
   declarations: [
@@ -82,13 +84,17 @@ import { CandidateHeaderComponent } from './candidate/candidate-header/candidate
     MyProfileCandidateComponent,
     EnrolledRozgarmelaCandidateComponent,
     DashboardTrainerComponent,
-    SearchBatchesTrainerComponent,
+    TrainingRequestsTrainerComponent,
     HeaderComponent,
     ViewBatchesTrainerComponent,
     CertificateRequestsTrainerComponent,
     TrainerComponent,
     MyProfileTrainerComponent,
     CandidateHeaderComponent,
+    TabComponent,
+    TabsComponent,
+    SearchBatchesTrainerComponent
+ 
     
   ],
   imports: [

@@ -8,242 +8,418 @@
     </div>
     <div class="col">
         <section>
-            <div class="row">
-                <div class="col-lg-12 padding-top-180">
-                    <div class="search-body">
-                        <div class="dashboard-header">
-                            <div class="row padding-bottom-25">
+            <div class="col">
+                <section>
+                    <div class="row">
+                        <div class="col-lg-12 padding-top-180">
+                            <div class="search-body">
+                                <div class="dashboard-header">
+                                    <div class="row padding-bottom-25">
 
-                                <div class="dashboard-subheader">
-                                    <div class="dashboard-content">
-                                        ToT/ToA Dashboard
+                                        <div class="dashboard-subheader">
+                                            <div class="dashboard-content">
+                                                ToT/ToA Dashboard </div>
+                                            <ul class="dashboard-ul">
+                                                <li class="dashboard-li"> </li>
+                                                <li class="dashboard-li separator">
+                                                    -
+                                                </li>
+                                                <li class="dashboard-li text">
+                                                    Search
+                                                    &
+                                                    Apply
+                                                </li>
+                                                <li class="dashboard-li separator">
+                                                    -
+                                                </li>
+                                                <li class="dashboard-li Search Batches">
+                                                    Search
+                                                    Batches
+                                                </li>
+                                            </ul>
+                                        </div>
+
                                     </div>
-                                    <ul class="dashboard-ul">
-                                        <li class="dashboard-li">
+                                    <div class="dashboard-body">
+                                        <div class="row ">
+                                            <div class="col-lg-3">
+                                                <div class="request-header" style="font-size: large;">
+                                                    Search
+                                                    &
+                                                    Training
+                                                    Requests
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                &nbsp;
+                                            </div>
+                                            <div class="col-lg-5 request-button">
+                                                <span style="float: right;">
+                                                    <a href="/view-batches" class="btn  btn-outline-primary"
+                                                        role="button" aria-pressed="true">View My Batches</a>
+                                                    &nbsp;
+                                                    &nbsp;
+                                                    <a href="/assessment" class="btn  btn-outline-primary" role="button"
+                                                        aria-pressed="true">Go Back</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="dashboard-content">
+                                            <div class="col-lg-12">
+                                                <div class="row ">
+                                                    <a href="/search-apply" class="btn btn-primary  active"
+                                                        role="button" aria-pressed="true">Training
+                                                        Requests</a>
+                                                    <a href="/search-batches"
+                                                        class="btn btn-light  margin-left-15 active" role="button"
+                                                        aria-pressed="true">Search
+                                                        Batches</a>
 
-                                        </li>
-                                        <li class="dashboard-li separator">
-                                            -
-                                        </li>
-                                        <li class="dashboard-li text">
-                                            Search & Apply
-                                        </li>
-                                        <li class="dashboard-li separator">
-                                            -
-                                        </li>
-                                        <li class="dashboard-li Search Batches">
-                                            
-                                            Search Batches
-                                        </li>
-                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 form-padding">
+                                            <form>
+                                                <div class="row ">
+                                                    <div class="col-lg-4">
+
+                                                        <div class="form-group">
+                                                            <label for="exampleFormControlInput1">State</label>
+                                                            <select class="form-control ">
+                                                                <option>
+                                                                    Select
+                                                                    State
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label for="exampleFormControlInput1">
+                                                                District</label>
+                                                            <select class="form-control ">
+                                                                <option>
+                                                                    Select
+                                                                    District
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label for="exampleFormControlInput1">
+                                                                Sub-District</label>
+                                                            <select class="form-control ">
+                                                                <option>
+                                                                    Select
+                                                                    Sub-District
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </form>
+                                        </div>
+
+
+
+                                        <div class="col-lg-12 form-padding">
+                                            <form>
+                                                <div class="row ">
+                                                    <div class="col-lg-4">
+
+                                                        <div class="form-group">
+                                                            <label for="exampleFormControlInput1">Sector</label>
+                                                            <select class="form-control ">
+                                                                <option>
+                                                                    Select
+                                                                    Sector
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label for="exampleFormControlInput1">Job
+                                                                Role</label>
+                                                            <select class="form-control ">
+                                                                <option>
+                                                                    Select
+                                                                    Job
+                                                                    Role
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label for="exampleFormControlInput1">Batch
+                                                                Type</label>
+                                                            <select class="form-control ">
+                                                                <option>
+                                                                    Select
+                                                                    Batch
+                                                                    Type
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                </div>
+                                            </form>
+                                        </div>
+
+
+                                        <div class="col-lg-12 form-padding">
+                                            <form>
+                                                <div class="row ">
+                                                    <div class="col-lg-4">
+
+                                                        <div class="form-group">
+                                                            <label for="exampleFormControlInput1">Batch
+                                                                Start
+                                                                Date</label>
+                                                            <select class="form-control ">
+                                                                <option>
+                                                                    Select
+                                                                    Sector
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label for="exampleFormControlInput1">Batch
+                                                                End
+                                                                Date</label>
+                                                            <select class="form-control ">
+                                                                <option>
+                                                                    Select
+                                                                    Job
+                                                                    Role
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="row">
+                                                <div class="col-lg-1"></div>
+                                                <div class="col-lg-11">
+
+                                                    <div class="main">
+                                                        <div class="form-group has-search">
+                                                            <span class="fa fa-search form-control-feedback">
+                                                                Keyword
+                                                                Search
+                                                                :
+                                                            </span>
+
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Search for Training Centre Name">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <form>
+
+                                            <div class="col-lg-12">
+                                                <div class="form-row">
+                                                    <div class="col-lg-6"></div>
+                                                    <div class="col-lg-1">
+                                                        <button type="button" class="btn  btn-primary "
+                                                            style="float: right;">Search</button>
+
+                                                    </div>
+
+                                                    <div class="col-lg-4">
+
+                                                        <button type="button" class="btn btn-outline-primary ">Add
+                                                            Job
+                                                            Role
+                                                            &
+                                                            Request
+                                                            to
+                                                            Training
+                                                            Center</button>
+
+                                                    </div>
+                                                    <div class="col-lg-1">
+
+                                                        <button type="button" class="btn btn-outline-primary "
+                                                            style="float: left">Cancel</button>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </form>
+
+                                        <hr>
+
+                                        <div class="row ">
+                                            <div class="col-lg-3">
+                                                <div class="request-header">
+                                                    <h4> Search
+                                                        Results
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="col-lg-12">
+                                            <table class="table table-striped">
+                                                <tbody>
+                                                    <tr>
+
+                                                        <td><b>Batch
+                                                                ID</b>
+                                                        </td>
+                                                        <td><b>Batch
+                                                                Type</b>
+                                                        </td>
+                                                        <td><b>Job
+                                                                Role
+                                                                Name(QP
+                                                                Code)</b>
+                                                        </td>
+                                                        <td><b>ToT/ToA
+                                                                Centre
+                                                                Name(ID)</b>
+                                                        </td>
+                                                        <td><b>State</b>
+                                                        </td>
+                                                        <td><b>District</b>
+                                                        </td>
+                                                        <td><b>Start
+                                                                Date-End
+                                                                Date</b>
+                                                        </td>
+                                                        <td><b>Action</b>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>70879
+                                                        </td>
+                                                        <td>Training
+                                                            of
+                                                            Accessor
+                                                            New
+                                                        </td>
+                                                        <td>Food
+                                                            &
+                                                            Beverage
+                                                            Service
+                                                            -
+                                                            Steward
+                                                            (THC/Q0301),
+                                                            Front
+                                                            Office
+                                                            Associate
+                                                            (THC/Q0102),
+                                                            Room
+                                                            Attendant
+                                                            (THC/Q0202),
+                                                            Multi-Cuisine
+                                                            Cook
+                                                            (THC/Q3006),
+                                                            Housekeeping
+                                                            Attendant
+                                                            (Manual
+                                                            Cleaner)
+                                                            (THC/Q0203),
+                                                            Travel
+                                                            Consultant
+                                                            (THC/Q4404),
+                                                            Assessor
+                                                            (MEP/Q2701)
+                                                        </td>
+                                                        <td>Walchand
+                                                            (EXPTC_120247)
+                                                        </td>
+                                                        <td>
+                                                            MADHYA
+                                                            PRADESH
+                                                        </td>
+                                                        <td>INDORE
+                                                        </td>
+                                                        <td>11/02/2020
+                                                            to
+                                                            16/02/2020
+                                                        </td>
+                                                        <td>:
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>70879
+                                                        </td>
+                                                        <td>Training
+                                                            of
+                                                            Accessor
+                                                            New
+                                                        </td>
+                                                        <td>Food
+                                                            &
+                                                            Beverage
+                                                            Service
+                                                            -
+                                                            Steward
+                                                            (THC/Q0301),
+                                                            Front
+                                                            Office
+                                                            Associate
+                                                            (THC/Q0102),
+                                                            Room
+                                                            Attendant
+                                                            (THC/Q0202),
+                                                            Multi-Cuisine
+                                                            Cook
+                                                            (THC/Q3006),
+                                                            Housekeeping
+                                                            Attendant
+                                                            (Manual
+                                                            Cleaner)
+                                                            (THC/Q0203),
+                                                            Travel
+                                                            Consultant
+                                                            (THC/Q4404),
+                                                            Assessor
+                                                            (MEP/Q2701)
+                                                        </td>
+                                                        <td>Walchand
+                                                            (EXPTC_120247)
+                                                        </td>
+                                                        <td>
+                                                            MADHYA
+                                                            PRADESH
+                                                        </td>
+                                                        <td>INDORE
+                                                        </td>
+                                                        <td>11/02/2020
+                                                            to
+                                                            16/02/2020
+                                                        </td>
+                                                        <td>:
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    </div>
                                 </div>
-
                             </div>
-                        <div class="dashboard-body">
-                                <div class="row ">
-                                    <div class="col-lg-3">
-                                        <div class="request-header" style = "font-size: large;">
-                                            Search & Training Requests
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        &nbsp;
-                                    </div>
-                                    <div class="col-lg-5 request-button">
-                                     
-                                            <span routerLink="/trainer-dashboard" class="btn  btn-outline-primary margin-right-15"
-                                            role="button" aria-pressed="true">Add
-                                            Training Requests</span>
-                                            <span routerLink="/viewBatches-trainer" class="btn  btn-outline-primary margin-right-15"
-                                            role="button" aria-pressed="true">View My Batches</span>
-                                            <span routerLink="/searchBatches-trainer" class="btn  btn-outline-primary "
-                                            role="button" aria-pressed="true">Go Back</span>
-                                    </div>
-                                </div>
-                                <hr>
-                            
-                            <div class="dashboard-content">
-                                <div class="col-lg-12">
-                                    <div class="row ">
-                                        <a href="/search-apply" class="btn btn-primary  active"
-                                            role="button" aria-pressed="true">Training
-                                            Requests</a>
-                                        <a href="/search-batches"
-                                            class="btn btn-active  margin-left-15 active"
-                                            role="button" aria-pressed="true">Search
-                                            Batches</a>
+                        </div>
 
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 form-padding">
-                                <form>
-                                    <div class="row ">
-                                       
-                                        <div class="col-lg-2">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">
-                                                    District</label>
-                                                <select class="form-control ">
-                                                    <option>Select District</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">
-                                                    Sub-District</label>
-                                                <select class="form-control ">
-                                                    <option>Select Sub-District</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">
-                                                    Sector</label>
-                                                <select class="form-control ">
-                                                    <option>Select Sector</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <div class="form-group">
-                                                <label
-                                                    for="exampleFormControlInput1">Applicant
-                                                    Type</label>
-                                                <select class="form-control ">
-                                                    <option>Select Applicant Type
-                                                    </option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">
-                                                    Job Role Name</label>
-                                                <select class="form-control ">
-                                                    <option>Job Role Name</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-
-
-
-                            <div class="col-lg-12 form-padding">
-                                <form>
-                                    <div class="row ">
-                                        <div class="col-lg-2">
-
-                                            <div class="form-group">
-                                                <label
-                                                    for="exampleFormControlInput1">Status</label>
-                                                <select class="form-control ">
-                                                    <option>Select Status</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">
-                                                    Requested On</label>
-                                                    <input
-                                                    class="form-control"
-                                                    #datepickerYMD="bsDatepicker"
-                                                    bsDatepicker
-                                                    formControlName="requestedOn"
-                                                    [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">
-                                                    To Date</label>
-                                                    <input
-                                                    class="form-control"
-                                                    #datepickerYMD="bsDatepicker"
-                                                    bsDatepicker
-                                                    formControlName="toDate"
-                                                    [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 ">
-                                            <div class="row  padding-top-30 ">
-                                                <a href="#"
-                                                    class="btn btn-primary  active"
-                                                    role="button"
-                                                    aria-pressed="true">Apply</a>
-                                                <a href="#"
-                                                    class="btn btn-light  margin-left-15 active"
-                                                    role="button"
-                                                    aria-pressed="true">Reset</a>
-                                            </div>
-
-                                        </div>
-
-
-                                    </div>
-                                </form>
-                            </div>
-
-                            <div class="col-lg-12">
-                                <table class="table table-striped">
-                                    <tbody>
-                                        <tr>
-
-                                            <td><b>S.No.</b></td>
-                                            <td><b>Applicant Type</b></td>
-                                            <td><b>Job Role Name(QP Code)</b></td>
-                                            <td><b>Sector</b></td>
-                                            <td><b>State</b></td>
-                                            <td><b>District</b></td>
-                                            <td><b>Sub District</b></td>
-                                            <td><b>Status</b></td>
-                                            <td><b>Action</b></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <div>
-                                    No Data Found.
-                                </div>
-                            </div>
-
-                            <div>
-                                &nbsp;
-                            </div>
-
-                            <div class="row ">
-                                <div class="col-lg-3">
-                                    <div class="request-header">
-                                        <h4> Search Results</h4>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-12">
-                                <table class="table table-striped">
-                                    <tbody>
-                                        <tr>
-
-                                            <td><b>Batch ID</b></td>
-                                            <td><b>Batch Type</b></td>
-                                            <td><b>Job Role Name(QP Code)</b></td>
-                                            <td><b>ToT/ToA Centre Name(ID)</b></td>
-                                            <td><b>State</b></td>
-                                            <td><b>District</b></td>
-                                            <td><b>Start Date-End Date</b></td>
-                                            <td><b>Action</b></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <div>
-                                    <p style="color:blue"> No Data Found...</p>
-                                </div>
-                            </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
+                    </div>

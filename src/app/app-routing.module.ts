@@ -28,11 +28,12 @@ import { EditProfileComponent } from './assessorModule/edit-profile/edit-profile
 import { CancelledBatchesComponent } from './assessorModule/cancelled-batches/cancelled-batches.component';
 import { ContactAddressComponent } from './assessorModule/contact-address/contact-address.component';
 import { DashboardTrainerComponent } from './trainerModule/dashboard-trainer/dashboard-trainer.component';
-import { SearchBatchesTrainerComponent } from './trainerModule/search-batches-trainer/search-batches-trainer.component';
+import { TrainingRequestsTrainerComponent } from './trainerModule/training-requests-trainer/training-requests-trainer.component';
 import { ViewBatchesTrainerComponent } from './trainerModule/view-batches-trainer/view-batches-trainer.component';
 import { CertificateRequestsTrainerComponent } from './trainerModule/certificate-requests-trainer/certificate-requests-trainer.component';
 import { TrainerComponent } from './trainerModule/trainer/trainer.component';
 import { MyProfileTrainerComponent } from './trainerModule/my-profile-trainer/my-profile-trainer.component';
+import { SearchBatchesTrainerComponent } from './trainerModule/search-batches-trainer/search-batches-trainer.component';
 
 const routes: Routes = [
   {
@@ -151,6 +152,9 @@ component:RegistrationPageComponent},
 {
   path:'trainer-dashboard',
   component:DashboardTrainerComponent,   
+},
+{path:'trainingRequests-trainer',
+component:TrainingRequestsTrainerComponent,
 },
 {path:'searchBatches-trainer',
 component:SearchBatchesTrainerComponent,
