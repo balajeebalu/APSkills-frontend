@@ -12,7 +12,7 @@
                         </div>
                         <div class="login-container">
                             <form [formGroup]="registrationForm" (ngSubmit)="onSubmit(registrationForm.value)">
-                                <select class="form-control user-group" formControlName="userGroup">
+                               <!--  <select class="form-control user-group" formControlName="userGroup">
                                     <option value=" " disabled>choose your user group</option>
                                    
                                     <option>Training Provider</option>
@@ -22,43 +22,41 @@
                                     <option>Educational Institutions</option>
                                     <option>Industries</option>
                                     
-                                  </select>
+                                  </select> -->
                                   <input type="text"
-                                  class="form-control  ng-pristine ng invalid ng-touched username-input" 
-                                  placeholder="Name of SPOC" >
+                                  class="form-control  username-input" 
+                                  placeholder="Name of SPOC" formControlName="username">
                                   <span  class="form__help">
                                     Name should be as per your Aadhaar
                                   </span>
                                 <input type="text"
-                                    class="form-control  ng-pristine ng invalid ng-touched username-input" 
+                                    class="form-control username-input" 
                                     placeholder="Email Address" formControlName="email">
                                 <input type="text"
-                                    class="form-control  ng-pristine ng invalid ng-touched username-input" 
-                                    placeholder="Mobile Number" formControlName="mobile">
+                                    class="form-control  username-input" 
+                                    placeholder="Mobile Number" formControlName="password">
 
                                     <div  class="form-terms">
                                         <div  class="align-left">
                                             <div class="form-group">
                                                 <div class="form-check">
-                                                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" formControlName="agree" required>
+                                                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"  required>
                                                   <label class="form-check-label" for="invalidCheck2">
                                                     I Agree the
-                                                    <a  class="link--focus"  data-toggle="modal" href="javascript:;">Terms and Conditions</a>.
+                                                    <a  class="link--focus"  data-toggle="modal" routerLink="javascript:;">Terms and Conditions</a>.
                                                   </label>
                                                   <span class="help"></span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <recaptcha
+<!--                                     <recaptcha
                                     [(ngModel)]="myRecaptcha"
                                     (scriptLoad)="onScriptLoad()"
                                     (scriptError)="onScriptError()"
-                                  ></recaptcha>
+                                  ></recaptcha> -->
                                 <div class="login__form-action">
-                                   <!--  <a type="button" class=" btn  btn-primary login-button" href="/candidate-registration-form" >
-                                        Register
-                                    </a> -->
+                                   
                                     <button type="submit" class="btn  btn-primary login-button  "> Register</button>
                                 </div>
                             </form>
@@ -66,7 +64,7 @@
                                 <span class="register__account-msg">
                                    Already have an account?
                                 </span>
-                                <a class="register__account-link" href="/login" id="signup"
+                                <a class="register__account-link" routerLink="/login" id="signup"
                                     routerlink="/login">
                                    Login Now
                                 </a>
@@ -106,7 +104,7 @@
                                 <h5 ><a  class="hyperlink" href="ceo@apssdc.in">ceo@apssdc.in</a></h5>
                             </div>
                             <br >
-                            <a  type="button" class="btn btn-outline-light button-homepage"  href="/landing">Back to Homepage</a>
+                            <a  type="button" class="btn btn-outline-light button-homepage"  routerLink="/landing">Back to Homepage</a>
                         
                         </div>
                     </div>
@@ -115,4 +113,5 @@
             </div>
         </div>
     </div>
+    <router-outlet></router-outlet>
 </div>

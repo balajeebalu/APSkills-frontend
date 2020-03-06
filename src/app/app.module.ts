@@ -22,13 +22,13 @@ import { EnrolledRozgarmelaCandidateComponent } from './candidate/enrolled-rozga
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { DataTableModule } from 'ng-angular8-datatable';
 import { ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {DataTablesModule} from 'angular-datatables';
 import { ArchwizardModule } from 'angular-archwizard';
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { AuthInterceptor } from './_helpers/auth.interceptor';
 
 import { FileUploadModule } from 'ng2-file-upload';
 import { AssessmentComponent } from './assessorModule/assessment/assessment.component';
@@ -116,7 +116,7 @@ import { SearchBatchesTrainerComponent } from './trainerModule/search-batches-tr
   }),
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [ {provide: HTTP_INTERCEPTORS, useClass : AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
